@@ -1,0 +1,7 @@
+7160 trials, prompt version dev-3; GPU free 16048 MiB
+loaded {'name': 'qwen3.5-4b', 'repo': 'Qwen/Qwen3.5-4B', 'revision_requested': '851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a', 'commit': '851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a', 'dtype': 'bfloat16', 'model_class': 'AutoModelForImageTextToText', 'transformers': '5.23.0', 'torch': '2.15.0+cu132', 'processor_kwargs': {}, 'template_kwargs': {'enable_thinking': False}, 'load_seconds': 11.2, 'params_M': 4539.3, 'licence': 'Apache-2.0', 'family': 'Qwen (Alibaba)', 'params_b': 4.66}
+[run] 0 done, 7160 to do -> C:\Users\USER\Downloads\aesthetics-experiment\runs\pilot\qwen3.5-4b\results.jsonl
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[run] 50/7160  0.27 s/trial  elapsed 0.2 min
+[run] 100/7160  0.38 s/trial  elapsed 0.6 min

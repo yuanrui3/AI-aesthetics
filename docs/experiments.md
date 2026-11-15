@@ -16,6 +16,10 @@ Conventions used throughout:
   (both orders x both letter assignments). The pair's **preference** is the mean over the
   four presentations of the log-odds for the reference; the pair's **choice** is 1 if
   that mean is positive. Position and label bias cancel in both.
+- **Readout (local models).** The model's reply is started with "Answer:" and the
+  log-probabilities of the two permitted answers are read from the next token. Refusals
+  are counted separately, from replies the model writes freely on a sample of trials
+  (see `PLAN.md`).
 - **Model intervals** are 95% bootstrap intervals over stimuli. Pairs that share images
   are resampled together.
 - A model is one observer. Where a paper gives both an aggregate effect (computed on

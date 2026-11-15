@@ -158,6 +158,22 @@ def main() -> int:
                 f"two images {summary.bias['two']:.2f}, side by side {summary.bias['sbs']:.2f}.", "",
             f"**Layout chosen by the rule: {LAYOUT_NAMES[primary]}.**", ""]
 
+    out += ["## 2b. Refusals, and the forced readout against unaided answers", "",
+            "60 preference trials per model answered freely (no reply prefix, up to 160 tokens). "
+            "*Direct*: the reply opens with a letter. *Commits*: it names a letter as its choice later. "
+            "*Refuses*: no choice, and wording that declines. *Unclear*: anything else. "
+            "*Agreement*: share of replies with a parsed choice whose letter matches the forced readout on the same trial.", "",
+            "| Model | Direct | Commits | Refuses | Unclear | Agreement with forced readout (n parsed) |", "|---|---|---|---|---|---|"]
+    for m in order:
+        f = ROOT / "runs" / TAG / m / "refusal_probe.json"
+        if not f.exists():
+            out.append(f"| {m} | not run | | | | |")
+            continue
+        p = json.loads(f.read_text(encoding="utf-8"))
+        out.append(f"| {m} | {p['direct']:.2f} | {p['commits']:.2f} | {p['refuses']:.2f} | {p['unclear']:.2f} | "
+                   f"{p['agreement_with_forced_readout']:.2f} ({p['n_parsed']}) |")
+    out.append("")
+
     def cell(m: str, exp: str, key: str, framing: str, task: str) -> str:
         r = E[(E.model == m) & (E.layout == primary) & (E.framing == framing) & (E.task == task) & (E.experiment == exp) & (E.key == key)]
         if r.empty or pd.isna(r.iloc[0].estimate):

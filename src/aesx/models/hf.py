@@ -94,17 +94,29 @@ class HFScorer:
                 content.append({"type": "image", "image": images[0]})
         return [{"role": "user", "content": content}]
 
-    def encode(self, trial: Trial, images: list[Image.Image]):
+    def encode(self, trial: Trial, images: list[Image.Image], use_prefix: bool = True):
+        torch = self.torch
         inputs = self.processor.apply_chat_template(
             self.messages(trial, images), add_generation_prompt=True, tokenize=True,
             return_dict=True, return_tensors="pt", **self.template_kwargs,
         )
+        prefix = getattr(trial, "assistant_prefix", "") if use_prefix else ""
+        if prefix:
+            # Start the reply with the prefix: append its tokens after the generation prompt, and
+            # extend every other per-token tensor (attention mask, token types, image masks) to match.
+            ids = torch.tensor([self.tok.encode(prefix, add_special_tokens=False)])
+            length = inputs["input_ids"].shape[1]
+            for k, v in list(inputs.items()):
+                if torch.is_tensor(v) and v.dim() == 2 and v.shape[1] == length and not torch.is_floating_point(v):
+                    add = ids if k == "input_ids" else torch.ones_like(ids) if k == "attention_mask" else torch.zeros_like(ids)
+                    inputs[k] = torch.cat([v, add.to(v.dtype)], dim=1)
         return inputs.to(self.model.device)
 
     def prompt_text(self, trial: Trial, images: list[Image.Image]) -> str:
         """The exact string the model sees (image tokens collapsed), for the methods section."""
         return self.processor.apply_chat_template(
-            self.messages(trial, images), add_generation_prompt=True, tokenize=False, **self.template_kwargs)
+            self.messages(trial, images), add_generation_prompt=True, tokenize=False, **self.template_kwargs
+        ) + getattr(trial, "assistant_prefix", "")
 
     # -- scoring --------------------------------------------------------------
     def score(self, trial: Trial, images: list[Image.Image]) -> dict:
@@ -123,11 +135,12 @@ class HFScorer:
             "top_token": self.tok.decode([top]), "n_input_tokens": int(inputs["input_ids"].shape[1]),
         }
 
-    def generate(self, trial: Trial, images: list[Image.Image], max_new_tokens: int = 24) -> str:
-        """Free-text reply, used only to sanity-check that prompts are understood (dev)."""
+    def generate(self, trial: Trial, images: list[Image.Image], max_new_tokens: int = 24, use_prefix: bool = True) -> str:
+        """Free-text reply: a sanity check that prompts are understood, and (with
+        ``use_prefix=False``) the refusal probe, where the model answers unaided."""
         torch = self.torch
         with torch.inference_mode():
-            inputs = self.encode(trial, images)
+            inputs = self.encode(trial, images, use_prefix)
             inputs = {k: (v.to(self.model.dtype) if torch.is_floating_point(v) else v) for k, v in inputs.items()}
             out = self.model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
         return self.tok.decode(out[0, inputs["input_ids"].shape[1]:], skip_special_tokens=True)

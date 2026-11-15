@@ -1,0 +1,25 @@
+{
+  "model": {
+    "commit": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "dtype": "bfloat16",
+    "family": "Qwen (Alibaba)",
+    "licence": "Apache-2.0",
+    "load_seconds": 11.2,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "qwen3.5-4b",
+    "params_M": 4539.3,
+    "params_b": 4.66,
+    "processor_kwargs": {},
+    "repo": "Qwen/Qwen3.5-4B",
+    "revision_requested": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "template_kwargs": {
+      "enable_thinking": false
+    },
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 7160,
+  "prompt_version": "dev-3",
+  "split": "dev",
+  "tag": "pilot"
+}

@@ -1,0 +1,4 @@
+7160 trials, prompt version dev-3; GPU free 7173 MiB
+loaded {'name': 'smolvlm2-500m', 'repo': 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct', 'revision_requested': '4cde9d208e19519c36917aa170fffc7e381aa0ad', 'commit': '4cde9d208e19519c36917aa170fffc7e381aa0ad', 'dtype': 'bfloat16', 'model_class': 'AutoModelForImageTextToText', 'transformers': '5.23.0', 'torch': '2.15.0+cu132', 'processor_kwargs': {}, 'template_kwargs': {}, 'load_seconds': 9.3, 'params_M': 507.5, 'licence': 'Apache-2.0', 'family': 'SmolVLM (Hugging Face)', 'params_b': 0.51}
+[run] 0 done, 7160 to do -> C:\Users\USER\Downloads\aesthetics-experiment\runs\pilot\smolvlm2-500m\results.jsonl
+[run] 50/7160  0.59 s/trial  elapsed 0.5 min

@@ -109,3 +109,5 @@ models; shown only to demonstrate that the pipeline produces the paper's statist
 3. Estimate for the main run from dev timings: about 17,700 trials per model in one
    layout; 0.25 to 0.45 s per trial for the two small models (1.2 to 2.2 hours each),
    more for the larger ones. A firmer figure comes with the pilot.
+   *Correction made after Gate 1: the right count is about 23,000 trials per model (two
+   same/different questions per presentation, not one). See `LOG.md`.*

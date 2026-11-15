@@ -4,8 +4,8 @@ Every pair is shown in both orders, and the two answer letters are assigned to
 the two positions both ways, so position bias (first/left vs second/right) and
 label bias (A vs B) are separable from preference:
 
-    first ∈ {ref, alt}  ×  labels ∈ {(A,B), (B,A)}            = 4 cells
-    × framing ∈ {you, most}  ×  layout ∈ {two, sbs}
+    first âˆˆ {ref, alt}  Ã—  labels âˆˆ {(A,B), (B,A)}            = 4 cells
+    Ã— framing âˆˆ {you, most}  Ã—  layout âˆˆ {two, sbs}
 
 A trial is a list of segments (text and image slots) that each model backend
 maps onto its own chat template. Prompt wording lives only in this file and is
@@ -18,10 +18,13 @@ from itertools import product
 
 from .manifest import Pair
 
-# dev-1: instruction ended "...: A or B."            (Gate 1 checks, runs/dev)
-# dev-2: the same, followed by "Answer:" on a new line (pilot, runs/pilot). The suffix
-#        keeps models that would otherwise start a sentence on the two permitted answers.
-PROMPT_VERSION = "dev-2"
+# dev-1: instruction ends "...: A or B."; the model's first reply token is read.  (Gate 1, runs/dev)
+# dev-2: dev-1 plus "Answer:" on a new line at the end of the USER turn. Tried and dropped:
+#        it helped one model but Gemma 4 and InternVL still opened with a sentence.
+# dev-3: dev-1 wording, and the ASSISTANT turn is started with "Answer:" so that the next
+#        token is where the model commits to a choice.                           (pilot, runs/pilot)
+PROMPT_VERSION = "dev-3"
+ASSISTANT_PREFIX = "Answer:"
 
 LAYOUTS = ("two", "sbs")  # two separate images | one side-by-side image
 FRAMINGS = ("you", "most")
@@ -42,8 +45,8 @@ EXTRA_Q = {
     "colour": {"weight": "In which of these two images does the largest coloured rectangle look visually heavier?"},
 }
 SBS_INTRO = "This picture shows two images side by side. The left one is labelled {l1} and the right one is labelled {l2}."
-LETTER_INSTR = "Answer with one letter only: {l1} or {l2}.\nAnswer:"
-YESNO_INSTR = "Answer with one word only: Yes or No.\nAnswer:"
+LETTER_INSTR = "Answer with one letter only: {l1} or {l2}."
+YESNO_INSTR = "Answer with one word only: Yes or No."
 
 
 @dataclass
@@ -60,6 +63,7 @@ class Trial:
     segments: list  # [["text", str] | ["image", 0|1] | ["sbs", None]]
     answers: tuple[str, str]  # prefer: (letter of first, letter of second); samediff: ("Yes", "No")
     prompt_version: str = PROMPT_VERSION
+    assistant_prefix: str = ASSISTANT_PREFIX  # text the reply is started with (local models only)
 
     def to_json(self) -> dict:
         return asdict(self)

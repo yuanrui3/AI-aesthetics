@@ -106,3 +106,34 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   `git config --local user.name/user.email` and an amend or filter.
 
 ## 2026-11-15 (session 2: toward Gate 2)
+
+- **Tier 1 candidates: eight models from six families**, all Apache-2.0, ungated, loaded
+  with stock transformers classes and pinned by commit: SmolVLM2-500M and -2.2B, Qwen3.5
+  0.8B and 4B, MiniCPM-V 4.7 1B, InternVL3.5 2B, North Micro Vision 2.5B, Gemma 4 E2B.
+  Reason: spread across labs and across sizes from 0.5B to about 5B, which is what fits
+  16 GB without quantisation. SmolVLM2-2.2B was added because the 500M model failed the
+  visibility check at Gate 1. All eight load and score on transformers 5.23.0.
+- **Readout changed to an assistant-turn prefix (prompt `dev-3`).** The reply is started
+  with "Answer:" and the next token is read. Reason: with the first-token readout, Gemma 4
+  E2B was off the two letters on 80% of two-image preference trials and InternVL3.5 on
+  100% of side-by-side ones; they open with a sentence ("Based on...", "To determine...")
+  and then choose. That is a preamble, not a refusal, and the brief's one-fifth rule would
+  have discarded them. With the prefix, off-menu is at most 2% on every model and layout
+  probed. `dev-2` (the same word at the end of the user turn) fixed Qwen only and is
+  dropped. Side effect seen on dev: the prefix also shrinks Qwen3.5-0.8B's second-image
+  bias (log-odds -1.5 to -0.3 in the two-image layout).
+- **Refusals are counted by a separate free-text probe** (`scripts/refusal_probe.py`):
+  60 preference trials per model answered without the prefix, replies classified, and the
+  unaided choice compared with the forced readout. Reason: a forced readout cannot refuse,
+  and the brief requires refusals to be counted. This adapts the brief's refusal rule for
+  local models and is flagged for the owner at Gate 2.
+- **Pilot = about 40 pairs per experiment, both layouts, prompt `dev-3`**, taken as whole
+  families or units (`src/aesx/subsets.py`); E3's pilot is the flip and centre pairs.
+  Reason: the brief's pilot size, kept computable for statistics that need a complete
+  cluster. 7,160 trials per model.
+- **Pilot runs two models at a time** with GPU memory reserved per job
+  (`scripts/run_batch.py`). Reason: halves the wall time; small models leave most of the
+  GPU idle. The script exits when the last job ends.
+- **Main-run size corrected: about 23,000 trials per model in one layout**, not the 17,700
+  written in `reports/gate1.md`. Reason: I had counted one same/different question per
+  presentation; there are two (both polarities).

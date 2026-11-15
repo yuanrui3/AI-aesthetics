@@ -44,14 +44,29 @@ is known at all), so overlap is described, not tested.
   with a strong position bias they sit at 50/50 however clear the preference.
 - **Primary layout.** One layout for all models, chosen on dev: the one with the smaller
   median absolute position bias across the Tier 1 models, among layouts in which at least
-  half the models pass the visibility rule. The test split is run in that layout only.
+  half the models are usable. A model is usable in a layout if it stays on the two
+  permitted answers (off-menu on at most a fifth of preference trials) and passes the
+  visibility rule in at least three of the five experiments. The test split is run in
+  that layout only.
 - **Visibility rule.** A model's preference in an experiment is reported only if its
   same/different AUC on that experiment's test pairs is at least .75 and the lower end of
   its interval is above .50. Otherwise the model is listed under "cannot see the
   manipulation" for that experiment.
-- **Refusal rule.** A model whose two permitted answers hold less than half the
-  next-token probability on more than a fifth of trials is reported as refusing, not
-  scored. For API models: more than a fifth of replies that are not one of the two labels.
+- **Readout for local models.** The reply is started with "Answer:" and the next-token
+  log-probabilities of the two permitted answers are read (summed over spellings with and
+  without a leading space). This reads the choice where the model commits to one. Reading
+  the very first reply token instead was tried on dev and dropped: several models open
+  with a sentence before choosing, which that readout mistakes for a refusal.
+- **Refusal rule.** A forced readout cannot refuse, so refusals are counted separately:
+  on a random sample of preference trials each model answers freely (no reply prefix, up
+  to 160 tokens) and each reply is classed as *direct* (opens with a letter), *commits*
+  (names a letter as its choice later), *refuses* (no choice, and wording that declines)
+  or *unclear*. A model classed as refusing on more than a fifth of the sample is
+  reported as refusing, not scored. The same sample gives the agreement between the
+  forced readout and the model's own unaided choice, which is reported for every model.
+  Trials where the two permitted answers hold under half the probability *after* the
+  prefix are also counted ("off-menu") and reported.
+  For API models: more than a fifth of replies that are not one of the two labels.
 - **Framings.** Both "you" and "most people" are always reported; "you" is primary.
 - **Seeds.** Dev and test use disjoint random streams and, in E3, disjoint icons.
 - **One run.** The test split is run once per model. A crashed run is resumed, never

@@ -20,17 +20,15 @@ from aesx.manifest import ROOT, read_manifest
 from aesx.models import registry
 from aesx.trials import build_trials
 
-def _dev1(text: str) -> str:
-    """The dev-1 wording: the instruction without the 'Answer:' suffix that dev-2 added."""
-    return text.removesuffix("\nAnswer:")
-
-
-# "current" is the dev-1 wording the Gate 1 checks used; "answer_colon" became dev-2.
+# Each variant: (change to the user-turn text, text the assistant turn is started with).
+# "current" is the dev-1 wording the Gate 1 checks used; "answer_colon" was dev-2;
+# "assistant_prefix" is dev-3, the wording the pilot uses.
 VARIANTS = {
-    "current": _dev1,
-    "answer_colon": lambda text: _dev1(text) + "\nAnswer:",
-    "letter_first": lambda text: _dev1(text).replace("Answer with one letter only:", "Reply with just the letter, nothing else:"),
-    "both": lambda text: _dev1(text).replace("Answer with one letter only:", "Reply with just the letter, nothing else:") + "\nAnswer:",
+    "current": (lambda text: text, ""),
+    "answer_colon": (lambda text: text + "\nAnswer:", ""),
+    "letter_first": (lambda text: text.replace("Answer with one letter only:", "Reply with just the letter, nothing else:"), ""),
+    "both": (lambda text: text.replace("Answer with one letter only:", "Reply with just the letter, nothing else:") + "\nAnswer:", ""),
+    "assistant_prefix": (lambda text: text, "Answer:"),
 }
 
 
@@ -50,11 +48,12 @@ def main() -> int:
 
     scorer = registry.load(a.model)
     out = {}
-    for name, fn in VARIANTS.items():
+    for name, (fn, prefix) in VARIANTS.items():
         mass, lo = [], []
         for t in trials:
             t2 = copy.deepcopy(t)
             t2.segments[-1][1] = fn(t2.segments[-1][1])
+            t2.assistant_prefix = prefix
             r = scorer.score(t2, runner.trial_images(t2))
             mass.append(r["mass"])
             lo.append(r["lp_first"] - r["lp_second"])

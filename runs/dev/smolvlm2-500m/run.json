@@ -1,0 +1,22 @@
+{
+  "model": {
+    "commit": "4cde9d208e19519c36917aa170fffc7e381aa0ad",
+    "dtype": "bfloat16",
+    "family": "SmolVLM (Hugging Face)",
+    "licence": "Apache-2.0",
+    "load_seconds": 13.1,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "smolvlm2-500m",
+    "params_M": 507.5,
+    "params_b": 0.51,
+    "processor_kwargs": {},
+    "repo": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+    "revision_requested": "4cde9d208e19519c36917aa170fffc7e381aa0ad",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 5432,
+  "prompt_version": "dev-1",
+  "split": "dev"
+}

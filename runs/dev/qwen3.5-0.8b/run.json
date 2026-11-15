@@ -1,0 +1,24 @@
+{
+  "model": {
+    "commit": "2fc06364715b967f1860aea9cf38778875588b17",
+    "dtype": "bfloat16",
+    "family": "Qwen (Alibaba)",
+    "licence": "Apache-2.0",
+    "load_seconds": 12.1,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "qwen3.5-0.8b",
+    "params_M": 853.0,
+    "params_b": 0.87,
+    "processor_kwargs": {},
+    "repo": "Qwen/Qwen3.5-0.8B",
+    "revision_requested": "2fc06364715b967f1860aea9cf38778875588b17",
+    "template_kwargs": {
+      "enable_thinking": false
+    },
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 15096,
+  "prompt_version": "dev-1",
+  "split": "dev"
+}

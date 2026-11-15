@@ -1,0 +1,14 @@
+# project-local tooling, caches and model weights (never committed)
+.tools/
+.cache/
+.venv/
+__pycache__/
+*.pyc
+
+# generated images are reproducible from seeds; manifests are committed instead
+stimuli/**/*.png
+!stimuli/**/contact_*.png
+
+# secrets never live in files, but belt and braces
+.env
+*.key

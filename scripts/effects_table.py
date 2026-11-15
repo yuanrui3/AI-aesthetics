@@ -51,15 +51,18 @@ def model_effects(run_path, meta: pd.DataFrame) -> pd.DataFrame:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--split", default="dev")
+    ap.add_argument("--split", default="dev", help="which manifests the pairs come from")
+    ap.add_argument("--tag", default=None, help="run directory under runs/ (default: the split)")
     ap.add_argument("--model", default=None)
     ap.add_argument("--layout", default=None)
+    ap.add_argument("--quiet", action="store_true", help="write the CSV only")
     a = ap.parse_args()
+    tag = a.tag or a.split
 
     meta = manifest_table(a.split)
     human = human_effects()
     frames = []
-    for run in sorted((ROOT / "runs" / a.split).glob("*/results.jsonl")):
+    for run in sorted((ROOT / "runs" / tag).glob("*/results.jsonl")):
         if a.model and run.parent.name != a.model:
             continue
         t = model_effects(run, meta)
@@ -74,7 +77,10 @@ def main() -> int:
              ("apb", "r_apb_all"): "hf_e2_all"}
     t["human"] = [human.get((e, alias.get((e, k), k)), {}).get("estimate") for e, k in zip(t.experiment, t.key)]
     (ROOT / "reports").mkdir(exist_ok=True)
-    t.to_csv(ROOT / "reports" / f"effects_{a.split}.csv", index=False, float_format="%.4f")
+    t.to_csv(ROOT / "reports" / f"effects_{tag}.csv", index=False, float_format="%.4f")
+    if a.quiet:
+        print(f"{len(t)} rows -> reports/effects_{tag}.csv")
+        return 0
 
     show = t if not a.layout else t[t.layout == a.layout]
     for (model, layout, framing, task), g in show.groupby(["model", "layout", "framing", "task"], sort=False):

@@ -18,7 +18,10 @@ from itertools import product
 
 from .manifest import Pair
 
-PROMPT_VERSION = "dev-1"
+# dev-1: instruction ended "...: A or B."            (Gate 1 checks, runs/dev)
+# dev-2: the same, followed by "Answer:" on a new line (pilot, runs/pilot). The suffix
+#        keeps models that would otherwise start a sentence on the two permitted answers.
+PROMPT_VERSION = "dev-2"
 
 LAYOUTS = ("two", "sbs")  # two separate images | one side-by-side image
 FRAMINGS = ("you", "most")
@@ -39,8 +42,8 @@ EXTRA_Q = {
     "colour": {"weight": "In which of these two images does the largest coloured rectangle look visually heavier?"},
 }
 SBS_INTRO = "This picture shows two images side by side. The left one is labelled {l1} and the right one is labelled {l2}."
-LETTER_INSTR = "Answer with one letter only: {l1} or {l2}."
-YESNO_INSTR = "Answer with one word only: Yes or No."
+LETTER_INSTR = "Answer with one letter only: {l1} or {l2}.\nAnswer:"
+YESNO_INSTR = "Answer with one word only: Yes or No.\nAnswer:"
 
 
 @dataclass

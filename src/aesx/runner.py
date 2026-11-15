@@ -62,7 +62,9 @@ def run(trials: list[Trial], scorer: Scorer, run_dir: Path, meta: dict | None = 
     t0 = time.time()
     with results_path.open("a", encoding="utf-8", newline="\n") as f:
         for i, t in enumerate(todo, 1):
+            t_start = time.perf_counter()
             out = scorer.score(t, trial_images(t))
+            out["seconds"] = round(time.perf_counter() - t_start, 4)  # image loading + preprocessing + forward pass
             rec = {
                 "trial_id": t.trial_id, "pair_id": t.pair_id, "experiment": t.experiment,
                 "task": t.task, "framing": t.framing, "layout": t.layout, "first": t.first,

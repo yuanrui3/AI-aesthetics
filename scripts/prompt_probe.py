@@ -20,11 +20,17 @@ from aesx.manifest import ROOT, read_manifest
 from aesx.models import registry
 from aesx.trials import build_trials
 
+def _dev1(text: str) -> str:
+    """The dev-1 wording: the instruction without the 'Answer:' suffix that dev-2 added."""
+    return text.removesuffix("\nAnswer:")
+
+
+# "current" is the dev-1 wording the Gate 1 checks used; "answer_colon" became dev-2.
 VARIANTS = {
-    "current": lambda text: text,
-    "answer_colon": lambda text: text + "\nAnswer:",
-    "letter_first": lambda text: text.replace("Answer with one letter only:", "Reply with just the letter, nothing else:"),
-    "both": lambda text: text.replace("Answer with one letter only:", "Reply with just the letter, nothing else:") + "\nAnswer:",
+    "current": _dev1,
+    "answer_colon": lambda text: _dev1(text) + "\nAnswer:",
+    "letter_first": lambda text: _dev1(text).replace("Answer with one letter only:", "Reply with just the letter, nothing else:"),
+    "both": lambda text: _dev1(text).replace("Answer with one letter only:", "Reply with just the letter, nothing else:") + "\nAnswer:",
 }
 
 

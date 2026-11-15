@@ -12,6 +12,11 @@ MODELS: dict[str, dict] = {
         revision="4cde9d208e19519c36917aa170fffc7e381aa0ad",
         licence="Apache-2.0", family="SmolVLM (Hugging Face)", params_b=0.51,
     ),
+    "smolvlm2-2.2b": dict(
+        repo="HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+        revision="be92141c8d0ceb98596a923c308ac2bbb4a7c466",
+        licence="Apache-2.0", family="SmolVLM (Hugging Face)", params_b=2.25,
+    ),
     "qwen3.5-0.8b": dict(
         repo="Qwen/Qwen3.5-0.8B",
         revision="2fc06364715b967f1860aea9cf38778875588b17",

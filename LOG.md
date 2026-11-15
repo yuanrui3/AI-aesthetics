@@ -127,6 +127,11 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   unaided choice compared with the forced readout. Reason: a forced readout cannot refuse,
   and the brief requires refusals to be counted. This adapts the brief's refusal rule for
   local models and is flagged for the owner at Gate 2.
+- **Owner approved the adapted refusal rule (2026-11-15, "option A").** Offered the choice
+  between (A) the "Answer:" prefix readout with refusals counted from free-text replies,
+  and (B) the brief's rule as literally written (first-token readout, drop a model that
+  is off the two letters on more than a fifth of trials), the owner chose A. `PLAN.md`
+  already states the rule in that form.
 - **Pilot = about 40 pairs per experiment, both layouts, prompt `dev-3`**, taken as whole
   families or units (`src/aesx/subsets.py`); E3's pilot is the flip and centre pairs.
   Reason: the brief's pilot size, kept computable for statistics that need a complete

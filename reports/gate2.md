@@ -132,9 +132,12 @@ GPU. Untested here; 4-bit loading on Windows is unverified.
    E2 untestable; plus side by side for E1, E4 and E5 as a robustness arm (plan B).
 2. **Models.** Recommended: the seven above (drop SmolVLM2-500M).
 3. **Tier 2.** Recommended: Haiku 5.5 on the full design and Sonnet 5.5 on the anchored
-   experiments, about $12.50, if you confirm the credit and set the key. Otherwise Tier 1
-   stands alone.
-4. **E2 objects** (open since Gate 1): abstract shapes, as built, or schematic objects.
-   This must be settled before the freeze.
+   experiments, about $12.50, if you confirm the credit and set the key. This does not
+   hold up Tier 1: the local run goes ahead, and the API models are added only after you
+   confirm. Otherwise Tier 1 stands alone.
+4. **E2 objects** (open since Gate 1). Recommended: keep the abstract shapes. They are
+   what the brief describes, they are built and piloted, and six of eight models can see
+   the shift with two images. Schematic objects in related and unrelated pairs remain a
+   possible follow-up, not part of this run.
 5. **Go-ahead to freeze and run.** On approval I fix the prompt as `v1`, write
    `FROZEN.json`, generate the test stimuli for the first time, and run them once.

@@ -1,10 +1,11 @@
 """Generate the stimuli, manifest and contact sheet for one experiment.
 
     uv run python scripts/make_stimuli.py apb              # dev split
-    uv run python scripts/make_stimuli.py apb --split test # refused until FROZEN.json exists
+    uv run python scripts/make_stimuli.py apb --split test # refused unless the code matches FROZEN.json
 
 Test stimuli are only generated after prompts and presentation have been frozen
-(see PLAN.md); the freeze is recorded in FROZEN.json at the project root.
+(see PLAN.md); the freeze is recorded in FROZEN.json at the project root and checked
+by aesx.freeze.require().
 """
 from __future__ import annotations
 
@@ -27,9 +28,13 @@ def main() -> int:
     ap.add_argument("--sheet-pairs", type=int, default=18)
     a = ap.parse_args()
 
-    if a.split == "test" and not (ROOT / "FROZEN.json").exists():
-        print("Refusing: test stimuli are generated only after the freeze (no FROZEN.json).", file=sys.stderr)
-        return 2
+    if a.split == "test":
+        from aesx import freeze
+
+        freeze.require()  # exits unless FROZEN.json exists and the code matches the frozen commit
+        if a.units is not None:
+            print("Refusing: --units is for smoke tests on dev only.", file=sys.stderr)
+            return 2
 
     mod = importlib.import_module(f"aesx.experiments.{a.experiment}")
     t0 = time.time()

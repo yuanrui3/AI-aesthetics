@@ -3,6 +3,7 @@
     uv run python scripts/run_model.py qwen3.5-0.8b                    # all dev pairs -> runs/dev/<model>
     uv run python scripts/run_model.py qwen3.5-0.8b --pilot            # about 40 pairs per experiment -> runs/pilot/<model>
     uv run python scripts/run_model.py qwen3.5-0.8b --probe 6          # print prompts + free-text replies only
+    uv run python scripts/run_model.py qwen3.5-0.8b --split test       # the main run: exactly the design in FROZEN.json
 
 Results go to runs/<tag>/<model>/results.jsonl (one line per trial); timing to run.json.
 """
@@ -41,21 +42,33 @@ def main() -> int:
     ap.add_argument("--probe", type=int, default=0, help="print N prompts with free-text replies and exit")
     a = ap.parse_args()
 
-    if a.split == "test" and not (ROOT / "FROZEN.json").exists():
-        print("Refusing: the test split is run only after the freeze (no FROZEN.json).", file=sys.stderr)
-        return 2
+    frozen = None
+    if a.split == "test":
+        from aesx import freeze
+
+        frozen = freeze.require()  # exits unless the code matches the frozen commit
+        if a.model not in frozen["models"]:
+            print(f"Refusing: {a.model} is not in the frozen model list.", file=sys.stderr)
+            return 2
+        if a.pilot or a.tag or a.experiments != ",".join(EXPERIMENTS) or a.layouts != "two,sbs" or a.tasks != "prefer,samediff":
+            print("Refusing: the test split runs exactly the frozen design; no subset options.", file=sys.stderr)
+            return 2
     tag = a.tag or ("pilot" if a.pilot else a.split)
 
     trials = []
     for exp in a.experiments.split(","):
         man = ROOT / "stimuli" / exp / a.split / "pairs.jsonl"
         if not man.exists():
+            if frozen:
+                print(f"Refusing: no test manifest for {exp}.", file=sys.stderr)
+                return 2
             print(f"[skip] no manifest for {exp}/{a.split}")
             continue
         pairs = read_manifest(man)
         if a.pilot:
             pairs = pilot_subset(pairs)
-        trials += build_trials(pairs, tasks=tuple(a.tasks.split(",")), layouts=tuple(a.layouts.split(",")))
+        layouts = tuple(frozen["layouts"][exp]) if frozen else tuple(a.layouts.split(","))
+        trials += build_trials(pairs, tasks=tuple(a.tasks.split(",")), layouts=layouts)
     print(f"{len(trials)} trials, prompt version {PROMPT_VERSION}; GPU free {gpu_free_mib()} MiB", flush=True)
 
     scorer = registry.load(a.model)
@@ -75,7 +88,12 @@ def main() -> int:
     run_dir = ROOT / "runs" / tag / a.model
     n_before = len(runner.done_ids(run_dir / "results.jsonl"))
     t0 = time.time()
-    runner.run(trials, scorer, run_dir, meta={"split": a.split, "tag": tag, "prompt_version": PROMPT_VERSION})
+    meta = {"split": a.split, "tag": tag, "prompt_version": PROMPT_VERSION}
+    if frozen:
+        from aesx import freeze
+
+        meta.update({"frozen_commit": frozen["commit"], "head_at_run": freeze.head()})
+    runner.run(trials, scorer, run_dir, meta=meta)
     done = len(trials) - n_before
     if done > 0:  # timing of this invocation, for the main-run estimate
         import torch

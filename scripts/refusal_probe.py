@@ -6,8 +6,9 @@ trials and classifies each reply, so that genuine refusals are counted (the brie
 rule: a model refusing more than a fifth of trials is reported as refusing) and so
 that the forced readout can be checked against the model's own unaided answer.
 
-    uv run python scripts/refusal_probe.py gemma-4-e2b --n 60
-    -> runs/pilot/<model>/free_text.jsonl, runs/pilot/<model>/refusal_probe.json
+    uv run python scripts/refusal_probe.py gemma-4-e2b --n 60                # dev pilot subset
+    uv run python scripts/refusal_probe.py gemma-4-e2b --split test --n 60   # main run (frozen design)
+    -> runs/<pilot|test>/<model>/free_text.jsonl, runs/<pilot|test>/<model>/refusal_probe.json
 
 Classes:  direct   the reply opens with one of the two letters
           commits  the reply names one letter as its choice later on
@@ -50,19 +51,32 @@ def classify(text: str) -> tuple[str, str | None]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("model")
+    ap.add_argument("--split", default="dev", choices=["dev", "test"])
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--max-new-tokens", type=int, default=160)
     a = ap.parse_args()
 
+    frozen = None
+    if a.split == "test":
+        from aesx import freeze
+
+        frozen = freeze.require()
+        if a.n != frozen["refusal_probe"]["n"] or a.max_new_tokens != frozen["refusal_probe"]["max_new_tokens"]:
+            print("Refusing: the test-split probe uses the frozen size and length.", file=sys.stderr)
+            return 2
     trials = []
     for exp in EXPS:
-        pairs = pilot_subset(read_manifest(ROOT / "stimuli" / exp / "dev" / "pairs.jsonl"))
-        trials += [t for t in build_trials(pairs, tasks=("prefer",)) if t.task == "prefer"]
+        pairs = read_manifest(ROOT / "stimuli" / exp / a.split / "pairs.jsonl")
+        if frozen:  # the trials the main run scores, in the frozen layouts
+            layouts = tuple(frozen["layouts"][exp])
+        else:  # the Gate 2 pilot subset, both layouts
+            pairs, layouts = pilot_subset(pairs), ("two", "sbs")
+        trials += [t for t in build_trials(pairs, tasks=("prefer",), layouts=layouts) if t.task == "prefer"]
     rng = np.random.default_rng(1)
     trials = [trials[int(i)] for i in rng.choice(len(trials), size=a.n, replace=False)]
 
     scorer = registry.load(a.model)
-    out_dir = ROOT / "runs" / "pilot" / a.model
+    out_dir = ROOT / "runs" / ("test" if frozen else "pilot") / a.model
     out_dir.mkdir(parents=True, exist_ok=True)
     rows = []
     with (out_dir / "free_text.jsonl").open("w", encoding="utf-8", newline="\n") as f:

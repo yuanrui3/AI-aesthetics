@@ -139,6 +139,20 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **Pilot runs two models at a time** with GPU memory reserved per job
   (`scripts/run_batch.py`). Reason: halves the wall time; small models leave most of the
   GPU idle. The script exits when the last job ends.
+- **Gate 2 outcome (2026-11-16): the owner replied "Approve as recommended".** Settled:
+  - **Primary layout: two separate images**, plus a side-by-side arm for E1, E4 and E5.
+    This departs from the layout rule I wrote in `PLAN.md`, which picked side by side on
+    a negligible difference in median position bias (0.42 against 0.46 log-odds); side by
+    side, no model could see E2's manipulation and only two of eight could see E3's.
+  - **Seven models**: SmolVLM2-500M dropped (it could not see the manipulation in any
+    experiment with two images).
+  - **E2 keeps the abstract shapes.**
+  - **Freeze and run the test split once.**
+  - **Tier 2 stays conditional**: Claude Haiku 5.5 and Sonnet 5.5 (about $12.50) only after
+    the owner confirms the API credit exists and sets `ANTHROPIC_API_KEY`. Not confirmed
+    yet; nothing has been spent and no key has been looked for.
+- **Commit attribution changed** from Claude Fable 5.2 to Claude Opus 5.5 from this point:
+  the owner switched the session's model.
 - **Main-run size corrected: about 23,000 trials per model in one layout**, not the 17,700
   written in `reports/gate1.md`. Reason: I had counted one same/different question per
   presentation; there are two (both polarities).

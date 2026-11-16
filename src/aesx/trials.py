@@ -23,7 +23,8 @@ from .manifest import Pair
 #        it helped one model but Gemma 4 and InternVL still opened with a sentence.
 # dev-3: dev-1 wording, and the ASSISTANT turn is started with "Answer:" so that the next
 #        token is where the model commits to a choice.                           (pilot, runs/pilot)
-PROMPT_VERSION = "dev-3"
+# v1:    dev-3 frozen for the test split (Gate 2, 2026-11-16). Wording unchanged.  (runs/test)
+PROMPT_VERSION = "v1"
 ASSISTANT_PREFIX = "Answer:"
 
 LAYOUTS = ("two", "sbs")  # two separate images | one side-by-side image

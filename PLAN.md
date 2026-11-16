@@ -48,6 +48,13 @@ is known at all), so overlap is described, not tested.
   permitted answers (off-menu on at most a fifth of preference trials) and passes the
   visibility rule in at least three of the five experiments. The test split is run in
   that layout only.
+  **Departure, approved at Gate 2 (2026-11-16):** the rule picked side by side, on a
+  negligible difference (median absolute position bias 0.42 against 0.46 log-odds). But
+  side by side no model could see E2's manipulation and only two of eight could see E3's,
+  so the contested null could not have been tested. The primary layout is therefore two
+  separate images, and side by side is run as a second arm for E1, E4 and E5, where most
+  models see the manipulation in both layouts. The pilot also showed E1's direction
+  changing with the layout; the arm measures that.
 - **Visibility rule.** A model's preference in an experiment is reported only if its
   same/different AUC on that experiment's test pairs is at least .75 and the lower end of
   its interval is above .50. Otherwise the model is listed under "cannot see the
@@ -72,9 +79,27 @@ is known at all), so overlap is described, not tested.
 - **One run.** The test split is run once per model. A crashed run is resumed, never
   restarted with changes.
 
+## The main run, as frozen
+
+- **Models (seven):** Qwen3.5-0.8B, MiniCPM-V 4.7 1B, SmolVLM2-2.2B, InternVL3.5-2B, North
+  Micro Vision, Qwen3.5-4B, Gemma 4 E2B; commits pinned in `src/aesx/models/registry.py`.
+- **Stimuli:** the test split, generated once after the freeze: 1,307 manipulation pairs
+  and 150 identical pairs (E1 200, E2 300, E3 390, E4 216, E5 201).
+- **Layouts:** two images for every experiment; side by side additionally for E1, E4, E5.
+- **Prompt `v1`:** identical wording and readout to the pilot's `dev-3`.
+- **Refusal probe:** 60 preference trials per model drawn from the test trials.
+- **Tier 2** (Claude Haiku 5.5 on the full design, Claude Sonnet 5.5 on the anchored
+  experiments) only if the owner confirms the API credit; it would use the same frozen
+  stimuli and wording, with repeated samples in place of log-probabilities.
+
+`FROZEN.json` records the commit. Every test-split command checks that no file that
+determines a stimulus, a trial or a score (`src/aesx/freeze.py`, `FROZEN_PATHS`) differs
+from that commit, and refuses to run if one does.
+
 ## Freeze checklist
 
-- [ ] Owner has approved the experiment set (Gate 1) and the model list (Gate 2).
-- [ ] Prompt wording fixed; `PROMPT_VERSION` bumped from `dev-N` to `v1`.
-- [ ] Primary layout chosen from dev results and written here.
-- [ ] All code committed; `FROZEN.json` written with the commit hash.
+- [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list
+  (Gate 2, 2026-11-16).
+- [x] Prompt wording fixed; `PROMPT_VERSION` bumped from `dev-3` to `v1`.
+- [x] Primary layout chosen from dev results and written here (two images; see above).
+- [x] All code committed; `FROZEN.json` written with the commit hash.

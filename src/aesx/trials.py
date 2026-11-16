@@ -4,8 +4,8 @@ Every pair is shown in both orders, and the two answer letters are assigned to
 the two positions both ways, so position bias (first/left vs second/right) and
 label bias (A vs B) are separable from preference:
 
-    first âˆˆ {ref, alt}  Ã—  labels âˆˆ {(A,B), (B,A)}            = 4 cells
-    Ã— framing âˆˆ {you, most}  Ã—  layout âˆˆ {two, sbs}
+    first ∈ {ref, alt}  ×  labels ∈ {(A,B), (B,A)}            = 4 cells
+    × framing ∈ {you, most}  ×  layout ∈ {two, sbs}
 
 A trial is a list of segments (text and image slots) that each model backend
 maps onto its own chat template. Prompt wording lives only in this file and is

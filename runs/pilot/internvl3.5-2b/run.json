@@ -1,0 +1,23 @@
+{
+  "model": {
+    "commit": "3f301ffcf3dcbb47893afae6650ea3e78d96fb6d",
+    "dtype": "bfloat16",
+    "family": "InternVL (OpenGVLab)",
+    "licence": "Apache-2.0",
+    "load_seconds": 40.5,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "internvl3.5-2b",
+    "params_M": 2348.3,
+    "params_b": 2.35,
+    "processor_kwargs": {},
+    "repo": "OpenGVLab/InternVL3_5-2B-HF",
+    "revision_requested": "3f301ffcf3dcbb47893afae6650ea3e78d96fb6d",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 7160,
+  "prompt_version": "dev-3",
+  "split": "dev",
+  "tag": "pilot"
+}

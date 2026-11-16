@@ -151,6 +151,21 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   - **Tier 2 stays conditional**: Claude Haiku 5.5 and Sonnet 5.5 (about $12.50) only after
     the owner confirms the API credit exists and sets `ANTHROPIC_API_KEY`. Not confirmed
     yet; nothing has been spent and no key has been looked for.
+- **Freeze written at commit `41b9cbe`** (`FROZEN.json`, by `scripts/freeze.py`); test
+  stimuli generated once afterwards: 1,307 manipulation and 150 identical pairs, all
+  hashes verified, no image shared with dev. Test-split commands refuse to run if any file
+  in `aesx.freeze.FROZEN_PATHS` differs from that commit. Reason: makes "no tuning on
+  test" checkable rather than a promise.
+- **Main run started 2026-11-16 16:57** (`scripts/run_batch.py --split test`), with
+  `HF_HUB_OFFLINE=1` so the pinned weights load from the local cache and nothing is
+  fetched mid-run. 34,432 trials per model (23,012 two-image, 11,420 side-by-side arm).
+- **Report figures** (`scripts/report_figures.py`): one forest plot per experiment, each
+  model's estimate and 95% interval beside the human band; hollow markers where the model
+  fails the visibility rule; plus one dose-response figure. Colours are slots 1-3 of the
+  dataviz skill's pre-validated reference palette, with marker shape as a second channel.
+  Node is not installed, so the palette validator could not be re-run here.
+- **Example page** (`scripts/example_page.py`): six test pairs per experiment with what
+  people chose and what each model chose; self-contained HTML with light and dark themes.
 - **Commit attribution changed** from Claude Fable 5.2 to Claude Opus 5.5 from this point:
   the owner switched the session's model.
 - **Main-run size corrected: about 23,000 trials per model in one layout**, not the 17,700

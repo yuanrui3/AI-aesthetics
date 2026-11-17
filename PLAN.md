@@ -96,6 +96,67 @@ is known at all), so overlap is described, not tested.
 determines a stimulus, a trial or a score (`src/aesx/freeze.py`, `FROZEN_PATHS`) differs
 from that commit, and refuses to run if one does.
 
+## Wording check (exploratory; added 2026-11-17, before it was run)
+
+Approved by the owner on 2026-11-17 ("Wording check"). Written while the main run was still
+going and before any test result had been opened.
+
+**Question.** Does each model's effect survive a rewording of the preference question? A
+model that matches people under one wording but not under others has not shown a stable
+preference.
+
+**Wordings.** Only the question sentence changes; the image labels, the instruction
+("Answer with one letter only: A or B."), the "Answer:" reply prefix and the readout are
+exactly as frozen.
+
+| Key | "you" framing | "most people" framing |
+|---|---|---|
+| `pleasing` (= v1) | Which of these two images do you find more pleasing to look at? | Which of these two images would most people find more pleasing to look at? |
+| `like` | Which of these two images do you like more? | Which of these two images would most people like more? |
+| `beautiful` | Which of these two images do you find more beautiful? | Which of these two images would most people find more beautiful? |
+| `prefer` | Which of these two images do you prefer? | Which of these two images would most people prefer? |
+
+Liking, beauty and preference are three everyday ways to ask for an aesthetic choice. None
+names the manipulated property (balance, position, facing), so none cues the answer.
+
+**Design.**
+- **Pairs:** every dev pair of E1 to E3, identical pairs included.
+- **Layout and framings:** the two-image layout, both framings.
+- **Models:** the seven frozen models, at their pinned commits.
+- **Run:** with `scripts/wording_check.py run --all`, to `runs/wording/`.
+- **Why dev, not test:** the plan runs the test split once, and E2 and E3 have no third set of
+  shapes and icons for fresh pairs.
+- **Caveats:** dev has about a third as many pairs as test, so the intervals are wider. The
+  v1 wording was chosen on dev, but only for keeping the answer on the two letters, not for
+  the size of any effect.
+
+**Statistics, per model, experiment, framing and wording** (the same functions and bootstrap
+as the main analysis):
+- E1: `r_apb_all`, the correlation of balance score with preference scale value. Null 0.
+- E2: `p_balanced` at the 90 px shift. Null .50.
+- E3: `p_inward` over the six off-centre positions. Null .50.
+- Position bias: on identical pairs, in log-odds.
+
+**Summaries, decided now:**
+1. **Direction**, for each model, experiment and framing, across the four wordings:
+   - *consistent* if all four intervals exclude the null on the same side;
+   - *null throughout* if all four include it;
+   - *reversed* if at least one interval excludes it on each side;
+   - *mixed* otherwise.
+2. **Spread:** the largest minus the smallest of the four estimates, shown beside the
+   distance between the `pleasing` estimate and the human figure, where the experiment has one.
+3. **Pair-level agreement:** the correlation of pair-level preference (log-odds) between
+   `pleasing` and each other wording.
+4. **Repeatability:** the `pleasing` trials on the pilot pairs repeat pilot trials exactly
+   (same text, images and model). The largest difference in log-odds is reported. It shows
+   whether the driver update between the pilot and now (581.95 to 610.74) moved any score.
+
+**How it is used.** It can only qualify the main results, never strengthen them:
+- The main-run result for a model and experiment is described as wording-dependent in
+  `reports/main.md` if the check finds that model and experiment *reversed* or *mixed* under
+  the "you" framing.
+- No test-split number is recomputed or replaced.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

@@ -186,3 +186,14 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **NVIDIA driver is now 610.74** (581.95 on 2026-11-14). I did not change it; on this shared
   machine it was updated by someone or by Windows Update. Recorded because a driver update can
   change floating-point results; every trial records its model commit, but not the driver.
+- **Owner approved the wording check (2026-11-17, "Wording check").** Design written into
+  `PLAN.md` before any of it ran: four wordings of the preference question, the dev pairs of
+  E1 to E3, two images, both framings, the seven frozen models; 9,664 trials per model.
+  It runs after the main run, not beside it. Reason: sharing the GPU is what stalled the
+  main run.
+- **Wording check built in a new file (`scripts/wording_check.py`)** that imports the frozen
+  trial builder and swaps only the question sentence. Reason: no frozen file changes, so the
+  main run's freeze check still passes and the swap is visible in one place. Tested on 48
+  real trials and on pilot data copied under all four wordings (spread 0 and pair agreement
+  1.00, as they must be). The 48-trial test repeated six pilot trials exactly (difference
+  0.0000 log-odds), the first sign that the driver update did not move scores.

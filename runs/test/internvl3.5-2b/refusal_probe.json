@@ -1,0 +1,11 @@
+{
+  "model": "internvl3.5-2b",
+  "n": 60,
+  "direct": 0.733,
+  "commits": 0.25,
+  "refuses": 0.017,
+  "unclear": 0.0,
+  "n_parsed": 59,
+  "agreement_with_forced_readout": 0.508,
+  "max_new_tokens": 160
+}

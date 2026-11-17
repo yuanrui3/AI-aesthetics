@@ -1,0 +1,25 @@
+{
+  "frozen_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
+  "head_at_run": "4e88dbac6e8fce9638540af44693de7fd62c5894",
+  "model": {
+    "commit": "ad9bf379feb71204c888b22923d63322452407f9",
+    "dtype": "bfloat16",
+    "family": "MiniCPM-V (OpenBMB)",
+    "licence": "Apache-2.0",
+    "load_seconds": 8.1,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "minicpm-v-4.7-1b",
+    "params_M": 1554.5,
+    "params_b": 1.55,
+    "processor_kwargs": {},
+    "repo": "openbmb/MiniCPM-V-4.7-1B",
+    "revision_requested": "ad9bf379feb71204c888b22923d63322452407f9",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 34432,
+  "prompt_version": "v1",
+  "split": "test",
+  "tag": "test"
+}

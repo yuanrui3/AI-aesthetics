@@ -1,0 +1,243 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Example pairs</title><style>
+:root{--bg:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--rule:#e2e1dc;--ref:#2a78d6;--alt:#eb6834}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--rule:#383835;--ref:#3987e5;--alt:#d95926}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--rule:#383835;--ref:#3987e5;--alt:#d95926}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}h1{font-size:1.6rem;margin:0 0 4px}h2{font-size:1.2rem;margin:40px 0 4px}
+p.lede,p.note{color:var(--ink2);margin:4px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:12px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pair figure{margin:0}.pair img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--rule)}
+figcaption{font-size:.78rem;color:var(--ink2);margin-top:4px}figcaption b.ref{color:var(--ref)}figcaption b.alt{color:var(--alt)}
+.what{font-size:.86rem;margin:8px 0 4px}.human{font-size:.8rem;color:var(--ink2);margin:0 0 6px}
+ul.models{list-style:none;padding:0;margin:0;font-size:.8rem}ul.models li{display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding:2px 0}
+.tag-ref{color:var(--ref);font-weight:600}.tag-alt{color:var(--alt);font-weight:600}.tag-na{color:var(--ink2)}
+</style></head><body><main>
+<h1>Example pairs</h1>
+<p class='lede'>Each pair is a code-generated composition (<b style='color:var(--ref)'>reference</b>) and its manipulated twin (<b style='color:var(--alt)'>twin</b>). Below each pair: what people chose, where the source reports it, and what each model chose (test run, two-image layout, &ldquo;you&rdquo; framing, bias-cancelled over both orders and both letter assignments).</p>
+<h2>E1 Balance (Wilson &amp; Chatterjee 2005)</h2>
+<div class='grid'>
+<div class='card'><div class='pair'>
+<figure><img src='img/apb_f000-L0L1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/apb_f000-L0L1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>circle  balance 6.6 vs 14.6  (dose 8.0)</p>
+<p class='human'>People: balance and liking correlate (r = -.87 over images); no forced choice published.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/apb_f010-L0L1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/apb_f010-L0L1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>circle  balance 7.1 vs 15.7  (dose 8.6)</p>
+<p class='human'>People: balance and liking correlate (r = -.87 over images); no forced choice published.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/apb_f018-L3L4_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/apb_f018-L3L4_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>circle  balance 40.0 vs 58.8  (dose 18.9)</p>
+<p class='human'>People: balance and liking correlate (r = -.87 over images); no forced choice published.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/apb_f001-L0L1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/apb_f001-L0L1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>hexagon  balance 7.2 vs 15.4  (dose 8.2)</p>
+<p class='human'>People: balance and liking correlate (r = -.87 over images); no forced choice published.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/apb_f011-L0L1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/apb_f011-L0L1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>hexagon  balance 7.8 vs 14.5  (dose 6.6)</p>
+<p class='human'>People: balance and liking correlate (r = -.87 over images); no forced choice published.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/apb_f019-L3L4_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/apb_f019-L3L4_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>hexagon  balance 41.0 vs 57.9  (dose 16.9)</p>
+<p class='human'>People: balance and liking correlate (r = -.87 over images); no forced choice published.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+</div>
+<h2>E2 Two objects, the contested null (Leyssen et al. 2012, Exp 5)</h2>
+<div class='grid'>
+<div class='card'><div class='pair'>
+<figure><img src='img/multiobject_u000-bal-d1-s-90_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/multiobject_u000-bal-d1-s-90_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>dome+cross: balanced vs shifted -90 px (1 unit apart)</p>
+<p class='human'>People: balanced picture chosen 53% of the time, not above chance (Leyssen et al. 2012).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/multiobject_u029-bal-d3-s+90_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/multiobject_u029-bal-d3-s+90_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>diamond+hexagon: balanced vs shifted +90 px (3 units apart)</p>
+<p class='human'>People: balanced picture chosen 53% of the time, not above chance (Leyssen et al. 2012).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/multiobject_u000-dose-d1-s+45_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/multiobject_u000-dose-d1-s+45_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>dome+cross: balanced vs shifted +45 px (1 unit apart)</p>
+<p class='human'>People: not tested at this shift.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/multiobject_u029-dose-d3-s-135_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/multiobject_u029-dose-d3-s-135_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>diamond+hexagon: balanced vs shifted -135 px (3 units apart)</p>
+<p class='human'>People: not tested at this shift.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/multiobject_u000-dist-1v3_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/multiobject_u000-dist-1v3_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>dome+cross: 1 vs 3 units apart (both balanced)</p>
+<p class='human'>People: not comparable (the source&#x27;s objects were related or unrelated things).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/multiobject_u029-dist-3v5_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/multiobject_u029-dist-3v5_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>diamond+hexagon: 3 vs 5 units apart (both balanced)</p>
+<p class='human'>People: not comparable (the source&#x27;s objects were related or unrelated things).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+</div>
+<h2>E3 One object in a frame (Palmer, Gardner &amp; Wickens 2008)</h2>
+<div class='grid'>
+<div class='card'><div class='pair'>
+<figure><img src='img/framing_car-v0-flip-p0_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/framing_car-v0-flip-p0_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>car flip at 25%  (ref faces in)</p>
+<p class='human'>People: inward-facing view chosen about 74% of the time (Palmer et al. 2008).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/framing_chevron-v1-flip-p6_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/framing_chevron-v1-flip-p6_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>chevron flip at 75%  (ref faces in)</p>
+<p class='human'>People: inward-facing view chosen about 74% of the time (Palmer et al. 2008).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/framing_dog-posR-p0p1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/framing_dog-posR-p0p1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>dog facing R: 25% vs 33%</p>
+<p class='human'>People: the best position is near the centre, a little to the side the object faces away from.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/framing_arrow-posL-p5p6_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/framing_arrow-posL-p5p6_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>arrow facing L: 67% vs 75%</p>
+<p class='human'>People: the best position is near the centre, a little to the side the object faces away from.</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/framing_vase-sym-50v25_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/framing_vase-sym-50v25_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>vase (symmetric): 50% vs 25%</p>
+<p class='human'>People: the centre is preferred to either quarter line (direction only).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/framing_trapezoid-sym-25v75_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/framing_trapezoid-sym-25v75_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>trapezoid (symmetric): 25% vs 75%</p>
+<p class='human'>People: the centre is preferred to either quarter line (direction only).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+</div>
+<h2>E4 Colour swap in a grid (after Locher, Overbeeke &amp; Stappers 2005)</h2>
+<div class='grid'>
+<div class='card'><div class='pair'>
+<figure><img src='img/colour_c000-i_v_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/colour_c000-i_v_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>red vs yellow: largest area 11% of field (small)</p>
+<p class='human'>People: red rated heavier than yellow when the area covers 9-23% of the field (weight, not preference).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/colour_c035-ii_vi_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/colour_c035-ii_vi_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>red vs yellow: largest area 60% of field (large)</p>
+<p class='human'>People: red rated heavier than yellow when the area covers 9-23% of the field (weight, not preference).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/colour_c000-i_iii_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/colour_c000-i_iii_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>red vs blue: largest area 11% of field (small)</p>
+<p class='human'>People: red rated heavier than yellow when the area covers 9-23% of the field (weight, not preference).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/colour_c035-ii_iv_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/colour_c035-ii_iv_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>red vs blue: largest area 60% of field (large)</p>
+<p class='human'>People: red rated heavier than yellow when the area covers 9-23% of the field (weight, not preference).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/colour_c000-iii_vi_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/colour_c000-iii_vi_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>blue vs yellow: largest area 11% of field (small)</p>
+<p class='human'>People: red rated heavier than yellow when the area covers 9-23% of the field (weight, not preference).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/colour_c035-iv_v_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/colour_c035-iv_v_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>blue vs yellow: largest area 60% of field (large)</p>
+<p class='human'>People: red rated heavier than yellow when the area covers 9-23% of the field (weight, not preference).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-alt'>twin</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+</div>
+<h2>E5 Altered proportions (after McManus et al. 1993; no human anchor)</h2>
+<div class='grid'>
+<div class='card'><div class='pair'>
+<figure><img src='img/proportion_g000-G_G1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/proportion_g000-G_G1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>G vs G1  (5 cells)</p>
+<p class='human'>People: no published figure for generated grids (55% for real Mondrians, against the original).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-alt'>twin</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/proportion_g066-G_G1_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/proportion_g066-G_G1_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>G vs G1  (7 cells)</p>
+<p class='human'>People: no published figure for generated grids (55% for real Mondrians, against the original).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-alt'>twin</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/proportion_g000-G_G2_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/proportion_g000-G_G2_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>G vs G2  (5 cells)</p>
+<p class='human'>People: no published figure for generated grids (55% for real Mondrians, against the original).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/proportion_g066-G_G2_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/proportion_g066-G_G2_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>G vs G2  (7 cells)</p>
+<p class='human'>People: no published figure for generated grids (55% for real Mondrians, against the original).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-alt'>twin</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/proportion_g000-G1_G2_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/proportion_g000-G1_G2_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>G1 vs G2  (5 cells)</p>
+<p class='human'>People: no published figure for generated grids (55% for real Mondrians, against the original).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-ref'>reference</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-ref'>reference</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-ref'>reference</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+<div class='card'><div class='pair'>
+<figure><img src='img/proportion_g066-G1_G2_ref.png' alt='reference composition' loading='lazy'><figcaption><b class='ref'>Reference</b></figcaption></figure>
+<figure><img src='img/proportion_g066-G1_G2_alt.png' alt='manipulated twin' loading='lazy'><figcaption><b class='alt'>Twin</b></figcaption></figure>
+</div>
+<p class='what'>G1 vs G2  (7 cells)</p>
+<p class='human'>People: no published figure for generated grids (55% for real Mondrians, against the original).</p>
+<ul class='models'><li><span>Qwen3.5 0.8B</span><span class='tag-ref'>reference</span></li><li><span>MiniCPM-V 1.6B</span><span class='tag-alt'>twin</span></li><li><span>SmolVLM2 2.2B</span><span class='tag-alt'>twin</span></li><li><span>InternVL3.5 2.3B</span><span class='tag-ref'>reference</span></li><li><span>North Micro 2.5B</span><span class='tag-alt'>twin</span></li><li><span>Qwen3.5 4.7B</span><span class='tag-ref'>reference</span></li><li><span>Gemma 4 E2B</span><span class='tag-ref'>reference</span></li></ul></div>
+</div>
+<p class='note'>Generated by <code>scripts/example_page.py</code>. All images are drawn by code from a seed; none reproduces an artwork or a real design.</p></main></body></html>

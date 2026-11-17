@@ -1,8 +1,8 @@
 """One figure per experiment: each model's effect with its 95% interval, beside the human figure.
 Plus one dose-response figure.
 
-    uv run python scripts/report_figures.py --tag test --split test     # main run  -> reports/figures/test/
-    uv run python scripts/report_figures.py --tag pilot --split dev     # pilot     -> reports/figures/pilot/
+    uv run python scripts/report_figures.py --tag test      # main run  -> reports/figures/test/
+    uv run python scripts/report_figures.py --tag pilot     # pilot     -> reports/figures/pilot/
 
 Needs reports/effects_<tag>.csv (scripts/effects_table.py) and the checks table
 (scripts/gate1_checks.py --tag <tag>) for visibility.
@@ -90,7 +90,7 @@ def human_band(ax, lo, hi, est, label, y_text, light=False):
     if est is not None:
         ax.axvline(est, color=HUMAN_LINE, linewidth=1.2, linestyle=(0, (4, 2)), zorder=1)
     ax.text((lo + hi) / 2 if est is None else est, y_text, label, ha="center", va="bottom", fontsize=8.5, color=INK2,
-            zorder=5, bbox=dict(facecolor=SURFACE, edgecolor="none", pad=1.5, alpha=0.9))
+            zorder=5, bbox=dict(facecolor=SURFACE, edgecolor="none", pad=1.5, alpha=1.0))
 
 
 FRAMING_LABELS = {("two", "you"): '"you" framing', ("two", "most"): '"most people" framing'}

@@ -1,0 +1,25 @@
+{
+  "frozen_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
+  "head_at_run": "4e88dbac6e8fce9638540af44693de7fd62c5894",
+  "model": {
+    "commit": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+    "dtype": "bfloat16",
+    "family": "Gemma (Google)",
+    "licence": "Apache-2.0",
+    "load_seconds": 17.6,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "gemma-4-e2b",
+    "params_M": 5104.3,
+    "params_b": 5.12,
+    "processor_kwargs": {},
+    "repo": "google/gemma-4-E2B-it",
+    "revision_requested": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 34432,
+  "prompt_version": "v1",
+  "split": "test",
+  "tag": "test"
+}

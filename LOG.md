@@ -211,3 +211,25 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **`gate1_checks.py` read dev manifests for every run tag**; for `--tag test` it would have
   matched no pairs. Fixed: the test tag now uses the test manifests. Found while writing
   the prediction scoring; the pilot tables it writes are unchanged.
+- **Main run complete, 2026-11-17 18:40.** Every one of the seven models has 34,432 unique
+  trials at prompt `v1`, its pinned commit loaded, and `frozen_commit` 41b9cbe. Refusal
+  probes: no model refuses (largest 8.3%, Gemma 4). The wording check started at once,
+  from the queue.
+- **Bug found in `predictions.py` after the test results were opened.** E2's 90 px pairs
+  and E3's flips share a condition label with identical control pairs, and the
+  condition-filtered subsets in P1, P3 and P4 (E3) took the identical pairs with them. In
+  P4 (E3), with no manipulation, the identical pairs sat in the smallest-eccentricity cell,
+  where a pure position bias read as P(inward) = 1.00.
+  - Fixed to use changed pairs only, which is what the written criteria say.
+  - Comparing all 61 verdict rows before and after the fix, 3 changed: P4 (E3) for InternVL,
+    Qwen3.5-4B and Gemma, from "reversed" to "not supported".
+  - Reason for fixing after the fact: the criteria text was committed blind. The code did
+    not do what that text says, and leaving a known artefact in would be worse than a
+    disclosed fix.
+- **P1 is reported as committed, plus a post-hoc reading.** The committed P1 averages the
+  signed position bias over E1 to E4, so opposite-signed biases cancel. InternVL's are
+  -1.6, +0.3, +2.1 and -0.2, which average +0.09. A per-experiment comparison ("P1b") is
+  added beside it, labelled post hoc; the committed verdict stands as the P1 result.
+- **Figures: label boxes made opaque** (they were 90% opaque, and the dashed human line
+  showed through the E2 label). `report_figures.py`'s docstring named a `--split` option it
+  does not have; corrected.

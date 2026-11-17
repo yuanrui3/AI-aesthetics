@@ -1,0 +1,25 @@
+{
+  "frozen_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
+  "head_at_run": "acde8c803cfdf38b62526d2559c07758d518b67a",
+  "model": {
+    "commit": "be92141c8d0ceb98596a923c308ac2bbb4a7c466",
+    "dtype": "bfloat16",
+    "family": "SmolVLM (Hugging Face)",
+    "licence": "Apache-2.0",
+    "load_seconds": 18.1,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "smolvlm2-2.2b",
+    "params_M": 2246.8,
+    "params_b": 2.25,
+    "processor_kwargs": {},
+    "repo": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+    "revision_requested": "be92141c8d0ceb98596a923c308ac2bbb4a7c466",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 34432,
+  "prompt_version": "v1",
+  "split": "test",
+  "tag": "test"
+}

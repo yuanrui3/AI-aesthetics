@@ -1,0 +1,25 @@
+{
+  "frozen_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
+  "head_at_run": "968eee48c852f6e3de400905ae992e61cdd236f8",
+  "model": {
+    "commit": "3f301ffcf3dcbb47893afae6650ea3e78d96fb6d",
+    "dtype": "bfloat16",
+    "family": "InternVL (OpenGVLab)",
+    "licence": "Apache-2.0",
+    "load_seconds": 61.4,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "internvl3.5-2b",
+    "params_M": 2348.3,
+    "params_b": 2.35,
+    "processor_kwargs": {},
+    "repo": "OpenGVLab/InternVL3_5-2B-HF",
+    "revision_requested": "3f301ffcf3dcbb47893afae6650ea3e78d96fb6d",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 34432,
+  "prompt_version": "v1",
+  "split": "test",
+  "tag": "test"
+}

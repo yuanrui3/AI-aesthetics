@@ -1,24 +1,129 @@
 # Do vision-language models share people's compositional preferences?
 
-**Status: draft.** The methods and limitations below were written on 2026-11-17, while the
-main run was still going and before any test result had been opened. The findings and
-figures will be added from the test run at Gate 3.
+**Status: Gate 3 draft, 2026-11-17.**
+- **Main run:** complete for all seven models.
+- **Wording check:** still running; its section will be added when it finishes.
+- **Written before the test results were opened:** the methods, the limitations and the
+  prediction criteria.
 
 ## Findings
 
-*To be written from the test results.* This section will come first and fit on one page:
-- for each experiment, the human effect and each model's effect, in plain words;
-- predictions P1 to P6, each marked supported, not supported or not testable
-  (`reports/predictions_test.md`);
-- what the controls say about how far each number can be trusted (position bias,
-  visibility, refusals, wording).
+All figures here are from the two-image layout under the "you" framing, unless stated.
+Each model is a single observer, and the intervals are 95% intervals over stimuli.
+
+**1. The two textbook effects that are robust in people were not reproduced.**
+- **Balance (E1).** People show it strongly in aggregate (r = −.85 to −.88 over images) and
+  weakly as individuals (mean −.28 to −.46).
+  - Three models lean the human way:
+    - Qwen3.5-0.8B: r = −.58 [−.74, −.34];
+    - MiniCPM-V: −.37;
+    - North Micro: −.29.
+  - Three are at zero.
+  - Gemma 4 E2B prefers the *unbalanced* layouts: +.45 [+.24, +.64].
+  - None is stronger than individual people (P6 not supported for any).
+  - No model shows it in both layouts. Side by side, the three that lean the human way
+    lose it: Qwen falls to −.17 with an interval that includes zero, and MiniCPM-V and North
+    Micro turn positive. Two that showed nothing with two images gain it side by side:
+    SmolVLM2 (−.40) and Qwen3.5-4B (−.32).
+- **Inward bias (E3).** People choose the inward-facing view of an object .74 of the time.
+  Every model is at chance (.46 to .54), under both framings (P3 not supported for any).
+
+**2. In the contested null (E2), half the models prefer balance more than people do.**
+- People chose the balanced picture .53 of the time, not above chance.
+- For three of the six models that can see the shift, the whole interval lies above the
+  highest human value, .56 (P2 supported):
+  - MiniCPM-V: .65 [.57, .72];
+  - Qwen3.5-4B: .63 [.57, .71];
+  - North Micro: .77 [.68, .85].
+- The others:
+  - SmolVLM2 is inconclusive at .63.
+  - InternVL is at .50.
+  - Qwen3.5-0.8B prefers the unbalanced picture: .39 [.32, .47].
+- In all seven models the preference for the balanced picture is higher at a 135 px shift
+  than at 45 px. At 45 px, Qwen3.5-4B prefers the shifted picture: .27.
+- This is the direction the brief predicted, but in only half the models.
+
+**3. Two simpler effects are reproduced by most models.**
+- **Centre over quarter line** for symmetrical objects (E3): six of seven models, .75 to
+  1.00. SmolVLM2 is reversed at .33.
+- **Red named heavier than yellow** (E4, a weight judgement, not a preference): five of
+  seven, .73 to .98.
+- But neither shows the human pattern of size. People's colour effect appears at the
+  smaller areas and vanishes at the largest. In the models it is as large or larger at the
+  largest area: reversed in three, P4 not supported in any.
+
+**4. What a model "prefers" is fragile, and often smaller than its biases.**
+- **Position bias.** On identical pairs it reaches +3.4 log-odds with two images and −4.1 side
+  by side (both Gemma 4). In six of the seven models it changes sign between layouts in at
+  least one experiment.
+  - Within an experiment, a small model's position bias exceeds its largest effect in 14 of
+    20 model-and-experiment cells. This is a post-hoc reading; the pre-committed P1 test
+    pooled biases of opposite sign, see below.
+- **Forced answer against free answer.** On single trials the forced answer agrees with the
+  model's own free-text answer from 51% (InternVL) to 90% (North Micro).
+- **Off-menu answers.** Gemma 4 puts under half its probability on the two letters on 24% of
+  E1 trials and 20% of E3 trials.
+- **No refusals.** No model refuses: at most 8% of free replies decline to choose (Gemma 4).
+
+**5. The smallest models could see every manipulation (P5 not supported).**
+- Qwen3.5-0.8B and MiniCPM-V tell the subtlest changes from identical pairs with an AUC of
+  .83 to .99.
+- The model that cannot see E2's shift, at any size, is the largest: Gemma 4 E2B (AUC .65).
+- So the failures above are failures of preference, not of perception.
+
+### Predictions
+
+| | Prediction | Result |
+|---|---|---|
+| P1 | Small models: position bias larger than any aesthetic effect | 2 of 5 as committed (SmolVLM2, North Micro); 14 of 20 experiment cells post hoc |
+| P2 | E2: models prefer balance more than people | 3 of 6 testable supported; 1 reversed; 2 inconclusive; Gemma cannot see |
+| P3 | Mirror flips: stronger under "most people" | 0 of 7 |
+| P4 | Effects grow with dose like people's | E1: 1 of 7 (Qwen3.5-0.8B; reversed in Gemma). E3: 0 of 7. E4: 0 of 7 (reversed in 3) |
+| P5 | Smallest models fail on the subtlest manipulations | Not supported: both see them |
+| P6 | E1 correlation stronger than individual people's | 0 of 7; best is Qwen3.5-0.8B, inconclusive |
+
+Full tables are in `reports/predictions_test.md`, and the position-bias and visibility
+checks are in `reports/checks_test.md`.
+
+### Corrections made after the results were opened
+
+Both are logged in `LOG.md`; neither changes a committed criterion.
+
+1. **A bug in the scoring code.** It counted identical control pairs as part of E2's 90 px
+   pairs and E3's mirror flips. These share a condition label in the manifest.
+   - Fixing it changed three P4 (E3) verdicts from "reversed" to "not supported"
+     (InternVL, Qwen3.5-4B, Gemma).
+   - No other verdict changed.
+2. **P1 as committed is flawed.** It averages the signed position bias over E1 to E4, so a
+   bias toward the first image in one experiment cancels one toward the second in another.
+   - The committed verdict is reported as it is.
+   - A per-experiment comparison is shown beside it and labelled post hoc.
+
+### Wording check
+
+*Running; to be added.* The seven models answer the dev pairs of E1 to E3 under four
+wordings of the question (`PLAN.md`). This section will say which of the results above
+survive a rewording.
 
 ## One figure per experiment
 
-*To be added:* `reports/figures/test/` (E1 balance, E2 two objects, E3 one object, E4
-colour, E5 proportion, dose response). Each shows the human figure as a band or line, and
-each model's estimate with its 95% interval. A hollow marker means the model cannot see the
-manipulation. Example pairs, with what people and each model chose, are in
+Each figure shows the human figure as a grey band (dashed line: the estimate), and each
+model's estimate with its 95% interval over stimuli. A hollow marker means the model fails
+the visibility rule in that experiment.
+
+![E1 balance](figures/test/e1_balance.png)
+
+![E2 two objects](figures/test/e2_two_objects.png)
+
+![E3 one object](figures/test/e3_one_object.png)
+
+![E4 colour](figures/test/e4_colour.png)
+
+![E5 proportion](figures/test/e5_proportion.png)
+
+![Dose response](figures/test/dose_response.png)
+
+Example pairs, with what people chose and what each model chose, are in
 `reports/examples/index.html`.
 
 ---
@@ -161,7 +266,10 @@ side-by-side arm.
   things: variation over stimuli for one model, and variation over people where a paper
   reports it at all. So overlap is described, not tested.
 - **Predictions P1 to P6:** scored by `scripts/predictions.py`, whose criteria were
-  committed before the test results were opened (commit `a149465`).
+  committed before the test results were opened (commit `a149465`). Two changes were made
+  after the results were opened, both described under "Corrections" in the findings:
+  - a bug fix, after which the code matches its own written criteria;
+  - a post-hoc per-experiment reading of P1, shown beside the committed one.
 
 ### Freeze, run and reproduction
 
@@ -184,7 +292,7 @@ side-by-side arm.
 uv run python scripts/gate1_checks.py --tag test
 uv run python scripts/effects_table.py --split test --tag test --quiet
 uv run python scripts/predictions.py --split test --tag test
-uv run python scripts/report_figures.py --tag test --split test
+uv run python scripts/report_figures.py --tag test
 uv run python scripts/example_page.py --split test --tag test
 uv run python scripts/wording_check.py report
 ```

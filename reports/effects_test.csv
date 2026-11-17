@@ -1,0 +1,1331 @@
+model,layout,framing,task,experiment,key,label,estimate,lo,hi,n,unit,human
+gemma-4-e2b,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.4535,0.2385,0.6404,100,images,-0.8670
+gemma-4-e2b,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.5229,0.3104,0.7518,50,images,-0.8544
+gemma-4-e2b,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.4068,0.0099,0.6725,50,images,-0.8832
+gemma-4-e2b,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.4818,0.2611,0.6657,100,images,
+gemma-4-e2b,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.3243,0.0872,0.5522,100,images,
+gemma-4-e2b,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.3750,0.2750,0.4750,200,pairs,
+gemma-4-e2b,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4500,0.3250,0.5750,40,pairs,
+gemma-4-e2b,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4324,0.3108,0.5513,74,pairs,
+gemma-4-e2b,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.3478,0.2128,0.4785,46,pairs,
+gemma-4-e2b,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.2250,0.0750,0.4000,40,pairs,
+gemma-4-e2b,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.3500,0.1500,0.5500,20,pairs,
+gemma-4-e2b,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0328,-0.0510,-0.0153,200,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.5833,0.5167,0.6500,120,pairs,0.5278
+gemma-4-e2b,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.1493,0.0288,0.2663,120,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6833,0.5833,0.7833,60,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.4833,0.3667,0.5837,60,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.7167,0.6000,0.8167,60,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.4500,0.3333,0.5833,60,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.4167,0.3167,0.5167,60,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.5833,0.5167,0.6500,120,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.8167,0.7167,0.9167,60,pairs,
+gemma-4-e2b,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.6333,0.5167,0.7500,60,pairs,0.4582
+gemma-4-e2b,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.5347,0.4722,0.6042,144,pairs,0.7396
+gemma-4-e2b,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5463,0.4537,0.6296,108,pairs,
+gemma-4-e2b,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5000,0.5000,0.5000,36,pairs,
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.4583,0.2500,0.7083,24,pairs,0.8704
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.6250,0.3750,0.8750,24,pairs,0.6928
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.6667,0.4167,0.8750,24,pairs,0.6979
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.7083,0.5833,0.8333,24,pairs,0.5650
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.5833,0.3750,0.7917,24,pairs,0.2890
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.4583,0.2083,0.7083,24,pairs,0.2951
+gemma-4-e2b,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5000,0.2917,0.7083,24,pairs,0.2394
+gemma-4-e2b,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5417,0.4375,0.6458,48,pairs,0.7044
+gemma-4-e2b,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5833,0.5208,0.6458,48,pairs,0.6989
+gemma-4-e2b,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4792,0.3750,0.6042,48,pairs,0.8155
+gemma-4-e2b,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.2083,0.0833,0.3333,168,pairs,0.5355
+gemma-4-e2b,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.4583,0.2083,0.7083,168,pairs,0.6255
+gemma-4-e2b,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.6458,0.5208,0.7917,168,pairs,0.6780
+gemma-4-e2b,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7500,0.6458,0.8542,168,pairs,0.6520
+gemma-4-e2b,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.6042,0.4792,0.7292,168,pairs,0.5235
+gemma-4-e2b,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4583,0.2083,0.7083,168,pairs,0.3740
+gemma-4-e2b,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3750,0.1875,0.5833,168,pairs,0.2255
+gemma-4-e2b,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0417,-0.2708,0.1736,168,pairs,0.2387
+gemma-4-e2b,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.8056,0.6667,0.9167,36,pairs,
+gemma-4-e2b,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.5000,0.2778,0.7222,18,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.4583,0.2500,0.6667,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5833,0.3750,0.7917,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.5833,0.3750,0.7917,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.4167,0.2083,0.6250,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.5417,0.3750,0.7083,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.3750,0.1667,0.6250,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.3333,0.1667,0.5000,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.3333,0.1250,0.5833,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.7500,0.5417,0.9167,24,pairs,
+gemma-4-e2b,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.5208,0.3750,0.6875,48,pairs,
+gemma-4-e2b,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5672,0.4478,0.6866,67,pairs,
+gemma-4-e2b,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.4030,0.2836,0.5224,67,pairs,
+gemma-4-e2b,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4925,0.3731,0.6119,67,pairs,
+gemma-4-e2b,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.4876,0.4179,0.5572,201,pairs,
+gemma-4-e2b,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.5168,0.3113,0.6891,100,images,-0.8670
+gemma-4-e2b,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.5664,0.3697,0.7783,50,images,-0.8544
+gemma-4-e2b,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.4845,0.1205,0.7312,50,images,-0.8832
+gemma-4-e2b,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.5466,0.3419,0.7159,100,images,
+gemma-4-e2b,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.3443,0.1254,0.5630,100,images,
+gemma-4-e2b,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.3900,0.2900,0.4850,200,pairs,
+gemma-4-e2b,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4250,0.7500,40,pairs,
+gemma-4-e2b,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4324,0.3187,0.5342,74,pairs,
+gemma-4-e2b,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.3043,0.1702,0.4348,46,pairs,
+gemma-4-e2b,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.2000,0.0500,0.3750,40,pairs,
+gemma-4-e2b,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.7000,0.5000,0.9000,20,pairs,
+gemma-4-e2b,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0408,-0.0588,-0.0227,200,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.5750,0.4833,0.6750,120,pairs,0.5278
+gemma-4-e2b,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.1034,0.0099,0.2003,120,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6667,0.5167,0.8000,60,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.4833,0.3667,0.6000,60,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.6667,0.5500,0.7833,60,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.4833,0.3667,0.6000,60,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.4833,0.3833,0.6000,60,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.5750,0.4833,0.6750,120,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.7333,0.6167,0.8500,60,pairs,
+gemma-4-e2b,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.5167,0.4167,0.6333,60,pairs,0.4582
+gemma-4-e2b,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.5139,0.4722,0.5694,144,pairs,0.7396
+gemma-4-e2b,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5185,0.4630,0.5926,108,pairs,
+gemma-4-e2b,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5000,0.5000,0.5000,36,pairs,
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.4583,0.2083,0.7083,24,pairs,0.8704
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.5833,0.3333,0.7917,24,pairs,0.6928
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.5833,0.3333,0.8333,24,pairs,0.6979
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5833,0.3750,0.7500,24,pairs,0.5650
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.5417,0.3333,0.7500,24,pairs,0.2890
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.5833,0.3750,0.7917,24,pairs,0.2951
+gemma-4-e2b,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.4167,0.2083,0.6667,24,pairs,0.2394
+gemma-4-e2b,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5208,0.4583,0.5833,48,pairs,0.7044
+gemma-4-e2b,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5000,0.4167,0.5833,48,pairs,0.6989
+gemma-4-e2b,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.5208,0.4375,0.6458,48,pairs,0.8155
+gemma-4-e2b,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.1667,0.0208,0.3958,168,pairs,0.5355
+gemma-4-e2b,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.5000,0.2708,0.7297,168,pairs,0.6255
+gemma-4-e2b,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.6042,0.5000,0.7500,168,pairs,0.6780
+gemma-4-e2b,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7083,0.5208,0.8750,168,pairs,0.6520
+gemma-4-e2b,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.6250,0.4583,0.7917,168,pairs,0.5235
+gemma-4-e2b,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.5208,0.3333,0.7083,168,pairs,0.3740
+gemma-4-e2b,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3750,0.1875,0.5625,168,pairs,0.2255
+gemma-4-e2b,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0833,-0.2847,0.1389,168,pairs,0.2387
+gemma-4-e2b,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.8611,0.7500,0.9444,36,pairs,
+gemma-4-e2b,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.8333,0.6667,1.0000,18,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.4167,0.2083,0.6250,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4583,0.2500,0.6667,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.6667,0.5000,0.8333,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5417,0.3333,0.7500,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.6667,0.5000,0.8333,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.7083,0.5000,0.8750,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5833,0.3740,0.7917,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.3750,0.1667,0.5833,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.5833,0.3333,0.8333,24,pairs,
+gemma-4-e2b,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4375,0.2917,0.5833,48,pairs,
+gemma-4-e2b,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5224,0.4030,0.6418,67,pairs,
+gemma-4-e2b,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.2836,0.1791,0.3881,67,pairs,
+gemma-4-e2b,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4478,0.3284,0.5672,67,pairs,
+gemma-4-e2b,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.4179,0.3483,0.4876,201,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.7001,0.6391,0.7615,100,images,-0.8670
+gemma-4-e2b,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.7377,0.6706,0.8321,50,images,-0.8544
+gemma-4-e2b,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.7173,0.5930,0.8129,50,images,-0.8832
+gemma-4-e2b,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.6863,0.6093,0.7742,100,images,
+gemma-4-e2b,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.6103,0.4757,0.7330,100,images,
+gemma-4-e2b,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.2650,0.2000,0.3300,200,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4500,0.3250,0.5750,40,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.3108,0.2237,0.3973,74,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.2174,0.0889,0.3571,46,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.0500,0.0000,0.1250,40,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5000,0.3000,0.7000,20,pairs,
+gemma-4-e2b,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0246,-0.0318,-0.0185,200,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.3333,0.1250,0.5833,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3333,0.2083,0.4583,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.1667,0.0000,0.3750,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.4583,0.2500,0.6667,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.5833,0.3750,0.7500,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.3333,0.1667,0.5000,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5000,0.2500,0.7500,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2917,0.0833,0.5000,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2083,0.0833,0.3333,24,pairs,
+gemma-4-e2b,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3333,0.1875,0.4589,48,pairs,
+gemma-4-e2b,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4478,0.3284,0.5672,67,pairs,
+gemma-4-e2b,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.4627,0.3433,0.5821,67,pairs,
+gemma-4-e2b,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.3731,0.2537,0.4925,67,pairs,
+gemma-4-e2b,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.4279,0.3582,0.5026,201,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.7230,0.6650,0.7839,100,images,-0.8670
+gemma-4-e2b,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.7941,0.7332,0.8678,50,images,-0.8544
+gemma-4-e2b,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.7115,0.5961,0.8063,50,images,-0.8832
+gemma-4-e2b,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.7129,0.6409,0.7982,100,images,
+gemma-4-e2b,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.6821,0.5711,0.7867,100,images,
+gemma-4-e2b,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.2350,0.1750,0.3000,200,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4000,0.2750,0.5250,40,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.2973,0.2083,0.3867,74,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.1739,0.0851,0.2727,46,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.0250,0.0000,0.0750,40,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.4500,0.2500,0.6500,20,pairs,
+gemma-4-e2b,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0325,-0.0417,-0.0249,200,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.3750,0.1667,0.6250,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3750,0.2083,0.5417,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.3333,0.1250,0.5417,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5833,0.3750,0.7917,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7500,0.5417,0.9167,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8333,0.6250,1.0000,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4167,0.2083,0.6250,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2083,0.0417,0.4167,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0417,0.0000,0.1250,24,pairs,
+gemma-4-e2b,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3750,0.2292,0.5208,48,pairs,
+gemma-4-e2b,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4776,0.3582,0.5970,67,pairs,
+gemma-4-e2b,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.4925,0.3731,0.6119,67,pairs,
+gemma-4-e2b,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4776,0.3582,0.5970,67,pairs,
+gemma-4-e2b,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.4826,0.4080,0.5672,201,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.6667,0.4583,0.8750,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.8750,0.6667,1.0000,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.9583,0.8750,1.0000,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.6667,0.4583,0.8750,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.7917,0.6250,0.9583,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.9583,0.8750,1.0000,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.4583,0.2500,0.6667,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.6250,0.3750,0.8333,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.3750,0.1667,0.5833,24,pairs,
+gemma-4-e2b,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.7708,0.6250,0.8958,48,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.7500,0.5417,0.9167,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.9167,0.7917,1.0000,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",1.0000,1.0000,1.0000,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.8333,0.6250,1.0000,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.9167,0.7917,1.0000,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.6250,0.4167,0.8333,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.6250,0.4167,0.8333,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.1667,0.0000,0.4167,24,pairs,
+gemma-4-e2b,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.8333,0.7286,0.9375,48,pairs,
+internvl3.5-2b,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.0771,-0.2822,0.1494,100,images,-0.8670
+internvl3.5-2b,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.1953,-0.3364,-0.0347,50,images,-0.8544
+internvl3.5-2b,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.0156,-0.3590,0.3847,50,images,-0.8832
+internvl3.5-2b,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.0443,-0.2562,0.1837,100,images,
+internvl3.5-2b,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.0968,-0.2777,0.0908,100,images,
+internvl3.5-2b,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5600,0.4850,0.6350,200,pairs,
+internvl3.5-2b,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4750,0.7250,40,pairs,
+internvl3.5-2b,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5676,0.4787,0.6623,74,pairs,
+internvl3.5-2b,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5652,0.4490,0.6809,46,pairs,
+internvl3.5-2b,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5000,0.3500,0.6500,40,pairs,
+internvl3.5-2b,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3500,0.7500,20,pairs,
+internvl3.5-2b,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0008,-0.0015,0.0031,200,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.5000,0.4083,0.5833,120,pairs,0.5278
+internvl3.5-2b,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0094,-0.0060,0.0250,120,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6000,0.4667,0.7333,60,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.4000,0.2667,0.5333,60,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.5500,0.4167,0.6833,60,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.4500,0.3333,0.5667,60,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.5833,0.4667,0.7000,60,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.5000,0.4083,0.5833,120,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.7167,0.6167,0.8167,60,pairs,
+internvl3.5-2b,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.9667,0.9167,1.0000,60,pairs,0.4582
+internvl3.5-2b,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4653,0.3542,0.5764,144,pairs,0.7396
+internvl3.5-2b,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.4352,0.3056,0.5556,108,pairs,
+internvl3.5-2b,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5556,0.3333,0.7500,36,pairs,
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.4167,0.2500,0.6250,24,pairs,0.8704
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.5417,0.3333,0.7500,24,pairs,0.6928
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.4167,0.2083,0.6667,24,pairs,0.6979
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5833,0.3750,0.7500,24,pairs,0.5650
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.5417,0.2917,0.7917,24,pairs,0.2890
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.5000,0.2917,0.7083,24,pairs,0.2951
+internvl3.5-2b,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5417,0.2917,0.7510,24,pairs,0.2394
+internvl3.5-2b,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.4375,0.2917,0.5833,48,pairs,0.7044
+internvl3.5-2b,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5208,0.3542,0.6875,48,pairs,0.6989
+internvl3.5-2b,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4375,0.2917,0.5833,48,pairs,0.8155
+internvl3.5-2b,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.3542,0.2083,0.5208,168,pairs,0.5355
+internvl3.5-2b,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.3125,0.1250,0.5000,168,pairs,0.6255
+internvl3.5-2b,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.5833,0.3750,0.7500,168,pairs,0.6780
+internvl3.5-2b,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7292,0.5000,0.9375,168,pairs,0.6520
+internvl3.5-2b,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.5625,0.3750,0.7500,168,pairs,0.5235
+internvl3.5-2b,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.5833,0.3958,0.7708,168,pairs,0.3740
+internvl3.5-2b,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3750,0.1875,0.5625,168,pairs,0.2255
+internvl3.5-2b,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0903,-0.2847,0.0903,168,pairs,0.2387
+internvl3.5-2b,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.9444,0.8611,1.0000,36,pairs,
+internvl3.5-2b,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.8333,0.6667,1.0000,18,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.4583,0.2917,0.6250,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5000,0.2917,0.7083,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.0833,0.0000,0.2083,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.3333,0.2083,0.4583,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.4583,0.2500,0.6667,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.6250,0.4583,0.7917,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4583,0.2917,0.6250,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.5417,0.3750,0.7083,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+internvl3.5-2b,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4792,0.3542,0.6042,48,pairs,
+internvl3.5-2b,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5970,0.4776,0.7015,67,pairs,
+internvl3.5-2b,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6269,0.5075,0.7313,67,pairs,
+internvl3.5-2b,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5821,0.4627,0.7015,67,pairs,
+internvl3.5-2b,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6020,0.5274,0.6667,201,pairs,
+internvl3.5-2b,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.1464,-0.3451,0.0689,100,images,-0.8670
+internvl3.5-2b,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.2038,-0.3886,-0.0059,50,images,-0.8544
+internvl3.5-2b,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.1036,-0.4527,0.2610,50,images,-0.8832
+internvl3.5-2b,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.1132,-0.3052,0.0965,100,images,
+internvl3.5-2b,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.1047,-0.3246,0.1078,100,images,
+internvl3.5-2b,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5650,0.4900,0.6400,200,pairs,
+internvl3.5-2b,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6500,0.5250,0.7750,40,pairs,
+internvl3.5-2b,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5405,0.4533,0.6316,74,pairs,
+internvl3.5-2b,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5652,0.4490,0.6809,46,pairs,
+internvl3.5-2b,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5250,0.3250,0.7250,40,pairs,
+internvl3.5-2b,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6500,0.4500,0.8500,20,pairs,
+internvl3.5-2b,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0017,-0.0008,0.0042,200,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.4167,0.3417,0.4917,120,pairs,0.5278
+internvl3.5-2b,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0005,-0.0177,0.0180,120,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.5667,0.4333,0.6833,60,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.2667,0.1333,0.4000,60,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.5000,0.3667,0.6167,60,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.3333,0.2167,0.4500,60,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.6667,0.5500,0.7833,60,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.4167,0.3417,0.4917,120,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.5667,0.4500,0.6833,60,pairs,
+internvl3.5-2b,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.9500,0.9000,1.0000,60,pairs,0.4582
+internvl3.5-2b,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4236,0.3264,0.5278,144,pairs,0.7396
+internvl3.5-2b,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.3889,0.2963,0.4815,108,pairs,
+internvl3.5-2b,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5278,0.3333,0.8333,36,pairs,
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.3750,0.1667,0.5833,24,pairs,0.8704
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.4583,0.2083,0.7083,24,pairs,0.6928
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.3333,0.1250,0.5417,24,pairs,0.6979
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5833,0.3333,0.8333,24,pairs,0.5650
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.5833,0.3333,0.8333,24,pairs,0.2890
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.5000,0.2500,0.7500,24,pairs,0.2951
+internvl3.5-2b,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5417,0.3333,0.7500,24,pairs,0.2394
+internvl3.5-2b,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.3750,0.2292,0.5208,48,pairs,0.7044
+internvl3.5-2b,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.4792,0.3333,0.6458,48,pairs,0.6989
+internvl3.5-2b,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4167,0.2708,0.5630,48,pairs,0.8155
+internvl3.5-2b,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.4167,0.2708,0.5833,168,pairs,0.5355
+internvl3.5-2b,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.2292,0.0833,0.3755,168,pairs,0.6255
+internvl3.5-2b,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.5833,0.4167,0.7500,168,pairs,0.6780
+internvl3.5-2b,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.6667,0.4792,0.8542,168,pairs,0.6520
+internvl3.5-2b,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.5625,0.3333,0.7917,168,pairs,0.5235
+internvl3.5-2b,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.6667,0.4792,0.8333,168,pairs,0.3740
+internvl3.5-2b,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3750,0.1458,0.6250,168,pairs,0.2255
+internvl3.5-2b,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.1250,-0.3403,0.0764,168,pairs,0.2387
+internvl3.5-2b,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",1.0000,1.0000,1.0000,36,pairs,
+internvl3.5-2b,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.8333,0.6667,1.0000,18,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5417,0.4167,0.6677,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.6250,0.4167,0.8333,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.1667,0.0417,0.2917,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.3750,0.2500,0.5000,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.5417,0.3750,0.7083,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.6250,0.4167,0.8333,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5000,0.2917,0.7083,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.5000,0.3333,0.6667,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+internvl3.5-2b,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.5833,0.4583,0.7083,48,pairs,
+internvl3.5-2b,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.6418,0.5224,0.7463,67,pairs,
+internvl3.5-2b,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6269,0.5075,0.7463,67,pairs,
+internvl3.5-2b,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5224,0.4030,0.6418,67,pairs,
+internvl3.5-2b,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5970,0.5174,0.6716,201,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.4899,0.2884,0.6672,100,images,-0.8670
+internvl3.5-2b,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.6369,0.4473,0.7973,50,images,-0.8544
+internvl3.5-2b,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.3383,-0.0185,0.6218,50,images,-0.8832
+internvl3.5-2b,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.4941,0.3001,0.6707,100,images,
+internvl3.5-2b,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.4285,0.2262,0.6151,100,images,
+internvl3.5-2b,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.3250,0.2400,0.4150,200,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4250,0.2750,0.5750,40,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.3378,0.2466,0.4286,74,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.3478,0.2127,0.4889,46,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.1750,0.0500,0.3250,40,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.4500,0.2500,0.6500,20,pairs,
+internvl3.5-2b,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0054,-0.0078,-0.0029,200,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5833,0.3740,0.7917,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4167,0.2083,0.6250,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.1250,0.0000,0.2500,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.4583,0.2500,0.6667,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7083,0.5000,0.9167,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8750,0.7083,1.0000,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4583,0.2083,0.7083,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.4583,0.2083,0.7083,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.1250,0.0000,0.3333,24,pairs,
+internvl3.5-2b,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.5000,0.3333,0.6667,48,pairs,
+internvl3.5-2b,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4627,0.3433,0.5821,67,pairs,
+internvl3.5-2b,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+internvl3.5-2b,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5672,0.4478,0.6866,67,pairs,
+internvl3.5-2b,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5274,0.4478,0.6020,201,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.0305,-0.2419,0.2791,100,images,-0.8670
+internvl3.5-2b,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.1911,-0.1961,0.5311,50,images,-0.8544
+internvl3.5-2b,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.1309,-0.4979,0.2076,50,images,-0.8832
+internvl3.5-2b,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.0660,-0.1978,0.3167,100,images,
+internvl3.5-2b,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.0572,-0.1757,0.2834,100,images,
+internvl3.5-2b,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.4650,0.3750,0.5550,200,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5000,0.3500,0.6500,40,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4189,0.3108,0.5205,74,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5000,0.3696,0.6250,46,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.4750,0.3000,0.6750,40,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3000,0.7500,20,pairs,
+internvl3.5-2b,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0004,-0.0036,0.0027,200,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2917,0.1250,0.4583,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3333,0.1250,0.5417,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.0833,0.0000,0.2083,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.6250,0.4583,0.7917,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.6667,0.4583,0.8750,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8333,0.6250,1.0000,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.3750,0.1667,0.6250,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.4583,0.2083,0.7083,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0833,0.0000,0.2083,24,pairs,
+internvl3.5-2b,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3125,0.1875,0.4583,48,pairs,
+internvl3.5-2b,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5075,0.3881,0.6269,67,pairs,
+internvl3.5-2b,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5970,0.4776,0.7164,67,pairs,
+internvl3.5-2b,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5821,0.4627,0.7015,67,pairs,
+internvl3.5-2b,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5622,0.4826,0.6418,201,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.8333,0.6667,1.0000,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.6250,0.4167,0.8333,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.9167,0.7500,1.0000,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.5417,0.3333,0.7500,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.5417,0.3333,0.7917,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.8750,0.6667,1.0000,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.5833,0.3750,0.7917,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.5417,0.3333,0.7500,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.2500,0.0833,0.4167,24,pairs,
+internvl3.5-2b,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.7292,0.5833,0.8542,48,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.6667,0.4167,0.9167,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.6250,0.3750,0.8750,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.6667,0.4583,0.8750,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.6667,0.4583,0.8750,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.5000,0.2500,0.7083,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.7500,0.5417,0.9167,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.5833,0.3333,0.8333,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.5417,0.2917,0.7917,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.6667,0.4583,0.8750,24,pairs,
+internvl3.5-2b,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.6458,0.4583,0.8125,48,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.3734,-0.5765,-0.1129,100,images,-0.8670
+minicpm-v-4.7-1b,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.3868,-0.6394,-0.0380,50,images,-0.8544
+minicpm-v-4.7-1b,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.3634,-0.6697,0.0465,50,images,-0.8832
+minicpm-v-4.7-1b,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.2619,-0.4816,0.0049,100,images,
+minicpm-v-4.7-1b,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.2310,-0.4410,0.0131,100,images,
+minicpm-v-4.7-1b,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.6250,0.5300,0.7100,200,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6250,0.5000,0.7500,40,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.6486,0.5513,0.7368,74,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.6522,0.5116,0.7708,46,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5500,0.3750,0.7250,40,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3500,0.7500,20,pairs,
+minicpm-v-4.7-1b,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0094,0.0023,0.0163,200,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.6500,0.5750,0.7250,120,pairs,0.5278
+minicpm-v-4.7-1b,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.1242,0.0654,0.1826,120,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6167,0.4667,0.7667,60,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.6833,0.5667,0.8000,60,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.5833,0.4667,0.7000,60,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.7167,0.6333,0.8000,60,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.4833,0.3500,0.6000,60,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.6500,0.5750,0.7250,120,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.8167,0.7333,0.9000,60,pairs,
+minicpm-v-4.7-1b,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.7833,0.7000,0.8667,60,pairs,0.4582
+minicpm-v-4.7-1b,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4861,0.4375,0.5347,144,pairs,0.7396
+minicpm-v-4.7-1b,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.4815,0.4167,0.5463,108,pairs,
+minicpm-v-4.7-1b,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5000,0.5000,0.5000,36,pairs,
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.4583,0.2083,0.7083,24,pairs,0.8704
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.4583,0.2083,0.7083,24,pairs,0.6928
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.7083,0.5417,0.8750,24,pairs,0.6979
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.6667,0.4583,0.8750,24,pairs,0.5650
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.7083,0.5417,0.8750,24,pairs,0.2890
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.5000,0.2500,0.7500,24,pairs,0.2951
+minicpm-v-4.7-1b,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5000,0.2500,0.7500,24,pairs,0.2394
+minicpm-v-4.7-1b,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5000,0.3750,0.6042,48,pairs,0.7044
+minicpm-v-4.7-1b,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.4792,0.4167,0.5417,48,pairs,0.6989
+minicpm-v-4.7-1b,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4792,0.4167,0.5417,48,pairs,0.8155
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.1667,0.0833,0.2500,168,pairs,0.5355
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.5208,0.3750,0.6667,168,pairs,0.6255
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.4792,0.2917,0.6667,168,pairs,0.6780
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7917,0.6250,0.9375,168,pairs,0.6520
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.7708,0.6667,0.8750,168,pairs,0.5235
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.6042,0.4167,0.7708,168,pairs,0.3740
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.1667,0.0417,0.3125,168,pairs,0.2255
+minicpm-v-4.7-1b,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.1250,-0.3196,0.0972,168,pairs,0.2387
+minicpm-v-4.7-1b,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",1.0000,1.0000,1.0000,36,pairs,
+minicpm-v-4.7-1b,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.6111,0.3889,0.8333,18,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.4583,0.2500,0.6667,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4167,0.2083,0.6667,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.3750,0.2083,0.5417,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.6667,0.4583,0.8750,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7500,0.5417,0.9167,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8750,0.6667,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4167,0.2083,0.6667,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2917,0.1250,0.5000,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.1250,0.0000,0.3333,24,pairs,
+minicpm-v-4.7-1b,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4375,0.2917,0.5833,48,pairs,
+minicpm-v-4.7-1b,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4627,0.3433,0.5821,67,pairs,
+minicpm-v-4.7-1b,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6119,0.4925,0.7313,67,pairs,
+minicpm-v-4.7-1b,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6418,0.5224,0.7612,67,pairs,
+minicpm-v-4.7-1b,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5721,0.4975,0.6517,201,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.3302,-0.5516,-0.0549,100,images,-0.8670
+minicpm-v-4.7-1b,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.3574,-0.6405,0.0275,50,images,-0.8544
+minicpm-v-4.7-1b,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.3009,-0.6286,0.1132,50,images,-0.8832
+minicpm-v-4.7-1b,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.1982,-0.4410,0.0834,100,images,
+minicpm-v-4.7-1b,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.2546,-0.4708,-0.0234,100,images,
+minicpm-v-4.7-1b,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.6500,0.5600,0.7300,200,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.7000,0.6000,0.8000,40,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.6622,0.5633,0.7500,74,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.6957,0.5778,0.8000,46,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5250,0.3250,0.7000,40,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6500,0.4500,0.8500,20,pairs,
+minicpm-v-4.7-1b,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0086,0.0012,0.0160,200,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.7000,0.6250,0.7750,120,pairs,0.5278
+minicpm-v-4.7-1b,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.1818,0.1206,0.2437,120,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6500,0.5167,0.7833,60,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.7500,0.6167,0.8667,60,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.6500,0.5333,0.7500,60,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.7500,0.6667,0.8333,60,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.5000,0.3667,0.6333,60,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.7000,0.6250,0.7750,120,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.8000,0.7000,0.8833,60,pairs,
+minicpm-v-4.7-1b,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.8500,0.7667,0.9333,60,pairs,0.4582
+minicpm-v-4.7-1b,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.5000,0.4444,0.5556,144,pairs,0.7396
+minicpm-v-4.7-1b,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5000,0.4259,0.5741,108,pairs,
+minicpm-v-4.7-1b,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5000,0.5000,0.5000,36,pairs,
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.4167,0.1667,0.6667,24,pairs,0.8704
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.5000,0.2500,0.7083,24,pairs,0.6928
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.7083,0.5000,0.9167,24,pairs,0.6979
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.6250,0.3750,0.8750,24,pairs,0.5650
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.6250,0.4167,0.8333,24,pairs,0.2890
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.5000,0.2500,0.7500,24,pairs,0.2951
+minicpm-v-4.7-1b,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5000,0.2500,0.7500,24,pairs,0.2394
+minicpm-v-4.7-1b,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5417,0.3958,0.6875,48,pairs,0.7044
+minicpm-v-4.7-1b,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5000,0.4167,0.5833,48,pairs,0.6989
+minicpm-v-4.7-1b,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4583,0.3542,0.5417,48,pairs,0.8155
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.2292,0.0833,0.3958,168,pairs,0.5355
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.6250,0.4583,0.7917,168,pairs,0.6255
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.5000,0.2917,0.7083,168,pairs,0.6780
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7083,0.5417,0.8542,168,pairs,0.6520
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.7083,0.5833,0.8333,168,pairs,0.5235
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.5833,0.3542,0.7917,168,pairs,0.3740
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.1458,0.0625,0.2292,168,pairs,0.2255
+minicpm-v-4.7-1b,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0278,-0.2153,0.1736,168,pairs,0.2387
+minicpm-v-4.7-1b,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",1.0000,1.0000,1.0000,36,pairs,
+minicpm-v-4.7-1b,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.6667,0.4444,0.8889,18,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5000,0.2500,0.7083,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3750,0.1667,0.5833,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2500,0.0833,0.4167,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5833,0.3333,0.7917,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7917,0.5833,0.9583,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8750,0.6667,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4167,0.2083,0.6667,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2083,0.0417,0.4167,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0833,0.0000,0.2083,24,pairs,
+minicpm-v-4.7-1b,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4375,0.2917,0.6042,48,pairs,
+minicpm-v-4.7-1b,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5075,0.3881,0.6269,67,pairs,
+minicpm-v-4.7-1b,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6269,0.5075,0.7463,67,pairs,
+minicpm-v-4.7-1b,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6119,0.4925,0.7313,67,pairs,
+minicpm-v-4.7-1b,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5821,0.5075,0.6567,201,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.0532,-0.1544,0.2645,100,images,-0.8670
+minicpm-v-4.7-1b,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.0155,-0.3386,0.3507,50,images,-0.8544
+minicpm-v-4.7-1b,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.0970,-0.1696,0.3642,50,images,-0.8832
+minicpm-v-4.7-1b,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.1331,-0.0570,0.3379,100,images,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.0648,-0.2797,0.1609,100,images,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5650,0.4800,0.6451,200,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.7250,0.6000,0.8500,40,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5541,0.4730,0.6267,74,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5435,0.4167,0.6596,46,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.4500,0.2500,0.6500,40,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.7500,0.5500,0.9500,20,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0029,-0.0155,0.0084,200,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2917,0.0833,0.5000,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.2083,0.0000,0.4167,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.0417,0.0000,0.1250,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.7917,0.5833,0.9583,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7917,0.5833,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.9583,0.8750,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.1250,0.0000,0.2500,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2500,0.0417,0.4583,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.2500,0.1042,0.3964,48,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4627,0.3433,0.5821,67,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.4925,0.3731,0.6119,67,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4478,0.3284,0.5672,67,pairs,
+minicpm-v-4.7-1b,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.4677,0.3930,0.5373,201,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.1242,-0.0788,0.3283,100,images,-0.8670
+minicpm-v-4.7-1b,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.1097,-0.2388,0.4531,50,images,-0.8544
+minicpm-v-4.7-1b,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.1383,-0.1263,0.3852,50,images,-0.8832
+minicpm-v-4.7-1b,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.2091,0.0159,0.4046,100,images,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.0468,-0.1488,0.2436,100,images,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5350,0.4550,0.6100,200,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.7250,0.6000,0.8500,40,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5541,0.4861,0.6216,74,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5217,0.3810,0.6591,46,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.3250,0.1500,0.5000,40,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.8500,0.7000,1.0000,20,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0084,-0.0240,0.0050,200,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2917,0.0833,0.5000,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.2500,0.0417,0.4583,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.0833,0.0000,0.2083,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.7500,0.5417,0.9167,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7917,0.5833,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.9167,0.7500,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.1250,0.0000,0.2500,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2083,0.0417,0.3750,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.2708,0.1250,0.4167,48,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4925,0.3731,0.6119,67,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5075,0.3881,0.6269,67,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4328,0.3134,0.5522,67,pairs,
+minicpm-v-4.7-1b,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.4776,0.4030,0.5473,201,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.9583,0.8750,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",1.0000,1.0000,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",1.0000,1.0000,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.8750,0.7500,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",1.0000,1.0000,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.7083,0.4583,0.9167,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.4167,0.1667,0.6667,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.2500,0.0000,0.5000,24,pairs,
+minicpm-v-4.7-1b,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.9792,0.9375,1.0000,48,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.8750,0.7500,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.9583,0.8750,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.9167,0.7917,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.9583,0.8750,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",1.0000,1.0000,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.2917,0.0833,0.5417,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.2917,0.0833,0.5417,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.3333,0.1250,0.5833,24,pairs,
+minicpm-v-4.7-1b,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.9167,0.8333,0.9792,48,pairs,
+north-micro-vision,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.2931,-0.5216,-0.0297,100,images,-0.8670
+north-micro-vision,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.3601,-0.6467,0.0005,50,images,-0.8544
+north-micro-vision,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.2353,-0.6018,0.1620,50,images,-0.8832
+north-micro-vision,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.2664,-0.5123,0.0122,100,images,
+north-micro-vision,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.1900,-0.4393,0.0648,100,images,
+north-micro-vision,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5800,0.4750,0.6851,200,pairs,
+north-micro-vision,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4750,0.7250,40,pairs,
+north-micro-vision,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5000,0.3947,0.6112,74,pairs,
+north-micro-vision,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.6739,0.5106,0.8262,46,pairs,
+north-micro-vision,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.6000,0.4250,0.7750,40,pairs,
+north-micro-vision,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.7000,0.5000,0.9000,20,pairs,
+north-micro-vision,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0035,0.0003,0.0068,200,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.7667,0.6833,0.8500,120,pairs,0.5278
+north-micro-vision,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0729,0.0552,0.0911,120,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.7667,0.6500,0.8667,60,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.7667,0.6667,0.8667,60,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.6500,0.5167,0.7833,60,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.8833,0.7833,0.9667,60,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.6167,0.5000,0.7333,60,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.7667,0.6833,0.8500,120,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.8167,0.7167,0.9167,60,pairs,
+north-micro-vision,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.7667,0.6667,0.8500,60,pairs,0.4582
+north-micro-vision,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4722,0.3611,0.5835,144,pairs,0.7396
+north-micro-vision,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.4630,0.3241,0.6204,108,pairs,
+north-micro-vision,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5000,0.4167,0.5833,36,pairs,
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.4167,0.1667,0.6250,24,pairs,0.8704
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.6250,0.3750,0.8750,24,pairs,0.6928
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.7500,0.5417,0.9583,24,pairs,0.6979
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5833,0.3750,0.7917,24,pairs,0.5650
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.6667,0.5000,0.8333,24,pairs,0.2890
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.6250,0.3750,0.8750,24,pairs,0.2951
+north-micro-vision,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.6667,0.4583,0.8750,24,pairs,0.2394
+north-micro-vision,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5417,0.4167,0.6667,48,pairs,0.7044
+north-micro-vision,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5000,0.3125,0.6667,48,pairs,0.6989
+north-micro-vision,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.3750,0.2292,0.5417,48,pairs,0.8155
+north-micro-vision,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.1458,0.0417,0.2500,168,pairs,0.5355
+north-micro-vision,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.3542,0.1875,0.5833,168,pairs,0.6255
+north-micro-vision,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.9583,0.8958,1.0000,168,pairs,0.6780
+north-micro-vision,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7083,0.6042,0.8125,168,pairs,0.6520
+north-micro-vision,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.6042,0.4375,0.7500,168,pairs,0.5235
+north-micro-vision,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4375,0.3125,0.5625,168,pairs,0.3740
+north-micro-vision,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.2917,0.1042,0.5000,168,pairs,0.2255
+north-micro-vision,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",0.0417,-0.0972,0.1944,168,pairs,0.2387
+north-micro-vision,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.9167,0.8326,1.0000,36,pairs,
+north-micro-vision,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.5000,0.2778,0.7222,18,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.4167,0.2083,0.6250,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5417,0.3333,0.7500,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.4583,0.2500,0.6667,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.4583,0.2500,0.6667,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7500,0.5000,0.9583,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.5833,0.3750,0.7917,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5417,0.2917,0.7917,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2500,0.0833,0.4583,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.4167,0.1667,0.6667,24,pairs,
+north-micro-vision,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4792,0.3333,0.6250,48,pairs,
+north-micro-vision,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5821,0.4627,0.7015,67,pairs,
+north-micro-vision,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5970,0.4776,0.7164,67,pairs,
+north-micro-vision,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5970,0.4776,0.7164,67,pairs,
+north-micro-vision,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5920,0.5174,0.6667,201,pairs,
+north-micro-vision,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.2455,-0.4659,0.0073,100,images,-0.8670
+north-micro-vision,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.3150,-0.5893,0.0033,50,images,-0.8544
+north-micro-vision,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.1881,-0.5422,0.1835,50,images,-0.8832
+north-micro-vision,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.2056,-0.4396,0.0537,100,images,
+north-micro-vision,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.1686,-0.4107,0.0814,100,images,
+north-micro-vision,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5700,0.4700,0.6700,200,pairs,
+north-micro-vision,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5500,0.4000,0.7000,40,pairs,
+north-micro-vision,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5135,0.4203,0.6053,74,pairs,
+north-micro-vision,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.6739,0.5319,0.8182,46,pairs,
+north-micro-vision,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5750,0.3750,0.7750,40,pairs,
+north-micro-vision,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6500,0.4500,0.8500,20,pairs,
+north-micro-vision,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0035,-0.0001,0.0069,200,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.7333,0.6500,0.8083,120,pairs,0.5278
+north-micro-vision,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0680,0.0492,0.0878,120,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.7667,0.6500,0.8833,60,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.7000,0.6000,0.8000,60,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.6333,0.5000,0.7667,60,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.8333,0.7333,0.9167,60,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.6833,0.5667,0.8000,60,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.7333,0.6500,0.8083,120,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.7833,0.7000,0.8667,60,pairs,
+north-micro-vision,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.8667,0.7833,0.9500,60,pairs,0.4582
+north-micro-vision,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4792,0.3472,0.6250,144,pairs,0.7396
+north-micro-vision,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.4444,0.2870,0.6296,108,pairs,
+north-micro-vision,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5833,0.5000,0.7500,36,pairs,
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.5417,0.2917,0.7917,24,pairs,0.8704
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.6667,0.4167,0.9167,24,pairs,0.6928
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.5833,0.3333,0.8333,24,pairs,0.6979
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5833,0.3333,0.8333,24,pairs,0.5650
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.6250,0.4167,0.8333,24,pairs,0.2890
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.6667,0.4583,0.8750,24,pairs,0.2951
+north-micro-vision,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.6250,0.4156,0.8333,24,pairs,0.2394
+north-micro-vision,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.4792,0.3333,0.6250,48,pairs,0.7044
+north-micro-vision,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5000,0.3333,0.6667,48,pairs,0.6989
+north-micro-vision,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4583,0.2500,0.6667,48,pairs,0.8155
+north-micro-vision,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.1458,0.0625,0.2292,168,pairs,0.5355
+north-micro-vision,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.3125,0.1458,0.5417,168,pairs,0.6255
+north-micro-vision,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.9167,0.8542,0.9792,168,pairs,0.6780
+north-micro-vision,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7292,0.5833,0.8542,168,pairs,0.6520
+north-micro-vision,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.6458,0.5208,0.7500,168,pairs,0.5235
+north-micro-vision,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4583,0.3125,0.6042,168,pairs,0.3740
+north-micro-vision,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.2917,0.1245,0.5000,168,pairs,0.2255
+north-micro-vision,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0069,-0.1667,0.1597,168,pairs,0.2387
+north-micro-vision,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.8889,0.7500,1.0000,36,pairs,
+north-micro-vision,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.5556,0.3333,0.7778,18,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5000,0.2500,0.7500,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4167,0.2083,0.6250,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2917,0.0833,0.5417,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5417,0.2917,0.7500,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7917,0.5833,0.9583,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.7917,0.6250,0.9583,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5000,0.2917,0.7500,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2083,0.0833,0.3344,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2083,0.0000,0.4167,24,pairs,
+north-micro-vision,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4583,0.3125,0.6250,48,pairs,
+north-micro-vision,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5821,0.4627,0.7015,67,pairs,
+north-micro-vision,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6716,0.5522,0.7910,67,pairs,
+north-micro-vision,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5821,0.4627,0.7015,67,pairs,
+north-micro-vision,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6119,0.5373,0.6866,201,pairs,
+north-micro-vision,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.0762,-0.1830,0.3110,100,images,-0.8670
+north-micro-vision,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.0970,-0.2315,0.4038,50,images,-0.8544
+north-micro-vision,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.0525,-0.3562,0.4061,50,images,-0.8832
+north-micro-vision,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.1241,-0.0926,0.3220,100,images,
+north-micro-vision,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.0418,-0.2789,0.2064,100,images,
+north-micro-vision,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5100,0.4050,0.6100,200,pairs,
+north-micro-vision,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4500,0.7500,40,pairs,
+north-micro-vision,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4324,0.3428,0.5143,74,pairs,
+north-micro-vision,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5000,0.3404,0.6591,46,pairs,
+north-micro-vision,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5750,0.4000,0.7500,40,pairs,
+north-micro-vision,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6000,0.4000,0.8000,20,pairs,
+north-micro-vision,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0018,-0.0075,0.0038,200,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2083,0.0417,0.4167,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.1250,0.0000,0.2500,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.8333,0.6250,0.9594,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.8750,0.6667,1.0000,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.0833,0.0000,0.2500,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.0417,0.0000,0.1250,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+north-micro-vision,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.1667,0.0625,0.2917,48,pairs,
+north-micro-vision,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5373,0.4179,0.6567,67,pairs,
+north-micro-vision,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5373,0.4179,0.6567,67,pairs,
+north-micro-vision,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5373,0.4179,0.6567,67,pairs,
+north-micro-vision,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5373,0.4577,0.6119,201,pairs,
+north-micro-vision,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.0991,-0.1428,0.3187,100,images,-0.8670
+north-micro-vision,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.1039,-0.2210,0.4018,50,images,-0.8544
+north-micro-vision,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.0941,-0.2736,0.4319,50,images,-0.8832
+north-micro-vision,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.1552,-0.0541,0.3460,100,images,
+north-micro-vision,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.0346,-0.2572,0.1938,100,images,
+north-micro-vision,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5100,0.4150,0.6050,200,pairs,
+north-micro-vision,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5500,0.4000,0.7000,40,pairs,
+north-micro-vision,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4730,0.3889,0.5556,74,pairs,
+north-micro-vision,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5000,0.3404,0.6596,46,pairs,
+north-micro-vision,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5500,0.3750,0.7250,40,pairs,
+north-micro-vision,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6000,0.4000,0.8000,20,pairs,
+north-micro-vision,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0028,-0.0094,0.0036,200,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2083,0.0417,0.3750,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.1667,0.0000,0.3750,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.7500,0.5000,0.9583,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.8333,0.6250,1.0000,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.0833,0.0000,0.2500,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.0417,0.0000,0.1250,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+north-micro-vision,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.1875,0.0833,0.3125,48,pairs,
+north-micro-vision,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5672,0.4478,0.6720,67,pairs,
+north-micro-vision,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+north-micro-vision,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5075,0.3881,0.6269,67,pairs,
+north-micro-vision,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5423,0.4627,0.6169,201,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.8333,0.6656,1.0000,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.7917,0.6250,0.9583,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",1.0000,1.0000,1.0000,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.7083,0.5417,0.8750,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.5833,0.3750,0.7917,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.7917,0.5833,0.9583,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.7500,0.5417,0.9167,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.7917,0.6250,0.9583,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.9167,0.7500,1.0000,24,pairs,
+north-micro-vision,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.8125,0.6875,0.9167,48,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.8333,0.7083,0.9583,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",1.0000,1.0000,1.0000,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",1.0000,1.0000,1.0000,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.7083,0.5417,0.8750,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.7917,0.5417,1.0000,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.7917,0.6240,0.9583,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.8750,0.7083,1.0000,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.9583,0.8750,1.0000,24,pairs,
+north-micro-vision,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.9167,0.8333,0.9792,48,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.5760,-0.7372,-0.3419,100,images,-0.8670
+qwen3.5-0.8b,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.6157,-0.7456,-0.4207,50,images,-0.8544
+qwen3.5-0.8b,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.5438,-0.8000,-0.1351,50,images,-0.8832
+qwen3.5-0.8b,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.6140,-0.7706,-0.3901,100,images,
+qwen3.5-0.8b,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.5417,-0.7088,-0.3236,100,images,
+qwen3.5-0.8b,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.7150,0.6200,0.7900,200,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5250,0.4250,0.6250,40,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.7027,0.6164,0.7867,74,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.8261,0.7021,0.9362,46,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.8000,0.6500,0.9250,40,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.4000,0.2000,0.6000,20,pairs,
+qwen3.5-0.8b,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0030,0.0017,0.0044,200,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.3917,0.3167,0.4667,120,pairs,0.5278
+qwen3.5-0.8b,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),-0.0169,-0.0333,-0.0005,120,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.4833,0.3667,0.6000,60,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.3000,0.1667,0.4333,60,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.3333,0.2333,0.4333,60,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.4500,0.3333,0.5667,60,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.4667,0.3333,0.6000,60,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.3917,0.3167,0.4667,120,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.6167,0.4833,0.7333,60,pairs,
+qwen3.5-0.8b,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.4500,0.3500,0.5500,60,pairs,0.4582
+qwen3.5-0.8b,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4931,0.3889,0.5833,144,pairs,0.7396
+qwen3.5-0.8b,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5278,0.4074,0.6389,108,pairs,
+qwen3.5-0.8b,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.3889,0.3333,0.5000,36,pairs,
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.6250,0.4167,0.8333,24,pairs,0.8704
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.6250,0.4167,0.8333,24,pairs,0.6928
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.5000,0.2917,0.7083,24,pairs,0.6979
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5417,0.3750,0.7083,24,pairs,0.5650
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.6250,0.4583,0.7917,24,pairs,0.2890
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.5000,0.2917,0.7083,24,pairs,0.2951
+qwen3.5-0.8b,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.6667,0.4583,0.8750,24,pairs,0.2394
+qwen3.5-0.8b,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.4375,0.2708,0.5833,48,pairs,0.7044
+qwen3.5-0.8b,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5625,0.4583,0.6667,48,pairs,0.6989
+qwen3.5-0.8b,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4792,0.3125,0.6458,48,pairs,0.8155
+qwen3.5-0.8b,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.4792,0.2500,0.6667,168,pairs,0.5355
+qwen3.5-0.8b,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.3750,0.1875,0.5833,168,pairs,0.6255
+qwen3.5-0.8b,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.6458,0.4583,0.8125,168,pairs,0.6780
+qwen3.5-0.8b,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.6667,0.4167,0.8750,168,pairs,0.6520
+qwen3.5-0.8b,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.6250,0.4583,0.8125,168,pairs,0.5235
+qwen3.5-0.8b,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4583,0.1875,0.7083,168,pairs,0.3740
+qwen3.5-0.8b,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.2500,0.1458,0.3542,168,pairs,0.2255
+qwen3.5-0.8b,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",0.0556,-0.1042,0.2431,168,pairs,0.2387
+qwen3.5-0.8b,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.9167,0.8333,1.0000,36,pairs,
+qwen3.5-0.8b,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.7222,0.5000,0.8889,18,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5000,0.2917,0.6667,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.4583,0.2083,0.7500,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5833,0.3750,0.7917,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7083,0.4583,0.9167,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8750,0.7500,0.9594,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4583,0.2917,0.6250,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.4167,0.2500,0.6250,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.1250,0.0000,0.3333,24,pairs,
+qwen3.5-0.8b,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.5000,0.3542,0.6458,48,pairs,
+qwen3.5-0.8b,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5075,0.3881,0.6269,67,pairs,
+qwen3.5-0.8b,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6119,0.4925,0.7313,67,pairs,
+qwen3.5-0.8b,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5821,0.4627,0.7015,67,pairs,
+qwen3.5-0.8b,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5672,0.4876,0.6418,201,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.5099,-0.7222,-0.2338,100,images,-0.8670
+qwen3.5-0.8b,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.5143,-0.7054,-0.2099,50,images,-0.8544
+qwen3.5-0.8b,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.5292,-0.8268,-0.1018,50,images,-0.8832
+qwen3.5-0.8b,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.5533,-0.7463,-0.2896,100,images,
+qwen3.5-0.8b,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.4394,-0.6776,-0.1577,100,images,
+qwen3.5-0.8b,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.6700,0.5550,0.7650,200,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5000,0.4000,0.6000,40,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.6622,0.5416,0.7662,74,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.7609,0.6046,0.8959,46,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.7500,0.5500,0.9250,40,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.3500,0.1500,0.5500,20,pairs,
+qwen3.5-0.8b,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0026,0.0011,0.0040,200,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.4083,0.3248,0.5000,120,pairs,0.5278
+qwen3.5-0.8b,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),-0.0201,-0.0391,-0.0026,120,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.4333,0.3000,0.5667,60,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.3833,0.2500,0.5167,60,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.3833,0.2667,0.5000,60,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.4333,0.3000,0.5667,60,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.6000,0.4833,0.7167,60,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.4083,0.3248,0.5000,120,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.7000,0.5667,0.8167,60,pairs,
+qwen3.5-0.8b,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.5000,0.3667,0.6333,60,pairs,0.4582
+qwen3.5-0.8b,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.5069,0.4167,0.5903,144,pairs,0.7396
+qwen3.5-0.8b,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5278,0.4259,0.6204,108,pairs,
+qwen3.5-0.8b,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.4444,0.3333,0.5833,36,pairs,
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.6667,0.4583,0.8750,24,pairs,0.8704
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.6667,0.5000,0.8333,24,pairs,0.6928
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.4583,0.2917,0.6250,24,pairs,0.6979
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5417,0.3333,0.7500,24,pairs,0.5650
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.5833,0.4167,0.7917,24,pairs,0.2890
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.4167,0.2500,0.6250,24,pairs,0.2951
+qwen3.5-0.8b,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.7500,0.5417,0.9583,24,pairs,0.2394
+qwen3.5-0.8b,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.4375,0.2708,0.5833,48,pairs,0.7044
+qwen3.5-0.8b,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.6250,0.5417,0.7083,48,pairs,0.6989
+qwen3.5-0.8b,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4583,0.2917,0.6042,48,pairs,0.8155
+qwen3.5-0.8b,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.3750,0.1875,0.5417,168,pairs,0.5355
+qwen3.5-0.8b,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.4583,0.2917,0.6458,168,pairs,0.6255
+qwen3.5-0.8b,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.5625,0.3958,0.7083,168,pairs,0.6780
+qwen3.5-0.8b,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.6458,0.4167,0.8547,168,pairs,0.6520
+qwen3.5-0.8b,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.7500,0.6875,0.8333,168,pairs,0.5235
+qwen3.5-0.8b,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4792,0.2292,0.7292,168,pairs,0.3740
+qwen3.5-0.8b,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.2292,0.0833,0.3958,168,pairs,0.2255
+qwen3.5-0.8b,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0208,-0.1597,0.1319,168,pairs,0.2387
+qwen3.5-0.8b,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.9444,0.8611,1.0000,36,pairs,
+qwen3.5-0.8b,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.6667,0.4444,0.8889,18,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5417,0.3333,0.7500,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5417,0.2917,0.7917,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.4167,0.1667,0.6667,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.3750,0.1667,0.6250,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.6250,0.4167,0.7917,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.8333,0.7083,0.9583,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4167,0.2083,0.6260,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.4583,0.2500,0.6667,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0833,0.0000,0.2500,24,pairs,
+qwen3.5-0.8b,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.5417,0.3953,0.7083,48,pairs,
+qwen3.5-0.8b,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4478,0.3284,0.5672,67,pairs,
+qwen3.5-0.8b,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5373,0.4179,0.6567,67,pairs,
+qwen3.5-0.8b,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5224,0.4030,0.6418,67,pairs,
+qwen3.5-0.8b,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5025,0.4279,0.5721,201,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.1726,-0.4061,0.0782,100,images,-0.8670
+qwen3.5-0.8b,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.1404,-0.4856,0.1216,50,images,-0.8544
+qwen3.5-0.8b,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.1996,-0.5463,0.1570,50,images,-0.8832
+qwen3.5-0.8b,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.0985,-0.3939,0.1968,100,images,
+qwen3.5-0.8b,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.1736,-0.3960,0.0686,100,images,
+qwen3.5-0.8b,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5800,0.4850,0.6751,200,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4500,0.7500,40,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5541,0.4507,0.6575,74,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5870,0.4375,0.7273,46,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.6000,0.4250,0.7500,40,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3000,0.7500,20,pairs,
+qwen3.5-0.8b,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0013,-0.0007,0.0032,200,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4167,0.2083,0.6250,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2083,0.0417,0.3750,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.4167,0.2083,0.6250,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.5833,0.3750,0.7917,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4583,0.2917,0.6250,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.5417,0.3333,0.7500,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2917,0.0833,0.5000,24,pairs,
+qwen3.5-0.8b,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4583,0.2708,0.6250,48,pairs,
+qwen3.5-0.8b,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5672,0.4478,0.6866,67,pairs,
+qwen3.5-0.8b,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6716,0.5672,0.7761,67,pairs,
+qwen3.5-0.8b,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6418,0.5224,0.7612,67,pairs,
+qwen3.5-0.8b,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6269,0.5572,0.6965,201,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.0259,-0.2813,0.2154,100,images,-0.8670
+qwen3.5-0.8b,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.0095,-0.3937,0.2564,50,images,-0.8544
+qwen3.5-0.8b,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.0379,-0.4252,0.3104,50,images,-0.8832
+qwen3.5-0.8b,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.0546,-0.2525,0.3334,100,images,
+qwen3.5-0.8b,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.0652,-0.2794,0.1545,100,images,
+qwen3.5-0.8b,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5500,0.4650,0.6300,200,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4500,0.7500,40,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5676,0.4805,0.6486,74,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5435,0.3878,0.6957,46,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.4750,0.3000,0.6500,40,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3500,0.7500,20,pairs,
+qwen3.5-0.8b,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0002,-0.0023,0.0025,200,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3750,0.1667,0.6250,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2083,0.0000,0.4167,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.6250,0.3750,0.8333,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.7917,0.5417,1.0000,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5417,0.2917,0.7917,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.3333,0.1667,0.5000,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2500,0.0417,0.4583,24,pairs,
+qwen3.5-0.8b,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4375,0.2708,0.6042,48,pairs,
+qwen3.5-0.8b,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.6119,0.5071,0.7168,67,pairs,
+qwen3.5-0.8b,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+qwen3.5-0.8b,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+qwen3.5-0.8b,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5721,0.4975,0.6468,201,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.6250,0.3750,0.8333,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.5417,0.3333,0.7500,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.8750,0.6667,1.0000,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.5833,0.3750,0.7917,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.6667,0.4167,0.8750,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.8333,0.6250,1.0000,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.3333,0.1667,0.5000,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.4167,0.1667,0.6667,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.2083,0.0417,0.4167,24,pairs,
+qwen3.5-0.8b,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.5833,0.4375,0.7292,48,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.6667,0.5000,0.8333,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.5833,0.3750,0.7917,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.5833,0.3333,0.8333,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.7500,0.5417,0.9167,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.9583,0.8750,1.0000,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.4583,0.2500,0.6667,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.0833,0.0000,0.2083,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+qwen3.5-0.8b,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.6250,0.4792,0.7708,48,pairs,
+qwen3.5-4b,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.0041,-0.2865,0.2685,100,images,-0.8670
+qwen3.5-4b,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.1492,-0.5075,0.2549,50,images,-0.8544
+qwen3.5-4b,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.0747,-0.3071,0.4203,50,images,-0.8832
+qwen3.5-4b,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.0607,-0.2035,0.3067,100,images,
+qwen3.5-4b,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.0322,-0.1723,0.2387,100,images,
+qwen3.5-4b,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.4800,0.4100,0.5500,200,pairs,
+qwen3.5-4b,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5000,0.3750,0.6250,40,pairs,
+qwen3.5-4b,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4459,0.3611,0.5325,74,pairs,
+qwen3.5-4b,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5217,0.4000,0.6444,46,pairs,
+qwen3.5-4b,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.4750,0.2750,0.6500,40,pairs,
+qwen3.5-4b,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3500,0.7500,20,pairs,
+qwen3.5-4b,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0000,-0.0020,0.0020,200,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.6333,0.5667,0.7083,120,pairs,0.5278
+qwen3.5-4b,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0924,0.0492,0.1372,120,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.7500,0.6500,0.8500,60,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.5167,0.4000,0.6333,60,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.7333,0.6333,0.8333,60,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.5333,0.4167,0.6500,60,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.2667,0.1667,0.3833,60,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.6333,0.5667,0.7083,120,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.6333,0.4833,0.7667,60,pairs,
+qwen3.5-4b,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.7000,0.5667,0.8167,60,pairs,0.4582
+qwen3.5-4b,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4583,0.4236,0.4931,144,pairs,0.7396
+qwen3.5-4b,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.4352,0.3981,0.4722,108,pairs,
+qwen3.5-4b,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5278,0.5000,0.5833,36,pairs,
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.6250,0.3750,0.8333,24,pairs,0.8704
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.6667,0.4167,0.8750,24,pairs,0.6928
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.6250,0.4583,0.7917,24,pairs,0.6979
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.5000,0.2917,0.7083,24,pairs,0.5650
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.7917,0.5833,0.9583,24,pairs,0.2890
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.6667,0.4167,0.9167,24,pairs,0.2951
+qwen3.5-4b,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.7083,0.5000,0.9167,24,pairs,0.2394
+qwen3.5-4b,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.4167,0.3125,0.5208,48,pairs,0.7044
+qwen3.5-4b,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5000,0.3542,0.6458,48,pairs,0.6989
+qwen3.5-4b,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.4583,0.3542,0.5625,48,pairs,0.8155
+qwen3.5-4b,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.1042,0.0417,0.1458,168,pairs,0.5355
+qwen3.5-4b,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.3333,0.1875,0.5000,168,pairs,0.6255
+qwen3.5-4b,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.7292,0.6250,0.8333,168,pairs,0.6780
+qwen3.5-4b,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.7917,0.6667,0.8958,168,pairs,0.6520
+qwen3.5-4b,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.5417,0.3958,0.7083,168,pairs,0.5235
+qwen3.5-4b,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.6458,0.4583,0.8125,168,pairs,0.3740
+qwen3.5-4b,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3542,0.2708,0.4375,168,pairs,0.2255
+qwen3.5-4b,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.1250,-0.2500,-0.0208,168,pairs,0.2387
+qwen3.5-4b,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.7500,0.5556,0.9167,36,pairs,
+qwen3.5-4b,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.3333,0.1111,0.5556,18,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.3750,0.1667,0.6250,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4167,0.2500,0.6250,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2083,0.0833,0.3333,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.4583,0.2500,0.6667,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.4167,0.2083,0.6667,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.2500,0.1250,0.3750,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.3333,0.1250,0.5417,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.5833,0.3750,0.7500,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.4583,0.2083,0.7083,24,pairs,
+qwen3.5-4b,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3958,0.2500,0.5417,48,pairs,
+qwen3.5-4b,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5970,0.4776,0.7015,67,pairs,
+qwen3.5-4b,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.7612,0.6567,0.8507,67,pairs,
+qwen3.5-4b,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6269,0.5075,0.7463,67,pairs,
+qwen3.5-4b,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6617,0.5970,0.7265,201,pairs,
+qwen3.5-4b,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.0794,-0.1947,0.3398,100,images,-0.8670
+qwen3.5-4b,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.0133,-0.4207,0.3993,50,images,-0.8544
+qwen3.5-4b,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.1324,-0.2674,0.4587,50,images,-0.8832
+qwen3.5-4b,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.1410,-0.1307,0.3877,100,images,
+qwen3.5-4b,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.1042,-0.1119,0.3178,100,images,
+qwen3.5-4b,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.4550,0.3750,0.5300,200,pairs,
+qwen3.5-4b,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4250,0.3000,0.5500,40,pairs,
+qwen3.5-4b,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4865,0.4079,0.5600,74,pairs,
+qwen3.5-4b,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5000,0.3478,0.6445,46,pairs,
+qwen3.5-4b,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.3750,0.2000,0.5500,40,pairs,
+qwen3.5-4b,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5000,0.3000,0.7000,20,pairs,
+qwen3.5-4b,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0009,-0.0040,0.0021,200,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.6333,0.5417,0.7167,120,pairs,0.5278
+qwen3.5-4b,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.1005,0.0482,0.1552,120,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.7333,0.6333,0.8333,60,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.5333,0.4167,0.6500,60,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.7333,0.6333,0.8333,60,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.5333,0.4000,0.6667,60,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.2833,0.1833,0.4000,60,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.6333,0.5417,0.7167,120,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.6667,0.5333,0.8000,60,pairs,
+qwen3.5-4b,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.7500,0.6167,0.8667,60,pairs,0.4582
+qwen3.5-4b,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.4722,0.4306,0.5208,144,pairs,0.7396
+qwen3.5-4b,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.4444,0.4074,0.4815,108,pairs,
+qwen3.5-4b,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5556,0.5000,0.6667,36,pairs,
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.6250,0.4167,0.8333,24,pairs,0.8704
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.7083,0.4583,0.9167,24,pairs,0.6928
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.5833,0.3333,0.7917,24,pairs,0.6979
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.6250,0.4583,0.7917,24,pairs,0.5650
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.7917,0.5833,0.9583,24,pairs,0.2890
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.6667,0.4167,0.9167,24,pairs,0.2951
+qwen3.5-4b,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.6250,0.4167,0.8333,24,pairs,0.2394
+qwen3.5-4b,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.3958,0.2708,0.5000,48,pairs,0.7044
+qwen3.5-4b,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5208,0.3750,0.6875,48,pairs,0.6989
+qwen3.5-4b,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.5000,0.3958,0.6042,48,pairs,0.8155
+qwen3.5-4b,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.1042,0.0417,0.1458,168,pairs,0.5355
+qwen3.5-4b,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.3958,0.2083,0.5833,168,pairs,0.6255
+qwen3.5-4b,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.6875,0.5625,0.8125,168,pairs,0.6780
+qwen3.5-4b,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.8125,0.6875,0.9375,168,pairs,0.6520
+qwen3.5-4b,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.5417,0.3750,0.7083,168,pairs,0.5235
+qwen3.5-4b,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.5833,0.3542,0.7917,168,pairs,0.3740
+qwen3.5-4b,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3750,0.2292,0.5000,168,pairs,0.2255
+qwen3.5-4b,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.1042,-0.2778,0.0278,168,pairs,0.2387
+qwen3.5-4b,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.7778,0.6111,0.9167,36,pairs,
+qwen3.5-4b,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.5000,0.2778,0.7222,18,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.3750,0.1250,0.6250,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3750,0.1667,0.6250,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2083,0.0833,0.3333,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.3333,0.1667,0.5000,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.3750,0.1667,0.6250,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.2917,0.1250,0.4583,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.3750,0.1250,0.6250,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.5833,0.3750,0.7500,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.4583,0.2083,0.7083,24,pairs,
+qwen3.5-4b,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3750,0.2083,0.5625,48,pairs,
+qwen3.5-4b,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5672,0.4478,0.6716,67,pairs,
+qwen3.5-4b,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.7761,0.6716,0.8657,67,pairs,
+qwen3.5-4b,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6119,0.4925,0.7313,67,pairs,
+qwen3.5-4b,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6517,0.5871,0.7164,201,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.3234,-0.5562,-0.0356,100,images,-0.8670
+qwen3.5-4b,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.3906,-0.6099,-0.1253,50,images,-0.8544
+qwen3.5-4b,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.2671,-0.6503,0.1938,50,images,-0.8832
+qwen3.5-4b,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.2267,-0.4647,0.0467,100,images,
+qwen3.5-4b,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.2405,-0.4886,0.0184,100,images,
+qwen3.5-4b,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.5850,0.4850,0.6850,200,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5500,0.4250,0.6750,40,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5405,0.4459,0.6267,74,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.6304,0.4694,0.7872,46,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.6500,0.4750,0.8256,40,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5500,0.3500,0.7500,20,pairs,
+qwen3.5-4b,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0047,0.0004,0.0088,200,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2083,0.0417,0.4167,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.3750,0.1667,0.5833,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5417,0.3333,0.7500,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.5417,0.2917,0.7500,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.3750,0.1667,0.5833,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4167,0.2083,0.6667,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.4167,0.2083,0.6667,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2500,0.1250,0.3750,24,pairs,
+qwen3.5-4b,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3542,0.1875,0.5000,48,pairs,
+qwen3.5-4b,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5373,0.4179,0.6567,67,pairs,
+qwen3.5-4b,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.7612,0.6567,0.8507,67,pairs,
+qwen3.5-4b,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6269,0.5075,0.7463,67,pairs,
+qwen3.5-4b,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6418,0.5622,0.7164,201,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.4656,-0.6493,-0.2110,100,images,-0.8670
+qwen3.5-4b,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.5236,-0.7039,-0.2988,50,images,-0.8544
+qwen3.5-4b,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.4096,-0.7307,0.0033,50,images,-0.8832
+qwen3.5-4b,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.3609,-0.5658,-0.1128,100,images,
+qwen3.5-4b,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.3826,-0.5783,-0.1579,100,images,
+qwen3.5-4b,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.6350,0.5350,0.7250,200,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.5500,0.4250,0.6750,40,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5676,0.4658,0.6623,74,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.7174,0.5869,0.8444,46,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.7500,0.5750,0.9000,40,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6000,0.4000,0.8000,20,pairs,
+qwen3.5-4b,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0073,0.0030,0.0114,200,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.1667,0.0000,0.3750,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5000,0.2500,0.7500,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.4167,0.2083,0.6260,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.7083,0.5000,0.9167,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.5417,0.2917,0.7500,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.3750,0.1667,0.5833,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.3333,0.1250,0.5833,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.3750,0.1250,0.6667,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2500,0.0833,0.4167,24,pairs,
+qwen3.5-4b,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3333,0.1875,0.4792,48,pairs,
+qwen3.5-4b,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5672,0.4478,0.6866,67,pairs,
+qwen3.5-4b,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.7463,0.6418,0.8507,67,pairs,
+qwen3.5-4b,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.6567,0.5373,0.7761,67,pairs,
+qwen3.5-4b,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.6567,0.5771,0.7313,201,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.8750,0.7083,1.0000,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.8333,0.6250,1.0000,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.9583,0.8750,1.0000,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.7917,0.5833,1.0000,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.7917,0.6667,0.9167,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.7917,0.5833,0.9583,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.7500,0.5000,0.9583,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.8333,0.6667,1.0000,24,pairs,
+qwen3.5-4b,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.8542,0.7292,0.9583,48,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",1.0000,1.0000,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",1.0000,1.0000,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",1.0000,1.0000,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.9167,0.7917,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.8750,0.7500,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.9583,0.8750,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.7917,0.5833,0.9583,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.9167,0.7917,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",1.0000,1.0000,1.0000,24,pairs,
+qwen3.5-4b,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",1.0000,1.0000,1.0000,48,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.0198,-0.2740,0.2773,100,images,-0.8670
+smolvlm2-2.2b,two,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.0982,-0.2131,0.3852,50,images,-0.8544
+smolvlm2-2.2b,two,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.0268,-0.4936,0.3668,50,images,-0.8832
+smolvlm2-2.2b,two,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.0312,-0.3134,0.2279,100,images,
+smolvlm2-2.2b,two,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.0296,-0.2861,0.2106,100,images,
+smolvlm2-2.2b,two,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.4750,0.3850,0.5600,200,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4000,0.2500,0.5500,40,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4324,0.3288,0.5343,74,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5217,0.4130,0.6364,46,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.5750,0.3750,0.7500,40,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.3500,0.1500,0.6000,20,pairs,
+smolvlm2-2.2b,two,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0000,-0.0003,0.0002,200,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.6333,0.5417,0.7250,120,pairs,0.5278
+smolvlm2-2.2b,two,you,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0060,0.0003,0.0115,120,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6833,0.5667,0.8000,60,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.5833,0.4500,0.7167,60,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.5333,0.4167,0.6500,60,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.7333,0.6167,0.8500,60,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.4167,0.2667,0.5667,60,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.6333,0.5417,0.7250,120,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.5833,0.4500,0.7000,60,pairs,
+smolvlm2-2.2b,two,you,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.6167,0.5000,0.7333,60,pairs,0.4582
+smolvlm2-2.2b,two,you,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.5139,0.4236,0.6042,144,pairs,0.7396
+smolvlm2-2.2b,two,you,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5463,0.4352,0.6481,108,pairs,
+smolvlm2-2.2b,two,you,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.4167,0.2500,0.5000,36,pairs,
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.5833,0.3750,0.7917,24,pairs,0.8704
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.5417,0.3333,0.7500,24,pairs,0.6928
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.5417,0.5000,0.6250,24,pairs,0.6979
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.7083,0.5000,0.8750,24,pairs,0.5650
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.4167,0.2500,0.5427,24,pairs,0.2890
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.6250,0.4167,0.8333,24,pairs,0.2951
+smolvlm2-2.2b,two,you,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5417,0.3750,0.7083,24,pairs,0.2394
+smolvlm2-2.2b,two,you,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5625,0.4792,0.6667,48,pairs,0.7044
+smolvlm2-2.2b,two,you,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.4583,0.2917,0.6250,48,pairs,0.6989
+smolvlm2-2.2b,two,you,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.5208,0.3333,0.6875,48,pairs,0.8155
+smolvlm2-2.2b,two,you,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.4167,0.2292,0.6042,168,pairs,0.5355
+smolvlm2-2.2b,two,you,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.4792,0.3536,0.6250,168,pairs,0.6255
+smolvlm2-2.2b,two,you,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.6667,0.5625,0.7917,168,pairs,0.6780
+smolvlm2-2.2b,two,you,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.5208,0.4578,0.5833,168,pairs,0.6520
+smolvlm2-2.2b,two,you,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.6667,0.5625,0.7917,168,pairs,0.5235
+smolvlm2-2.2b,two,you,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4167,0.2500,0.5833,168,pairs,0.3740
+smolvlm2-2.2b,two,you,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.3333,0.1667,0.5000,168,pairs,0.2255
+smolvlm2-2.2b,two,you,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",0.0486,-0.0833,0.1875,168,pairs,0.2387
+smolvlm2-2.2b,two,you,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.3333,0.1944,0.4722,36,pairs,
+smolvlm2-2.2b,two,you,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.5000,0.2778,0.7222,18,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2917,0.1667,0.4167,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.5833,0.3750,0.7917,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.4167,0.2500,0.5833,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5417,0.3750,0.7083,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.6250,0.4583,0.7917,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.7500,0.6250,0.8750,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.2083,0.0833,0.3333,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2500,0.0833,0.4583,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.1250,0.0000,0.2500,24,pairs,
+smolvlm2-2.2b,two,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4375,0.3125,0.5625,48,pairs,
+smolvlm2-2.2b,two,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+smolvlm2-2.2b,two,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5672,0.4478,0.6866,67,pairs,
+smolvlm2-2.2b,two,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5224,0.4030,0.6418,67,pairs,
+smolvlm2-2.2b,two,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5473,0.4826,0.6119,201,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",0.3216,0.0640,0.5278,100,images,-0.8670
+smolvlm2-2.2b,two,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",0.3398,0.0362,0.5762,50,images,-0.8544
+smolvlm2-2.2b,two,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",0.3108,-0.1302,0.6289,50,images,-0.8832
+smolvlm2-2.2b,two,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",0.2993,0.0103,0.5263,100,images,
+smolvlm2-2.2b,two,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",0.1983,-0.0775,0.4450,100,images,
+smolvlm2-2.2b,two,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.4250,0.3299,0.5350,200,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.4000,0.2500,0.5500,40,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.4865,0.3684,0.6232,74,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.3696,0.2340,0.5111,46,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.4000,0.2500,0.5750,40,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.4000,0.2000,0.6000,20,pairs,
+smolvlm2-2.2b,two,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",-0.0004,-0.0007,-0.0001,200,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced,P(balanced chosen over 90 px shift)  [human anchor],0.6000,0.5000,0.7000,120,pairs,0.5278
+smolvlm2-2.2b,two,most,prefer,multiobject,pref_balanced_90,Preference for balanced over 90 px shift (log-odds),0.0026,-0.0030,0.0086,120,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_90_d1,"P(balanced chosen), objects 1 unit(s) apart",0.6667,0.5333,0.8000,60,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_90_d3,"P(balanced chosen), objects 3 unit(s) apart",0.5333,0.4000,0.6833,60,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_90_left,"P(balanced chosen), twin shifted left",0.5500,0.4333,0.6667,60,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_90_right,"P(balanced chosen), twin shifted right",0.6500,0.5167,0.7667,60,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_shift_45,"P(balanced chosen), shift 45 px",0.5833,0.4500,0.7167,60,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_shift_90,"P(balanced chosen), shift 90 px",0.6000,0.5000,0.7000,120,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_balanced_shift_135,"P(balanced chosen), shift 135 px",0.4500,0.3167,0.5833,60,pairs,
+smolvlm2-2.2b,two,most,prefer,multiobject,p_closer_unrelated,"P(closer arrangement chosen), both balanced  [human: unrelated pairs]",0.4833,0.3833,0.5833,60,pairs,0.4582
+smolvlm2-2.2b,two,most,prefer,framing,p_inward,"P(inward-facing chosen over outward-facing), six off-centre positions",0.5278,0.4653,0.5833,144,pairs,0.7396
+smolvlm2-2.2b,two,most,prefer,framing,p_inward_object,"P(inward-facing chosen), object icons",0.5093,0.4444,0.5741,108,pairs,
+smolvlm2-2.2b,two,most,prefer,framing,p_inward_abstract,"P(inward-facing chosen), abstract icons",0.5833,0.5000,0.6667,36,pairs,
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_25,P(right-facing chosen over left-facing) at 25%,0.6250,0.4167,0.8333,24,pairs,0.8704
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_33,P(right-facing chosen over left-facing) at 33%,0.4583,0.2500,0.6667,24,pairs,0.6928
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_42,P(right-facing chosen over left-facing) at 42%,0.5417,0.3333,0.7500,24,pairs,0.6979
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_50,P(right-facing chosen over left-facing) at 50%,0.4583,0.2500,0.6667,24,pairs,0.5650
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_58,P(right-facing chosen over left-facing) at 58%,0.4167,0.2083,0.5844,24,pairs,0.2890
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_67,P(right-facing chosen over left-facing) at 67%,0.4583,0.2500,0.6667,24,pairs,0.2951
+smolvlm2-2.2b,two,most,prefer,framing,p_right_facing_pos_75,P(right-facing chosen over left-facing) at 75%,0.5833,0.3750,0.7917,24,pairs,0.2394
+smolvlm2-2.2b,two,most,prefer,framing,p_inward_ecc_8,"P(inward-facing chosen), 8% from centre",0.5625,0.4375,0.6875,48,pairs,0.7044
+smolvlm2-2.2b,two,most,prefer,framing,p_inward_ecc_17,"P(inward-facing chosen), 17% from centre",0.5000,0.3333,0.6667,48,pairs,0.6989
+smolvlm2-2.2b,two,most,prefer,framing,p_inward_ecc_25,"P(inward-facing chosen), 25% from centre",0.5208,0.4167,0.6458,48,pairs,0.8155
+smolvlm2-2.2b,two,most,prefer,framing,profile_0,"Share of same-facing comparisons won, position 0 (facing-in side)",0.4375,0.3333,0.5417,168,pairs,0.5355
+smolvlm2-2.2b,two,most,prefer,framing,profile_1,"Share of same-facing comparisons won, position 1 (facing-in side)",0.4792,0.3333,0.6250,168,pairs,0.6255
+smolvlm2-2.2b,two,most,prefer,framing,profile_2,"Share of same-facing comparisons won, position 2 (facing-in side)",0.4583,0.3125,0.6042,168,pairs,0.6780
+smolvlm2-2.2b,two,most,prefer,framing,profile_3,"Share of same-facing comparisons won, position 3 (centre)",0.5417,0.3333,0.7083,168,pairs,0.6520
+smolvlm2-2.2b,two,most,prefer,framing,profile_4,"Share of same-facing comparisons won, position 4 (facing-out side)",0.5625,0.4167,0.7083,168,pairs,0.5235
+smolvlm2-2.2b,two,most,prefer,framing,profile_5,"Share of same-facing comparisons won, position 5 (facing-out side)",0.4792,0.3125,0.6667,168,pairs,0.3740
+smolvlm2-2.2b,two,most,prefer,framing,profile_6,"Share of same-facing comparisons won, position 6 (facing-out side)",0.5417,0.4167,0.6667,168,pairs,0.2255
+smolvlm2-2.2b,two,most,prefer,framing,profile_in_minus_out,"Facing-in side minus facing-out side, same-facing comparisons",-0.0694,-0.2083,0.0556,168,pairs,0.2387
+smolvlm2-2.2b,two,most,prefer,framing,p_centre,"P(centre chosen over a quarter-line position), symmetrical objects",0.3611,0.2222,0.5000,36,pairs,
+smolvlm2-2.2b,two,most,prefer,framing,p_left_over_right,"P(left quarter chosen over right quarter), symmetrical objects",0.2778,0.1111,0.5000,18,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.3750,0.1667,0.5833,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.4583,0.2917,0.6250,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.4167,0.2500,0.5833,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.7083,0.5000,0.9167,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.7917,0.6667,0.9167,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.7500,0.6250,0.8750,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.4167,0.2500,0.6250,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.4583,0.2917,0.6250,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.2083,0.0833,0.3333,24,pairs,
+smolvlm2-2.2b,two,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.4167,0.2917,0.5625,48,pairs,
+smolvlm2-2.2b,two,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.4925,0.3731,0.6119,67,pairs,
+smolvlm2-2.2b,two,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.6119,0.4925,0.7313,67,pairs,
+smolvlm2-2.2b,two,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+smolvlm2-2.2b,two,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5522,0.4874,0.6219,201,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.4041,-0.6058,-0.1388,100,images,-0.8670
+smolvlm2-2.2b,sbs,you,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.3976,-0.6273,-0.0682,50,images,-0.8544
+smolvlm2-2.2b,sbs,you,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.4129,-0.7008,0.0001,50,images,-0.8832
+smolvlm2-2.2b,sbs,you,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.3554,-0.5653,-0.0871,100,images,
+smolvlm2-2.2b,sbs,you,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.2625,-0.5064,0.0024,100,images,
+smolvlm2-2.2b,sbs,you,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.6000,0.4900,0.7001,200,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.6000,0.4750,0.7250,40,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5811,0.4533,0.7043,74,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5435,0.3749,0.7045,46,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.7000,0.5250,0.8500,40,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.5000,0.3000,0.7000,20,pairs,
+smolvlm2-2.2b,sbs,you,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0009,0.0003,0.0016,200,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.2917,0.1667,0.4167,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3750,0.2083,0.5417,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.2500,0.0417,0.4583,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5833,0.4167,0.7500,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.2083,0.0417,0.4167,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.4167,0.2083,0.6250,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.3750,0.1667,0.5833,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2917,0.1250,0.4583,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.1667,0.0417,0.2917,24,pairs,
+smolvlm2-2.2b,sbs,you,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3333,0.2292,0.4375,48,pairs,
+smolvlm2-2.2b,sbs,you,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5672,0.4478,0.6866,67,pairs,
+smolvlm2-2.2b,sbs,you,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5373,0.4179,0.6567,67,pairs,
+smolvlm2-2.2b,sbs,you,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4179,0.2985,0.5373,67,pairs,
+smolvlm2-2.2b,sbs,you,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5075,0.4279,0.5871,201,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,r_apb_all,"r(balance score, preference scale value), all",-0.5098,-0.6973,-0.2567,100,images,-0.8670
+smolvlm2-2.2b,sbs,most,prefer,apb,r_apb_circles,"r(balance score, preference scale value), circles",-0.4580,-0.7020,-0.1365,50,images,-0.8544
+smolvlm2-2.2b,sbs,most,prefer,apb,r_apb_hexagons,"r(balance score, preference scale value), hexagons",-0.5586,-0.7951,-0.1726,50,images,-0.8832
+smolvlm2-2.2b,sbs,most,prefer,apb,r_dcm_all,"r(centre-of-mass deviation, preference scale value), all",-0.4450,-0.6546,-0.1739,100,images,
+smolvlm2-2.2b,sbs,most,prefer,apb,r_apb_all_hard,"r(balance score, comparisons won minus lost), all",-0.3711,-0.6028,-0.1169,100,images,
+smolvlm2-2.2b,sbs,most,prefer,apb,p_balanced,"P(more balanced member chosen), all pairs",0.6500,0.5300,0.7600,200,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,p_balanced_dose_0_12,"P(more balanced chosen), score difference 0-12",0.7500,0.6000,0.9000,40,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,p_balanced_dose_12_25,"P(more balanced chosen), score difference 12-25",0.5541,0.4267,0.6806,74,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,p_balanced_dose_25_40,"P(more balanced chosen), score difference 25-40",0.5870,0.4422,0.7292,46,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,p_balanced_dose_40_100,"P(more balanced chosen), score difference 40-100",0.8000,0.6500,0.9250,40,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,p_balanced_both_below_20,"P(more balanced chosen), both scores below 20 (human plateau)",0.6500,0.4500,0.8500,20,pairs,
+smolvlm2-2.2b,sbs,most,prefer,apb,slope_pref_per_point,"Slope of preference (log-odds) on score difference, through origin",0.0020,0.0008,0.0032,200,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_yellow_small,"P(red version preferred over yellow), largest area small",0.3750,0.2083,0.5833,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_yellow_medium,"P(red version preferred over yellow), largest area medium",0.3750,0.2500,0.5000,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_yellow_large,"P(red version preferred over yellow), largest area large",0.3333,0.1250,0.5417,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_blue_small,"P(red version preferred over blue), largest area small",0.5000,0.3333,0.6667,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_blue_medium,"P(red version preferred over blue), largest area medium",0.5833,0.3333,0.7917,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_blue_large,"P(red version preferred over blue), largest area large",0.9167,0.7917,1.0000,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_small,"P(blue version preferred over yellow), largest area small",0.5417,0.3333,0.7500,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_medium,"P(blue version preferred over yellow), largest area medium",0.2917,0.1250,0.4583,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_blue_vs_yellow_large,"P(blue version preferred over yellow), largest area large",0.0833,0.0000,0.2083,24,pairs,
+smolvlm2-2.2b,sbs,most,prefer,colour,prefer_red_vs_yellow_anchor,"P(red version preferred over yellow), largest area 8-24% of field  [no human anchor]",0.3750,0.2500,0.4797,48,pairs,
+smolvlm2-2.2b,sbs,most,prefer,proportion,p_G_vs_G1,P(generated over small alteration chosen)  [no human anchor],0.5821,0.4627,0.6866,67,pairs,
+smolvlm2-2.2b,sbs,most,prefer,proportion,p_G_vs_G2,P(generated over large alteration chosen)  [no human anchor],0.5522,0.4328,0.6716,67,pairs,
+smolvlm2-2.2b,sbs,most,prefer,proportion,p_G1_vs_G2,P(small over large alteration chosen)  [no human anchor],0.4776,0.3582,0.5970,67,pairs,
+smolvlm2-2.2b,sbs,most,prefer,proportion,p_less_altered,"P(less altered member chosen), all pairs  [no human anchor]",0.5373,0.4577,0.6169,201,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.3333,0.1250,0.5833,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.4167,0.2083,0.6667,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.6250,0.3750,0.8333,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.5417,0.4167,0.6667,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.6667,0.4583,0.8750,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",0.6250,0.4167,0.8333,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.3750,0.2083,0.5417,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.3750,0.1667,0.5833,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.5000,0.2917,0.7083,24,pairs,
+smolvlm2-2.2b,two,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.3750,0.2083,0.5417,48,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_yellow_small,"P(red version named as heavier over yellow), largest area small",0.4583,0.2500,0.6667,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_yellow_medium,"P(red version named as heavier over yellow), largest area medium",0.4167,0.1667,0.6667,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_yellow_large,"P(red version named as heavier over yellow), largest area large",0.3750,0.1667,0.6250,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_blue_small,"P(red version named as heavier over blue), largest area small",0.6250,0.4167,0.8333,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_blue_medium,"P(red version named as heavier over blue), largest area medium",0.7083,0.5417,0.8750,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_blue_large,"P(red version named as heavier over blue), largest area large",1.0000,1.0000,1.0000,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_blue_vs_yellow_small,"P(blue version named as heavier over yellow), largest area small",0.2917,0.1250,0.4583,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_blue_vs_yellow_medium,"P(blue version named as heavier over yellow), largest area medium",0.2917,0.1250,0.4583,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_blue_vs_yellow_large,"P(blue version named as heavier over yellow), largest area large",0.0000,0.0000,0.0000,24,pairs,
+smolvlm2-2.2b,sbs,plain,weight,colour,weight_red_vs_yellow_anchor,"P(red version named as heavier over yellow), largest area 8-24% of field  [human anchor: direction only]",0.4375,0.2708,0.6042,48,pairs,

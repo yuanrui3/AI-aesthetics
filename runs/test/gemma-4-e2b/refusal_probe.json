@@ -1,0 +1,11 @@
+{
+  "model": "gemma-4-e2b",
+  "n": 60,
+  "direct": 0.1,
+  "commits": 0.817,
+  "refuses": 0.083,
+  "unclear": 0.0,
+  "n_parsed": 55,
+  "agreement_with_forced_readout": 0.691,
+  "max_new_tokens": 160
+}

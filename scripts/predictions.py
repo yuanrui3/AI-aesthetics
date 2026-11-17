@@ -115,7 +115,10 @@ class Model:
         return bool(self.refusal and self.refusal.get("refuses", 0) > REFUSAL_MAX)
 
     def you(self, exp: str) -> pd.DataFrame:
-        d = self.pp[(self.pp.experiment == exp) & (self.pp.framing == FRAMING)]
+        """Changed pairs of one experiment, primary framing. (Fixed 2026-11-17 after the first
+        test scoring: identical pairs share a condition label with E2's 90 px pairs and E3's
+        flips and were being counted in P1, P3 and P4-E3; see LOG.md.)"""
+        d = self.pp[(self.pp.experiment == exp) & (self.pp.framing == FRAMING) & (self.pp.kind == "manipulation")]
         return d
 
     def visibility(self, exp: str, mask=None):
@@ -168,6 +171,43 @@ def p1(m: Model) -> list[dict]:
     return out
 
 
+def p1_by_experiment(m: Model) -> list[dict]:
+    """POST HOC, added 2026-11-17 after the test results were opened. The committed P1 pools
+    the signed position bias over E1-E4, so biases of opposite sign in different experiments
+    cancel. This compares, within each experiment the model can see, the absolute bias on that
+    experiment's identical pairs with the largest absolute mean preference among its anchored
+    conditions. Reported beside the committed verdict, never instead of it."""
+    if MODELS[m.name]["params_b"] >= SMALL_B:
+        return []
+    conds = {
+        "apb": [lambda d: d],
+        "multiobject": [lambda d: d[d.condition == "balance"]],
+        "framing": [lambda d: d[(d.condition == "flip") & (d.p_pos_ref != 50)],
+                    lambda d: d[(d.condition == "centre") & (d.human_direction == "ref")]],
+    }
+    out, n_bias = [], 0
+    for exp in ("apb", "multiobject", "framing", "colour"):
+        if not m.sees(exp):
+            continue
+        if exp == "colour":
+            if m.pw is None:
+                continue
+            src = m.pw[m.pw.experiment == "colour"]
+            ident = src[(src.kind == "identical")]
+            eff = abs(src[(src.kind == "manipulation") & (src.human_direction == "ref")].pref.mean())
+        else:
+            src = m.pp[(m.pp.experiment == exp) & (m.pp.framing == FRAMING)]
+            ident = src[src.kind == "identical"]
+            eff = max(abs(sel(m.you(exp)).pref.mean()) for sel in conds[exp])
+        bias = abs(ident.pos_bias.mean())
+        n_bias += bias > eff
+        out.append(row("P1b", m, f"{exp}: |bias| {bias:.3f} vs largest |effect| {eff:.3f}", bias - eff,
+                       verdict="bias larger" if bias > eff else "effect larger", note="post hoc"))
+    if out:
+        out.append(row("P1b", m, "verdict", verdict=f"bias larger in {n_bias} of {len(out)}", note="post hoc"))
+    return out
+
+
 def p2(m: Model) -> list[dict]:
     if not m.sees("multiobject"):
         return [row("P2", m, "verdict", verdict="cannot see", note="fails the visibility rule in E2")]
@@ -187,7 +227,7 @@ def p2(m: Model) -> list[dict]:
 def p3(m: Model) -> list[dict]:
     if not m.sees("framing"):
         return [row("P3", m, "verdict", verdict="cannot see", note="fails the visibility rule in E3")]
-    d = m.pp[(m.pp.experiment == "framing") & (m.pp.condition == "flip") & (m.pp.p_pos_ref != 50)]
+    d = m.pp[(m.pp.experiment == "framing") & (m.pp.kind == "manipulation") & (m.pp.condition == "flip") & (m.pp.p_pos_ref != 50)]
     you, most = d[d.framing == "you"], d[d.framing == "most"]
     out = []
     for lab, g in (("you", you), ("most people", most)):
@@ -294,6 +334,8 @@ def write_md(t: pd.DataFrame, tag: str, models: list[str], refusing: dict) -> No
         cells = []
         for mname in models:
             v = g[g.model == mname]
+            if (v.part == "verdict").any() and len(v) > 1:
+                v = v[v.part == "verdict"]
             cells.append("; ".join(f"{p.split(':')[0].replace(' verdict', '')}: {x}" if len(v) > 1 else x
                                    for p, x in zip(v.part, v.verdict)) or "")
         lines.append(f"| {pred} | " + " | ".join(cells) + " |")
@@ -326,7 +368,7 @@ def main() -> int:
             refusing[m.name] = m.refusal["refuses"]
             rows.append(row("P0", m, "refusal", verdict="refusing, not scored"))
             continue
-        rows += p1(m) + p2(m) + p3(m) + p4(m) + p5(m, smallest) + p6(m)
+        rows += p1(m) + p1_by_experiment(m) + p2(m) + p3(m) + p4(m) + p5(m, smallest) + p6(m)
     t = pd.DataFrame(rows)
     (ROOT / "reports").mkdir(exist_ok=True)
     t.to_csv(ROOT / "reports" / f"predictions_{a.tag}.csv", index=False, float_format="%.4f")

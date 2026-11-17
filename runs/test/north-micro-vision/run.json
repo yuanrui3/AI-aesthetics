@@ -1,0 +1,25 @@
+{
+  "frozen_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
+  "head_at_run": "acde8c803cfdf38b62526d2559c07758d518b67a",
+  "model": {
+    "commit": "fa548d9aa62c1220bfd21fc6cfc465f1bd2a1a40",
+    "dtype": "bfloat16",
+    "family": "North (Cohere)",
+    "licence": "Apache-2.0",
+    "load_seconds": 9.8,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "north-micro-vision",
+    "params_M": 2484.8,
+    "params_b": 2.48,
+    "processor_kwargs": {},
+    "repo": "CohereLabs/North-Micro-Vision-Instruct",
+    "revision_requested": "fa548d9aa62c1220bfd21fc6cfc465f1bd2a1a40",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 34432,
+  "prompt_version": "v1",
+  "split": "test",
+  "tag": "test"
+}

@@ -1,0 +1,11 @@
+{
+  "model": "qwen3.5-0.8b",
+  "n": 60,
+  "direct": 0.883,
+  "commits": 0.117,
+  "refuses": 0.0,
+  "unclear": 0.0,
+  "n_parsed": 60,
+  "agreement_with_forced_readout": 0.883,
+  "max_new_tokens": 160
+}

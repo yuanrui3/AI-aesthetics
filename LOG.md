@@ -197,3 +197,17 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   real trials and on pilot data copied under all four wordings (spread 0 and pair agreement
   1.00, as they must be). The 48-trial test repeated six pilot trials exactly (difference
   0.0000 log-odds), the first sign that the driver update did not move scores.
+- **Prediction scoring written and committed before any test result was opened**
+  (`scripts/predictions.py`). Reason: P1 to P6 are stated in `PLAN.md`, but P4 and P6 have
+  no numeric criterion and P5 does not name "the smallest models". Fixing those now, blind
+  to the results, keeps the verdicts from being chosen after the fact. The criteria choices:
+  - P4 parts: paired differences (top minus bottom E1 bin; E3 25% minus 8%; E4 small and
+    medium minus large), each supported only if its interval is above zero.
+  - P5: the two smallest frozen models.
+  - P6: supported only if the interval lies wholly below -.46.
+  - P1: compares point estimates, as `PLAN.md` says, over only the experiments the model can
+    see.
+  Checked on the pilot data, then the pilot outputs were deleted.
+- **`gate1_checks.py` read dev manifests for every run tag**; for `--tag test` it would have
+  matched no pairs. Fixed: the test tag now uses the test manifests. Found while writing
+  the prediction scoring; the pilot tables it writes are unchanged.

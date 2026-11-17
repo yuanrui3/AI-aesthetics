@@ -20,13 +20,13 @@ from aesx import analysis
 from aesx.manifest import ROOT, read_manifest
 from aesx.stats import bootstrap_ci
 
-SPLIT = "dev"  # manifests always come from the dev split; --tag picks the run directory
 LAYOUT_NAMES = {"two": "two images", "sbs": "side by side"}
 
 
-def pair_meta() -> pd.DataFrame:
+def pair_meta(split: str) -> pd.DataFrame:
+    """Manifests of the split the run used: test for the main run, dev for everything else."""
     rows = []
-    for man in sorted((ROOT / "stimuli").glob(f"*/{SPLIT}/pairs.jsonl")):
+    for man in sorted((ROOT / "stimuli").glob(f"*/{split}/pairs.jsonl")):
         for p in read_manifest(man):
             rows.append({"pair_id": p.pair_id, "kind": p.kind, "condition": p.condition, "dose": p.dose, "cluster": p.cluster})
     return pd.DataFrame(rows)
@@ -39,7 +39,7 @@ def fmt(est: float, lo: float, hi: float, d: int = 2) -> str:
 def main() -> int:
     tag = sys.argv[sys.argv.index("--tag") + 1] if "--tag" in sys.argv else "dev"
     stem = "gate1_checks" if tag == "dev" else f"checks_{tag}"
-    meta = pair_meta()
+    meta = pair_meta("test" if tag == "test" else "dev")
     out_rows = []
     for run in sorted((ROOT / "runs" / tag).glob("*/results.jsonl")):
         model = run.parent.name

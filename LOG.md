@@ -171,3 +171,18 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **Main-run size corrected: about 23,000 trials per model in one layout**, not the 17,700
   written in `reports/gate1.md`. Reason: I had counted one same/different question per
   presentation; there are two (both polarities).
+
+## 2026-11-17
+
+- **Main run rescheduled to one model at a time for the last three models.** At 12:08 four
+  models were complete (34,432 trials and the refusal probe each). InternVL3.5 (19,850 done)
+  and North Micro (26,050 done) were sharing the GPU and had filled it: 9,470 + 6,548 MiB of
+  16,376, with both slowed to 7-28 times their pilot speed since about 03:00 (InternVL about
+  17 s a trial, against 0.6 in the pilot). I stopped both and restarted them, and SmolVLM2-2.2B,
+  with `run_batch.py --parallel 1`. Reason: the reservations used torch's allocated peak, which
+  understates the real footprint by up to 2.2 GB. Results are unaffected: finished trials are
+  kept and skipped, both result files ended on a complete line, and each trial is scored
+  independently. `run_batch.py` is not a frozen path.
+- **NVIDIA driver is now 610.74** (581.95 on 2026-11-14). I did not change it; on this shared
+  machine it was updated by someone or by Windows Update. Recorded because a driver update can
+  change floating-point results; every trial records its model commit, but not the driver.

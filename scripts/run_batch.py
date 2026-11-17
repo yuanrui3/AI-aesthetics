@@ -3,6 +3,7 @@
     uv run python scripts/run_batch.py --split dev                 # Gate 2 pilot -> runs/pilot
     uv run python scripts/run_batch.py --split test                # main run: the models in FROZEN.json -> runs/test
     uv run python scripts/run_batch.py --split test qwen3.5-4b     # a subset (e.g. to resume one model)
+    uv run python scripts/run_batch.py --split test --parallel 1 internvl3.5-2b   # one model at a time
 
 For each model: the trials (resumable: finished trials are skipped), then the
 free-text refusal probe. A job starts only when its memory reservation fits beside
@@ -19,18 +20,21 @@ import time
 
 from aesx.manifest import ROOT
 
-# Memory to reserve per model, in MiB: measured pilot peaks plus margin.
+# Memory to reserve per model, in MiB: measured pilot peaks plus margin. The pilot peaks are
+# torch's allocated peak; the real footprint (CUDA context + allocator cache) is larger. In the
+# main run InternVL3.5 reached 9,470 MiB and North Micro 6,548 MiB, together filling the 16 GB
+# card and slowing both 7-28x, so those two are now reserved at their measured footprint.
 MEM = {
     "qwen3.5-4b": 11500,
     "gemma-4-e2b": 12500,
     "smolvlm2-500m": 3000,
     "qwen3.5-0.8b": 3500,
     "minicpm-v-4.7-1b": 5000,
-    "internvl3.5-2b": 7500,
-    "north-micro-vision": 7000,
+    "internvl3.5-2b": 10000,
+    "north-micro-vision": 7500,
     "smolvlm2-2.2b": 7000,
 }
-MAX_PARALLEL = 2
+MAX_PARALLEL = 2  # default; --parallel 1 runs one model at a time
 HEADROOM = 800  # MiB kept free
 
 
@@ -58,6 +62,7 @@ def launch(model: str, split: str) -> subprocess.Popen:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", default="dev", choices=["dev", "test"])
+    ap.add_argument("--parallel", type=int, default=MAX_PARALLEL, help="most models at once")
     ap.add_argument("models", nargs="*")
     a = ap.parse_args()
     if a.split == "test":
@@ -78,7 +83,7 @@ def main() -> int:
                     failed.append(name)
                 reserved -= need
                 del running[name]
-        if queue and len(running) < MAX_PARALLEL:
+        if queue and len(running) < a.parallel:
             # Reservations, not live free memory, decide: a job that has just started has not allocated yet.
             for i, (name, need) in enumerate(queue):
                 if reserved + need + HEADROOM <= total:

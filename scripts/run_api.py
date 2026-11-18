@@ -183,6 +183,51 @@ def cmd_dry_run(a) -> int:
     return 0
 
 
+def diagnose(client, model: str, trial, log_path) -> None:
+    """After a rejected request: send simpler requests, adding one ingredient at a time, to find
+    what the endpoint refuses. Plumbing only: replies are not analysed."""
+    spec = api.MODELS[model]
+    full = api.request_body(model, trial, seed=1)
+    parts = full["messages"][0]["content"]
+    images = [p for p in parts if p["type"] == "image_url"]
+    texts = [p for p in parts if p["type"] == "text"]
+    ask = "Reply with the single letter A."
+    base = {"model": spec["id"], "messages": [{"role": "user", "content": ask}], "max_tokens": 16, "stream": False}
+
+    def with_content(content):
+        return {**base, "messages": [{"role": "user", "content": content}]}
+
+    variants = [
+        ("text only, server defaults", base),
+        ("text + model extras " + json.dumps(spec["extra"]), {**base, **spec["extra"]}),
+        ("text + seed 1", {**base, "seed": 1}),
+        ("text + temperature 1", {**base, "temperature": 1.0}),
+        ("text + top_p 1", {**base, "top_p": 1.0}),
+        ("text + temperature 1 + top_p 1", {**base, "temperature": 1.0, "top_p": 1.0}),
+        ("text as a content part", with_content([{"type": "text", "text": ask}])),
+        ("one image, then text", with_content([images[0], {"type": "text", "text": ask}])),
+        ("two images, then all text", with_content(images + [{"type": "text", "text": " ".join(p["text"] for p in texts)}])),
+        ("the trial's interleaved parts, defaults", with_content(parts)),
+        ("the full request as the run sends it", full),
+    ]
+    with log_path.open("a", encoding="utf-8", newline="\n") as log:
+        log.write(f"--- diagnose {model} {datetime.now(timezone.utc).isoformat(timespec='seconds')}\n")
+        for name, body in variants:
+            try:
+                resp, _ = client.chat(body)
+                reply = ((resp.get("choices") or [{}])[0].get("message") or {}).get("content")
+                line = f"  ok    {name}: reply {reply!r:.40}"
+            except (api.Fatal, api.Transient) as e:
+                line = f"  FAIL  {name}: {e}"
+            except api.RateLimited as e:
+                line = f"  STOP  {name}: {e}"
+                print(line, flush=True)
+                log.write(line + "\n")
+                return
+            print(line, flush=True)
+            log.write(line + "\n")
+
+
 def cmd_probe(a) -> int:
     """A few dev presentations per experiment and task: are two images accepted, do replies parse,
     how fast is it. Plumbing only; nothing about any effect is read from it."""
@@ -214,6 +259,9 @@ def cmd_probe(a) -> int:
                     code = 3
                     if isinstance(e, api.RateLimited):
                         return code
+                    if isinstance(e, api.Fatal):
+                        print(f"--- {model} rejected the request; trying simpler requests to see why:", flush=True)
+                        diagnose(client, model, t, run_dir / "errors.log")
                     break  # this model fails; still try the next one
                 f.write(json.dumps(record(t, model, 1, out), sort_keys=True) + "\n")
                 print(f"{t.experiment:11s} {t.task:8s} {out['seconds']:5.1f}s  {str(out['choice']):4s} "

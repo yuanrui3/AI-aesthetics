@@ -298,3 +298,12 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   proportion of replies choosing the reference, was added for comparisons. The PLAN text's
   claim that log-probability ties never occur was corrected: they occur rarely, at bfloat16
   precision.
+- **Literature review delivered:** `reports/VLM aesthetic preference measurement methods.md`,
+  with notes in `research_notes/`. It corroborates the readout curve and adds ten prioritised
+  recommendations.
+- **Seed fix for the NVIDIA run.** The review spotted from the code that one seed per pass
+  could couple all replies in a pass, if the server seeds per request. Each request now gets
+  its own SHA-256-derived seed. Plan amended, guard added, re-frozen. The partial old-scheme
+  run is set aside unopened, at the cost of about an hour of requests, cheaper than finding out
+  after three days. Offline checks: 40 requests got 40 seeds; a folder from the old scheme is
+  refused before any request.

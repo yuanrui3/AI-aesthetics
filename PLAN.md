@@ -275,6 +275,22 @@ sign statistic cannot be compared across readouts.
 - **What had been seen when this was written:** only the run's progress lines (request
   counts). No line of `runs/nvidia-test` had been read.
 
+**Second amendment before any result is opened (2026-11-18): one seed per request.** The
+first test run sent seed = pass number with every request in a pass. A server that seeds each
+request's sampler from the request seed, as vLLM does, would then decide every reply in a pass
+with the same random draw: one shared threshold on the letter log-odds instead of independent
+samples. Each reply would keep the right probability, but the whole run would rest on three
+random numbers, and intervals over pairs would be far too narrow. The research report
+(`reports/VLM aesthetic preference measurement methods.md`) flagged this from the code.
+- **New scheme:** every request carries its own seed, the first 31 bits of SHA-256 of
+  `<trial_id>|s=<pass>`. Draws stay independent, and the run is reproducible wherever the
+  server honours seeds.
+- **The partial run under the old scheme** (Gemma 4 31B, pass 1, about 1,400 replies) moves
+  unopened to `runs/nvidia-test-seedcoupled/`. It is not analysed. Whether NVIDIA honours seeds
+  can be checked later on dev, not on these replies.
+- The runner refuses to resume a folder written under another seed scheme. `FROZEN_API.json`
+  is re-frozen at the new commit. Nothing else in the design changes.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

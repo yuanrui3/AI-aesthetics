@@ -16,6 +16,7 @@ directly:   .\\.venv\\Scripts\\python.exe scripts/run_api.py probe gemma-4-31b m
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import random
 import sys
@@ -79,9 +80,24 @@ def done_ids(path) -> set[str]:
     return ids
 
 
-def record(t, model: str, s: int, out: dict) -> dict:
+SEED_SCHEME = "sha256-31"
+
+
+def request_seed(trial_id: str, s: int) -> int:
+    """A seed of its own for every request: the first 31 bits of SHA-256 of '<trial_id>|s=<pass>'.
+
+    The first version sent seed = pass number with every request in a pass. A server that seeds
+    each request's sampler from the request seed (vLLM does) would then draw the same random
+    numbers for every request, so all replies in a pass would be decided by one shared threshold
+    instead of independent draws. Per-request seeds keep the draws independent and the run
+    reproducible wherever the server honours seeds."""
+    digest = hashlib.sha256(f"{trial_id}|s={s}".encode("utf-8")).digest()
+    return int.from_bytes(digest[:4], "big") & 0x7FFFFFFF
+
+
+def record(t, model: str, s: int, out: dict, seed: int) -> dict:
     return {
-        "trial_id": f"{t.trial_id}|s={s}", "base_trial_id": t.trial_id, "sample": s, "seed": s,
+        "trial_id": f"{t.trial_id}|s={s}", "base_trial_id": t.trial_id, "sample": s, "seed": seed,
         "pair_id": t.pair_id, "experiment": t.experiment, "task": t.task, "framing": t.framing,
         "layout": t.layout, "first": t.first, "labels": list(t.labels), "answers": list(t.answers),
         "prompt_version": t.prompt_version, "model": model, "model_id": api.MODELS[model]["id"],
@@ -106,8 +122,9 @@ def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, lo
     def one(t):
         if stop.is_set():
             return
+        seed = request_seed(t.trial_id, s)
         try:
-            out = api.answer(client, model, t, seed=s)
+            out = api.answer(client, model, t, seed=seed)
         except api.Transient as e:
             with lock:
                 status["transient_run"] += 1
@@ -129,7 +146,7 @@ def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, lo
             stop.set()
             return
         with lock:
-            f.write(json.dumps(record(t, model, s, out), sort_keys=True) + "\n")
+            f.write(json.dumps(record(t, model, s, out, seed), sort_keys=True) + "\n")
             f.flush()
             status["n"] += 1
             status["transient_run"] = 0
@@ -273,7 +290,7 @@ def cmd_probe(a) -> int:
                         print("The key was refused. Nothing else will work with it, so stopping here.", flush=True)
                         return code
                     break  # this model fails; still try the next one
-                f.write(json.dumps(record(t, model, 1, out), sort_keys=True) + "\n")
+                f.write(json.dumps(record(t, model, 1, out, 1), sort_keys=True) + "\n")
                 print(f"{t.experiment:11s} {t.task:8s} {out['seconds']:5.1f}s  {str(out['choice']):4s} "
                       f"{out['reply']!r:40.40}  finish={out['finish_reason']}  "
                       f"tokens={(out['usage'] or {}).get('prompt_tokens')}  served={out['served_model']}  "
@@ -303,8 +320,16 @@ def cmd_run(a) -> int:
         print("Name a model, or --all.", file=sys.stderr)
         return 2
     trials = trials_for(a.split)[: a.limit or None]
-    client = api.Client(rpm=a.rpm)
     tag = f"nvidia-{a.split}"
+    for m in models:  # never resume into replies drawn under another seed scheme
+        old = ROOT / "runs" / tag / m
+        if (old / "results.jsonl").exists() and (old / "results.jsonl").stat().st_size > 0:
+            scheme = json.loads((old / "run.json").read_text(encoding="utf-8")).get("seed_scheme") if (old / "run.json").exists() else None
+            if scheme != SEED_SCHEME:
+                print(f"Refusing: {old} holds replies drawn with seed scheme {scheme or 'pass-number'}, not {SEED_SCHEME}. "
+                      "Move that folder aside before running.", file=sys.stderr)
+                return 2
+    client = api.Client(rpm=a.rpm)
     for s in range(1, passes + 1):
         for m in models:
             run_dir = ROOT / "runs" / tag / m
@@ -312,7 +337,8 @@ def cmd_run(a) -> int:
             (run_dir / "run.json").write_text(json.dumps({
                 "model": m, "model_id": api.MODELS[m]["id"], "endpoint": api.ENDPOINT, "sampling": api.SAMPLING,
                 "extra": api.MODELS[m]["extra"], "parse_version": api.PARSE_VERSION, "prompt_version": PROMPT_VERSION,
-                "split": a.split, "passes": passes, "n_presentations": len(trials), "order_seed": ORDER_SEED, **meta,
+                "split": a.split, "passes": passes, "n_presentations": len(trials), "order_seed": ORDER_SEED,
+                "seed_scheme": SEED_SCHEME, **meta,
             }, indent=2, sort_keys=True), encoding="utf-8")
             why = run_pass(client, m, trials, s, run_dir, workers=a.workers)
             if why == "rate_limited":

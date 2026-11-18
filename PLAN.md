@@ -203,7 +203,10 @@ effects the local models (5B parameters or smaller) did not?
 - These feed the same functions in `src/aesx/analysis.py` and `src/aesx/effects.py` as the
   local models, with the same cluster bootstrap.
 - A pair whose mean log-odds is exactly 0 counts as one half, not as "not chosen". Ties are
-  common with sampled replies; with log-probabilities they never occur.
+  common with sampled replies. *Correction, 2026-11-18:* this first said ties never occur
+  with log-probabilities. They are rare but do occur: identical letter log-probabilities at
+  bfloat16 precision, up to 101 of 3,848 pairs for one local model. The main report counts
+  them as "not chosen", as pre-registered.
 
 **Rules, as for the local models.**
 - The visibility rule applies unchanged.
@@ -253,6 +256,24 @@ changes a number or verdict in `reports/main.md`.
   and Nemotron 3.5 Super VL. The parse rule, wording, images and sampling are unchanged.
 - **Rate limits:** no rate-limit headers were returned, so any daily cap is unknown. The run
   stops cleanly on persistent 429s and resumes later.
+
+**Amendment before any result is opened (2026-11-18, during pass 1).** The pre-registered
+sign statistic cannot be compared across readouts.
+- `reports/readout_math.md` simulates this addendum's sampled readout on the local models'
+  own answer probabilities. For the four models with an E2 lean it gives .52 to .57, where
+  their log-probability sign statistic gave .58 to .77.
+- All three statistics are points on one curve, Φ(μ/√(τ² + s²)), that differ only in the
+  noise `s` the readout adds. With three samples a pair's spread τ cannot be recovered, so
+  the share of pairs on each side cannot be estimated from samples at all.
+- **Added:** `P_cells`, the proportion of all replies choosing the reference over the
+  counterbalanced presentations, with the same cluster bootstrap. It estimates the same
+  quantity as the local models' mean answer probability over presentations, and it has the
+  form of the published human choice proportions.
+- **Comparisons** with the local models and with human proportions use `P_cells`.
+- **The sign statistic** and the P2, P3, P4 and P6 verdicts above are still computed and
+  reported. They are labelled as not comparable with the local models' sign statistic.
+- **What had been seen when this was written:** only the run's progress lines (request
+  counts). No line of `runs/nvidia-test` had been read.
 
 ## Freeze checklist
 

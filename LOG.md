@@ -284,3 +284,17 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   questions each with a bare letter or Yes/No. Details in `PLAN.md`. Two failed attempts
   before this came from the key paste (once empty, once three copies), not from the models.
   The probe now checks the paste and stops at once if the key is refused.
+- **NVIDIA test run started, 2026-11-18 22:26 UTC.** Pass 1 began with Gemma, at the intended
+  35 requests a minute. Only request counts have been looked at.
+- **Readout mathematics, `reports/readout_math.md` (exploratory, post hoc; owner asked for a
+  mathematical analysis).** It uses only the local test runs.
+  - One formula, Φ(μ/√(τ² + s²)), fits the three readouts, which differ only in the noise
+    `s` each adds.
+  - P2's three "supported" verdicts measure consistency across pairs. As choice proportions,
+    the form of the human data, those models are .514 to .520, inside the human band.
+  - `reports/main.md` is unchanged; whether to add a note there is the owner's call.
+- **NVIDIA plan amended before any result was read.** The sampled sign statistic cannot be
+  compared with the local one: it would sit near .5 for the same model. `P_cells`, the
+  proportion of replies choosing the reference, was added for comparisons. The PLAN text's
+  claim that log-probability ties never occur was corrected: they occur rarely, at bfloat16
+  precision.

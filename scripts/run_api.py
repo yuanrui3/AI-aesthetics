@@ -1,7 +1,7 @@
 """NVIDIA addendum: run the frozen two-image trials on hosted models (PLAN.md, "NVIDIA addendum").
 
     uv run python scripts/run_api.py dry-run                          # counts, payload sizes, time; no network, no key
-    uv run python scripts/run_api.py probe gemma-4-31b                # a few dev presentations, replies printed
+    uv run python scripts/run_api.py probe gemma-4-31b mistral-large-4   # a few dev presentations each, replies printed
     uv run python scripts/run_api.py run gemma-4-31b --split dev --limit 40
     uv run python scripts/run_api.py run --all --split test           # the addendum run, as FROZEN_API.json fixes it
 
@@ -9,7 +9,9 @@ Results: runs/nvidia-<split>/<model>/results.jsonl, one line per (presentation, 
 flushed as it goes. Re-running the same command skips what is done, so a run stopped at any point
 (Ctrl+C, a daily request cap, a reboot) resumes where it stopped.
 
-The key is read from NVIDIA_API_KEY in the environment and never printed or stored.
+The key is read from NVIDIA_API_KEY, or asked for at a hidden prompt, and never printed or stored.
+In a plain terminal, where the project's PowerShell scripts may be blocked, run the venv's Python
+directly:   .\\.venv\\Scripts\\python.exe scripts/run_api.py probe gemma-4-31b mistral-large-4
 """
 from __future__ import annotations
 
@@ -190,21 +192,33 @@ def cmd_probe(a) -> int:
             if len(picked[(t.experiment, t.task)]) < a.per_cell:
                 picked[(t.experiment, t.task)].append(t)
     trials = [t for v in picked.values() for t in v][: a.n]
+    unknown = [m for m in a.models if m not in api.MODELS]
+    if unknown:
+        print(f"Unknown model(s): {', '.join(unknown)}. Known: {', '.join(api.MODELS)}", file=sys.stderr)
+        return 2
     client = api.Client(rpm=a.rpm)
-    run_dir = ROOT / "runs" / "nvidia-probe" / a.model
-    run_dir.mkdir(parents=True, exist_ok=True)
-    with (run_dir / "results.jsonl").open("a", encoding="utf-8", newline="\n") as f:
-        for t in trials:
-            try:
-                out = api.answer(client, a.model, t, seed=1)
-            except (api.Fatal, api.RateLimited, api.Transient) as e:
-                print(f"[{type(e).__name__}] {t.trial_id}: {e}")
-                return 3
-            f.write(json.dumps(record(t, a.model, 1, out), sort_keys=True) + "\n")
-            print(f"{t.experiment:11s} {t.task:8s} {out['seconds']:5.1f}s  {str(out['choice']):4s} "
-                  f"{out['reply']!r:40.40}  finish={out['finish_reason']}  tokens={(out['usage'] or {}).get('prompt_tokens')}"
-                  f"  served={out['served_model']}  limits={out['limits']}")
-    return 0
+    code = 0
+    for model in a.models:
+        print(f"\n=== probe {model} ({api.MODELS[model]['id']}): {len(trials)} dev presentations ===", flush=True)
+        run_dir = ROOT / "runs" / "nvidia-probe" / model
+        run_dir.mkdir(parents=True, exist_ok=True)
+        with (run_dir / "results.jsonl").open("a", encoding="utf-8", newline="\n") as f:
+            for t in trials:
+                try:
+                    out = api.answer(client, model, t, seed=1)
+                except (api.Fatal, api.RateLimited, api.Transient) as e:
+                    print(f"[{type(e).__name__}] {t.trial_id}: {e}", flush=True)
+                    code = 3
+                    if isinstance(e, api.RateLimited):
+                        return code
+                    break  # this model fails; still try the next one
+                f.write(json.dumps(record(t, model, 1, out), sort_keys=True) + "\n")
+                print(f"{t.experiment:11s} {t.task:8s} {out['seconds']:5.1f}s  {str(out['choice']):4s} "
+                      f"{out['reply']!r:40.40}  finish={out['finish_reason']}  "
+                      f"tokens={(out['usage'] or {}).get('prompt_tokens')}  served={out['served_model']}  "
+                      f"limits={out['limits']}", flush=True)
+    print("\nProbe finished. Tell Claude it is done.", flush=True)
+    return code
 
 
 def cmd_run(a) -> int:
@@ -257,7 +271,7 @@ def main() -> int:
     d.add_argument("--split", default="test", choices=["dev", "test"])
     d.add_argument("--rpm", type=float, default=35)
     p = sub.add_parser("probe")
-    p.add_argument("model", choices=sorted(api.MODELS))
+    p.add_argument("models", nargs="+", help=f"one or more of: {', '.join(api.MODELS)}")
     p.add_argument("--per-cell", type=int, default=2)
     p.add_argument("--n", type=int, default=30)
     p.add_argument("--rpm", type=float, default=20)

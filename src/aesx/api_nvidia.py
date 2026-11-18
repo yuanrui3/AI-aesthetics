@@ -5,8 +5,9 @@ trials: same images, wording and counterbalancing. Only the readout differs from
 models: the hosted endpoints return no log-probabilities, so each presentation is answered
 once per pass with sampling at temperature 1, and the parsed replies are counted.
 
-The API key is read from the NVIDIA_API_KEY environment variable. It is kept in memory for the
-request header only, and is never printed, logged or written anywhere.
+The API key is read from the NVIDIA_API_KEY environment variable, or, if that is not set, from
+a hidden prompt. It is kept in memory for the request header only, and is never printed,
+logged or written anywhere.
 
 Standard library only, so the frozen lockfile is untouched.
 """
@@ -16,6 +17,7 @@ import base64
 import json
 import os
 import re
+import sys
 import threading
 import time
 import urllib.error
@@ -133,12 +135,42 @@ class RateLimiter:
             self.next = max(self.next, time.monotonic() + seconds)
 
 
+def _console() -> bool:
+    """True only for a real interactive console. On Windows the null device also reports isatty(),
+    so ask the console API as well; a script with no console must exit, not hang at a prompt."""
+    if sys.stdin is None or not sys.stdin.isatty():
+        return False
+    if os.name != "nt":
+        return True
+    import ctypes
+    import msvcrt
+
+    try:
+        handle = msvcrt.get_osfhandle(sys.stdin.fileno())
+    except OSError:
+        return False
+    mode = ctypes.c_uint32()
+    return bool(ctypes.windll.kernel32.GetConsoleMode(handle, ctypes.byref(mode)))
+
+
+def read_key() -> str:
+    """NVIDIA_API_KEY if set; otherwise a hidden prompt (nothing echoed, nothing saved to shell
+    history). Either way the key lives in this process's memory only."""
+    key = os.environ.get(KEY_ENV, "").strip()
+    if not key and _console():
+        import getpass
+
+        key = getpass.getpass("Paste your NVIDIA API key (nothing will show as you paste), then press Enter: ").strip()
+    if not key:
+        raise SystemExit(f"No key: set {KEY_ENV}, or run this in a terminal so it can ask for the key.")
+    if not key.startswith("nvapi-"):
+        print("Note: that does not look like an NVIDIA key (they start with 'nvapi-'). Trying it anyway.", flush=True)
+    return key
+
+
 class Client:
     def __init__(self, rpm: float = 35, timeout: float = 120, max_429_wait: float = 1800, endpoint: str = ENDPOINT):
-        key = os.environ.get(KEY_ENV, "").strip()
-        if not key:
-            raise SystemExit(f"Set {KEY_ENV} in this shell first. It is read from the environment and never stored.")
-        self._auth = "Bearer " + key
+        self._auth = "Bearer " + read_key()
         self.endpoint = endpoint
         self.limiter = RateLimiter(rpm)
         self.timeout = timeout

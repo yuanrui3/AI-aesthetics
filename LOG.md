@@ -269,3 +269,12 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **Offline checks passed** against a local mock server, stopped afterwards: 20 reply-parsing
   cases, 429 and 500 retries, resume without duplicates, and the key absent from the
   output. No request has gone to NVIDIA.
+- **The key is now asked for at a hidden prompt when `NVIDIA_API_KEY` is not set**, and the
+  probe takes both models in one command. Reasons:
+  - The owner's terminal blocks PowerShell scripts, so `scripts\env.ps1` cannot run there.
+    Commands use `.venv\Scripts\python.exe` directly.
+  - A PowerShell line for setting the key was easy to get wrong. On the first try the key
+    went into the command line, and so onto the screen and into shell history. The owner was
+    asked to revoke it. It never reached a project file, and no request was sent with it.
+  - The prompt appears only in a real console. Without one, the script exits rather than
+    hanging.

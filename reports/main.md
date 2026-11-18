@@ -1,8 +1,7 @@
 # Do vision-language models share people's compositional preferences?
 
-**Status: Gate 3 draft, 2026-11-17.**
-- **Main run:** complete for all seven models.
-- **Wording check:** still running; its section will be added when it finishes.
+**Status: Gate 3 draft, 2026-11-18.**
+- **Complete:** the main run and the wording check.
 - **Written before the test results were opened:** the methods, the limitations and the
   prediction criteria.
 
@@ -21,12 +20,16 @@ Each model is a single observer, and the intervals are 95% intervals over stimul
   - Three are at zero.
   - Gemma 4 E2B prefers the *unbalanced* layouts: +.45 [+.24, +.64].
   - None is stronger than individual people (P6 not supported for any).
+  - Qwen's correlation survives rewording: on the dev pairs it is −.69 to −.79 under all four
+    wordings of the question.
   - No model shows it in both layouts. Side by side, the three that lean the human way
     lose it: Qwen falls to −.17 with an interval that includes zero, and MiniCPM-V and North
     Micro turn positive. Two that showed nothing with two images gain it side by side:
     SmolVLM2 (−.40) and Qwen3.5-4B (−.32).
 - **Inward bias (E3).** People choose the inward-facing view of an object .74 of the time.
   Every model is at chance (.46 to .54), under both framings (P3 not supported for any).
+  Rewording does not produce it either: of 28 model-and-wording cells on dev, one shows an
+  inward preference (SmolVLM2 under "prefer", .67), and several lean outward.
 
 **2. In the contested null (E2), half the models prefer balance more than people do.**
 - People chose the balanced picture .53 of the time, not above chance.
@@ -42,6 +45,11 @@ Each model is a single observer, and the intervals are 95% intervals over stimul
 - In all seven models the preference for the balanced picture is higher at a 135 px shift
   than at 45 px. At 45 px, Qwen3.5-4B prefers the shifted picture: .27.
 - This is the direction the brief predicted, but in only half the models.
+- **Only North Micro's result survives rewording.** It prefers the balanced picture under
+  all four wordings on dev (.81 to .97). The rule set in advance marks the other two as
+  wording-dependent:
+  - MiniCPM-V's falls from .69 under the frozen wording to .41–.47 under the other three.
+  - Qwen3.5-4B's stays between .62 and .69, but under "prefer" its interval reaches .50.
 
 **3. Two simpler effects are reproduced by most models.**
 - **Centre over quarter line** for symmetrical objects (E3): six of seven models, .75 to
@@ -76,7 +84,7 @@ Each model is a single observer, and the intervals are 95% intervals over stimul
 | | Prediction | Result |
 |---|---|---|
 | P1 | Small models: position bias larger than any aesthetic effect | 2 of 5 as committed (SmolVLM2, North Micro); 14 of 20 experiment cells post hoc |
-| P2 | E2: models prefer balance more than people | 3 of 6 testable supported; 1 reversed; 2 inconclusive; Gemma cannot see |
+| P2 | E2: models prefer balance more than people | 3 of 6 testable supported, of which only North Micro survives rewording; 1 reversed; 2 inconclusive; Gemma cannot see |
 | P3 | Mirror flips: stronger under "most people" | 0 of 7 |
 | P4 | Effects grow with dose like people's | E1: 1 of 7 (Qwen3.5-0.8B; reversed in Gemma). E3: 0 of 7. E4: 0 of 7 (reversed in 3) |
 | P5 | Smallest models fail on the subtlest manipulations | Not supported: both see them |
@@ -99,11 +107,41 @@ Both are logged in `LOG.md`; neither changes a committed criterion.
    - The committed verdict is reported as it is.
    - A per-experiment comparison is shown beside it and labelled post hoc.
 
-### Wording check
+### Wording check (exploratory)
 
-*Running; to be added.* The seven models answer the dev pairs of E1 to E3 under four
-wordings of the question (`PLAN.md`). This section will say which of the results above
-survive a rewording.
+The seven models answered every dev pair of E1 to E3 under four wordings: "more pleasing to
+look at" (the frozen one), "like more", "more beautiful" and "prefer". All tables are in
+`reports/wording_check.md`. The design and rules were set in `PLAN.md` before the run.
+
+**What survives a rewording** (the "you" framing; each model, experiment and wording is
+classed consistent, null throughout, mixed or reversed):
+
+| | Consistent across all four wordings | Null throughout | Mixed (wording-dependent) |
+|---|---|---|---|
+| E1 balance | Qwen3.5-0.8B (r −.69 to −.79); Gemma and InternVL, both *against* balance | MiniCPM-V, North Micro, SmolVLM2 | Qwen3.5-4B |
+| E2 two objects | North Micro (.81 to .97) | Gemma, Qwen3.5-0.8B, SmolVLM2 | MiniCPM-V, InternVL, Qwen3.5-4B |
+| E3 inward bias | none | Gemma, InternVL, Qwen3.5-4B | MiniCPM-V, North Micro, Qwen3.5-0.8B, SmolVLM2 (all near or below .50 except SmolVLM2 under "prefer") |
+
+No cell is *reversed*: no model shows a clear effect in one direction under one wording and
+the other direction under another. The wordings move effects in and out of significance;
+they do not flip them.
+
+**Other results:**
+- **Pairs rank alike across wordings.** Pair-level preferences under each new wording
+  correlate .70 to .98 with the frozen wording, in every model but one. That model is
+  SmolVLM2: .0 to .4, because its preferences are tiny (spread 0.03 log-odds) and mostly
+  noise.
+- **Position bias moves with the wording too.** Gemma 4's E1 bias is +1.47, +0.15, +1.93 and
+  −0.05 log-odds under the four wordings.
+- **Repeatability.** All 7,392 pilot trials that the check repeated (1,056 per model) came
+  out bit-identical, with a largest difference of 0.0000 log-odds. So the driver update
+  between the pilot and the main run moved no score.
+
+**Caveats.**
+- Dev has 8 E1 families against 20 on test, so the dev intervals are wider.
+- Dev and test can disagree. InternVL's E1 correlation is +.40 on dev against −.08 on test.
+  MiniCPM-V's test lean toward balance (−.37) does not appear on dev under any wording.
+  The wording check speaks to the wording, not to every number in the main run.
 
 ## One figure per experiment
 

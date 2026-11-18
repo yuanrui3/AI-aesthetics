@@ -1,0 +1,30 @@
+{
+  "check": "wording",
+  "head_at_run": "41d4e6c5e9a956ebfe5ffdadb98912989201b79b",
+  "model": {
+    "commit": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+    "dtype": "bfloat16",
+    "family": "Gemma (Google)",
+    "licence": "Apache-2.0",
+    "load_seconds": 17.7,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "gemma-4-e2b",
+    "params_M": 5104.3,
+    "params_b": 5.12,
+    "processor_kwargs": {},
+    "repo": "google/gemma-4-E2B-it",
+    "revision_requested": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 9664,
+  "split": "dev",
+  "tag": "wording",
+  "wordings": {
+    "beautiful": "v1-beautiful",
+    "like": "v1-like",
+    "pleasing": "v1",
+    "prefer": "v1-prefer"
+  }
+}

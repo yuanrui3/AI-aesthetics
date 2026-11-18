@@ -1,0 +1,30 @@
+{
+  "check": "wording",
+  "head_at_run": "41d4e6c5e9a956ebfe5ffdadb98912989201b79b",
+  "model": {
+    "commit": "be92141c8d0ceb98596a923c308ac2bbb4a7c466",
+    "dtype": "bfloat16",
+    "family": "SmolVLM (Hugging Face)",
+    "licence": "Apache-2.0",
+    "load_seconds": 14.8,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "smolvlm2-2.2b",
+    "params_M": 2246.8,
+    "params_b": 2.25,
+    "processor_kwargs": {},
+    "repo": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+    "revision_requested": "be92141c8d0ceb98596a923c308ac2bbb4a7c466",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 9664,
+  "split": "dev",
+  "tag": "wording",
+  "wordings": {
+    "beautiful": "v1-beautiful",
+    "like": "v1-like",
+    "pleasing": "v1",
+    "prefer": "v1-prefer"
+  }
+}

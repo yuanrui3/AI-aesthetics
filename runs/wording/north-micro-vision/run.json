@@ -1,0 +1,30 @@
+{
+  "check": "wording",
+  "head_at_run": "41d4e6c5e9a956ebfe5ffdadb98912989201b79b",
+  "model": {
+    "commit": "fa548d9aa62c1220bfd21fc6cfc465f1bd2a1a40",
+    "dtype": "bfloat16",
+    "family": "North (Cohere)",
+    "licence": "Apache-2.0",
+    "load_seconds": 10.1,
+    "model_class": "AutoModelForImageTextToText",
+    "name": "north-micro-vision",
+    "params_M": 2484.8,
+    "params_b": 2.48,
+    "processor_kwargs": {},
+    "repo": "CohereLabs/North-Micro-Vision-Instruct",
+    "revision_requested": "fa548d9aa62c1220bfd21fc6cfc465f1bd2a1a40",
+    "template_kwargs": {},
+    "torch": "2.15.0+cu132",
+    "transformers": "5.23.0"
+  },
+  "n_trials": 9664,
+  "split": "dev",
+  "tag": "wording",
+  "wordings": {
+    "beautiful": "v1-beautiful",
+    "like": "v1-like",
+    "pleasing": "v1",
+    "prefer": "v1-prefer"
+  }
+}

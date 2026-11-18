@@ -230,6 +230,15 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   signed position bias over E1 to E4, so opposite-signed biases cancel. InternVL's are
   -1.6, +0.3, +2.1 and -0.2, which average +0.09. A per-experiment comparison ("P1b") is
   added beside it, labelled post hoc; the committed verdict stands as the P1 result.
+- **Wording check complete, 2026-11-18 00:50** (370 minutes, one model at a time, no
+  failures).
+  - Each of the seven models has 9,664 trials.
+  - The 1,056 pilot trials it repeated per model are bit-identical, so the driver update
+    moved no score.
+  - Applying the rule in `PLAN.md`: E2 is wording-dependent for MiniCPM-V, InternVL and
+    Qwen3.5-4B, and consistent for North Micro. E1 is consistent for Qwen3.5-0.8B. No cell
+    reversed.
+  - Written into `reports/main.md`.
 - **Figures: label boxes made opaque** (they were 90% opaque, and the dashed human line
   showed through the E2 label). `report_figures.py`'s docstring named a `--split` option it
   does not have; corrected.

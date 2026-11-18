@@ -22,6 +22,10 @@ it reports
   glmm_k3   P_sign recovered from one simulated k = 3 sample set by a random-intercept logistic
             model, Phi(mu/tau): can sampled answers be put back on the log-probability scale?
   bias      median |position bias| (log-odds) over the subset's pairs
+  sd_order, sd_letter, sd_inter
+            spread over pairs of the order, letter and order-x-letter contrasts of the four cells;
+            under a bias that depends only on order and letters the first two are constant and the
+            third is 0, so sd_inter is a noise floor to set beside sd_pref
 
     uv run python scripts/readout_math.py          -> reports/readout_math.csv
 """
@@ -114,6 +118,13 @@ def main() -> int:
                 "normal": float(stats.norm.cdf(pref.mean() / pref.std(ddof=1))),
                 "mean_pref": float(pref.mean()), "sd_pref": float(pref.std(ddof=1)),
                 "bias": float(np.median(np.abs(c["lo_first"].mean(axis=1)))),
+                # The four cells split into four orthogonal contrasts: preference d_i (mean), order
+                # b_i, letter a_i and their interaction. Under any bias that depends only on order and
+                # letters, b_i and a_i are the same for every pair and the interaction is exactly 0.
+                "sd_order": float((lo * o).mean(axis=1).std(ddof=1)),
+                "sd_letter": float((lo * g).mean(axis=1).std(ddof=1)),
+                "sd_inter": float((lo * o * g).mean(axis=1).std(ddof=1)),
+                "mean_inter": float((lo * o * g).mean(axis=1).mean()),
             }
             for kk in (1, 2, 3):
                 s = sampled_sign(lo, kk, rng)

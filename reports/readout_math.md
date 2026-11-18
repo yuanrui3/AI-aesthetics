@@ -34,7 +34,15 @@ It changes no pre-registered number or verdict in `reports/main.md`.
    recovered from a few samples. A random-effects fit returns 0 or 1 because τ is not
    identifiable. The proportion of choices can be estimated from either readout.
    `PLAN.md` was amended on this point before any NVIDIA result was read.
-6. **P6 cannot separate "more textbook than people" from "no response noise".** A model read
+6. **The bias is not purely additive, and much of the pair-to-pair spread is readout noise.**
+   The fourth contrast of the 2 × 2 design must be 0 under any bias that depends only on
+   order and letters, and it is not for any model. Its spread is a noise floor.
+   - **SmolVLM2:** the floor equals the whole spread of its pair preferences, so its pairs
+     differ by noise alone.
+   - **North Micro (E2) and Gemma 4 E2B (E2):** most of the spread is noise.
+   - **Qwen3.5-0.8B (E1):** the spread is more than twice the floor. Its balance correlation
+     reflects real pair-to-pair differences.
+7. **P6 cannot separate "more textbook than people" from "no response noise".** A model read
    by log-probabilities is a rater without trial-to-trial noise. Any human-like rater
    without that noise would beat the individual-rater benchmark. The discriminating test is
    a model correlation beyond the *aggregate* human correlation (about −.87).
@@ -59,6 +67,40 @@ cancel. It *attenuates* the preference: the mean probability over cells is
 Gemma's median absolute position bias over its E2 pairs is 3.45 log-odds. At that size the
 local slope is σ′(3.45)/σ′(0) ≈ 0.12 of the bias-free slope. In the data, Gemma's E2 proportion of choices with bias removed
 is .532, against .521 with bias included.
+
+### Is the bias additive? A noise floor from the fourth contrast
+
+The four cells of a pair split into four orthogonal contrasts: preference dᵢ (mean), order
+(× oᵢⱼ), letter (× gᵢⱼ), and order × letter (× oᵢⱼgᵢⱼ). If bias depends only on order and
+letters, the order and letter contrasts are the same for every pair and the interaction is
+exactly 0. This check was suggested by the position-bias literature notes in
+`research_notes/`.
+
+If each cell instead carries independent non-additive noise of SD σ, every contrast carries
+noise of SD σ/2. The interaction's spread then estimates the noise in dᵢ, and the true spread
+across pairs is τ_true² ≈ τ² − sd_inter².
+
+| Model, subset | Spread of dᵢ (τ) | Interaction spread (noise floor) | τ_true |
+|---|---|---|---|
+| SmolVLM2-2.2B, E2 | 0.030 | 0.035 | ≈ 0 |
+| North Micro, E2 | 0.096 | 0.079 | 0.054 |
+| Gemma 4 E2B, E2 | 0.756 | 0.715 | 0.24 |
+| MiniCPM-V, E1 | 0.694 | 0.333 | 0.61 |
+| Qwen3.5-0.8B, E1 | 0.133 | 0.058 | 0.12 |
+
+All 21 cells are in `readout_math.csv` (columns `sd_order`, `sd_letter`, `sd_inter`).
+
+Two consequences:
+
+1. **What P_sign measures.** P_sign = Φ(μ/τ) is the mean lean divided by a spread that is
+   partly readout noise. With the noise removed, North Micro's E2 value would be
+   Φ(0.073/0.054) ≈ .91. Its small lean really is consistent across pairs. For SmolVLM2,
+   there is no pair-level signal at all: its E2 P_sign of .63 is a mean of 0.006 log-odds
+   set against noise.
+2. **The 2 × 2 average still removes the format-only part of the bias.** What remains is
+   noise of known size per model, not a systematic error. The asymmetric content-dependent
+   bias that would be confused with preference ("this image gains only when shown first")
+   cannot be detected from these four cells.
 
 ## 2. Three statistics for "P(reference chosen)"
 

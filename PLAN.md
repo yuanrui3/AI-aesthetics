@@ -157,6 +157,85 @@ as the main analysis):
   the "you" framing.
 - No test-split number is recomputed or replaced.
 
+## NVIDIA addendum (exploratory; added 2026-11-18, after Gate 3, before any API request)
+
+Chosen by the owner on 2026-11-18 ("NVIDIA free API"). This is the brief's Tier 2 clause on
+other vendors' official free tiers that need no payment card. Spend: zero. The owner signs
+up and sets the key; the key is read from `NVIDIA_API_KEY` and never stored.
+
+**Question.** On the same frozen stimuli and wording, do much larger models show the
+effects the local models (5B parameters or smaller) did not?
+- Gemma 4 31B is the same family as the local Gemma 4 E2B, so it changes size within a
+  family.
+- Mistral Large 4 (about 1T parameters, 52B active) is the largest free endpoint that takes
+  several images.
+
+**Models.**
+- `google/gemma-4-31b-it`, thinking off.
+- `mistralai/mistral-large-4-1t-a52b`, reasoning off.
+- Reserve: `nvidia/nemotron-3.5-super-vl-120b-a12b` (early access). It is used only if a
+  primary model is unavailable or fails the probe, decided before any test request.
+- Hosted models cannot be pinned. The served model name, dates and request settings are
+  recorded with every reply.
+
+**Design.**
+- The test split, two-image layout, all five experiments.
+- Preference under both framings, E4's weight question, and same/different: 23,012
+  presentations per model, with the v1 wording unchanged.
+- There is no "Answer:" reply prefix, because an API cannot start the model's reply. The
+  frozen instruction ("Answer with one letter only: A or B.") carries the format.
+- Pairs run in a fixed random order (seed 0), with all of a pair's presentations together,
+  so an unfinished pass is a random subset of whole pairs.
+
+**Readout (samples, as planned for API models).**
+- One reply per presentation per pass: temperature 1, top_p 1, at most 16 tokens, seed
+  equal to the pass number.
+- Replies are parsed by rule p1 (`src/aesx/api_nvidia.py`): after leading markdown, an
+  optional "Answer:" and an optional "Image", the reply must open with one of the two
+  permitted answers. Anything else is off-menu.
+- Up to three passes, each run for both models before the next begins.
+- The analysis uses the passes complete for both models when running stops. Running stops
+  only for time or the service. No result is opened, and no report script is run on these
+  data, until it has stopped.
+
+**Scoring.** Per presentation with `k` passes and `c` replies for each answer:
+- `lp = log((c + 1/2) / (k + 1))` for each answer, and `mass = (c_first + c_second) / k`.
+- These feed the same functions in `src/aesx/analysis.py` and `src/aesx/effects.py` as the
+  local models, with the same cluster bootstrap.
+- A pair whose mean log-odds is exactly 0 counts as one half, not as "not chosen". Ties are
+  common with sampled replies; with log-probabilities they never occur.
+
+**Rules, as for the local models.**
+- The visibility rule applies unchanged.
+- The refusal rule for API models (`PLAN.md` above): more than a fifth of preference replies
+  off-menu means the model is reported as refusing and not scored.
+- Statistics and human comparisons are those of `docs/experiments.md`.
+- P2, P3, P4 and P6 are decided by the rules above. P1 and P5 concern small models and do
+  not apply.
+
+**Probe first, on dev.** Before any test request, up to 30 dev presentations per model
+check plumbing only:
+- that two images are accepted;
+- that replies parse;
+- the request rate and any daily cap.
+
+The probe may change only the parse rule (for reply formats it shows), the request rate, or
+swap a primary model for the reserve. It never changes wording, images or sampling
+settings. Then `FROZEN_API.json` records the commit, models and passes, and test runs refuse
+if `src/aesx/api_nvidia.py` or `scripts/run_api.py` differs from it.
+
+**NVIDIA's trial terms** (API Trial Terms of Service, read 2026-11-18):
+- The service is for trial, testing and evaluation, not production (1.2, 1.4).
+- NVIDIA may use inputs and outputs to improve its products (3.3). The stimuli are
+  synthetic.
+- Generated content is not to be distributed (4.2). Raw replies stay in this local repo,
+  and the report gives aggregates.
+- NVIDIA may change or withdraw a model at any time (8). A model withdrawn mid-run is
+  reported as incomplete, and nothing substitutes for it after the first test request.
+
+**How it is used.** As a separate addendum report (`reports/nvidia_addendum.md`). It never
+changes a number or verdict in `reports/main.md`.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

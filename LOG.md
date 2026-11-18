@@ -245,3 +245,27 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **Gate 3 approved by the owner, 2026-11-18.** `reports/main.md` is marked approved and is
   otherwise unchanged. Still open: Tier 2 waits on the owner confirming API credit, and
   nothing has been spent. The repo has no remote and nothing has been pushed.
+- **NVIDIA addendum chosen by the owner, 2026-11-18** ("NVIDIA free API"), after a survey of
+  free tiers. Reasons:
+  - Gemini's free tier allows about 500 requests a day and is losing log-probabilities.
+  - OpenRouter allows 50 a day without a purchase.
+  - GitHub Models has been retired.
+  - NVIDIA's free endpoints allow about 40 a minute with no card.
+- **Models: Gemma 4 31B and Mistral Large 4, with Nemotron 3.5 Super VL in reserve.**
+  - Gemma 4 31B changes size within a family the main run already has.
+  - Mistral Large 4 is the largest free endpoint that takes several images.
+  - Nemotron is early access and more likely to be withdrawn.
+  - The 122B Qwen3.5 would have matched two local models but is not a free endpoint.
+- **Readout: sampled replies, three passes at temperature 1.** Neither endpoint documents
+  log-probabilities, and `PLAN.md` already fixed samples for API models. Passes, rather than
+  three requests in a row, mean an unfinished run still covers every pair once.
+- **Client uses the standard library only** (`urllib`). A new dependency would change the
+  frozen `uv.lock` and lock out every test command.
+- **NVIDIA API Trial Terms read before building.** No clause restricts publishing results.
+  Sections 1.2/1.4 (evaluation only), 3.3 (inputs may be used to improve products), 4.2 (do
+  not distribute generated content) and 8 (models may change or vanish) are noted in
+  `PLAN.md`. The PDF was read through a pypdf environment in the session's scratch folder,
+  outside the project.
+- **Offline checks passed** against a local mock server, stopped afterwards: 20 reply-parsing
+  cases, 429 and 500 retries, resume without duplicates, and the key absent from the
+  output. No request has gone to NVIDIA.

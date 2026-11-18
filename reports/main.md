@@ -1,6 +1,6 @@
 # Do vision-language models share people's compositional preferences?
 
-**Status: Gate 3 draft, 2026-11-18.**
+**Status: approved by the owner at Gate 3, 2026-11-18.** Tier 2 (Claude models) was not run; it awaits the owner's confirmation of API credit.
 - **Complete:** the main run and the wording check.
 - **Written before the test results were opened:** the methods, the limitations and the
   prediction criteria.

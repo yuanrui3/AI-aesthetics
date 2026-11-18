@@ -242,3 +242,6 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
 - **Figures: label boxes made opaque** (they were 90% opaque, and the dashed human line
   showed through the E2 label). `report_figures.py`'s docstring named a `--split` option it
   does not have; corrected.
+- **Gate 3 approved by the owner, 2026-11-18.** `reports/main.md` is marked approved and is
+  otherwise unchanged. Still open: Tier 2 waits on the owner confirming API credit, and
+  nothing has been spent. The repo has no remote and nothing has been pushed.

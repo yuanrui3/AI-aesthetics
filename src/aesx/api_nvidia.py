@@ -153,19 +153,41 @@ def _console() -> bool:
     return bool(ctypes.windll.kernel32.GetConsoleMode(handle, ctypes.byref(mode)))
 
 
+def _clean(raw: str | None) -> str:
+    """Drop bracketed-paste markers, control characters (a Ctrl+V that did not paste arrives as
+    one) and whitespace; NVIDIA keys are printable ASCII."""
+    raw = re.sub(r"\x1b\[20[01]~", "", raw or "")
+    return "".join(ch for ch in raw if 33 <= ord(ch) < 127)
+
+
+def _looks_whole(key: str) -> bool:
+    return key.startswith("nvapi-") and len(key) >= 40
+
+
 def read_key() -> str:
     """NVIDIA_API_KEY if set; otherwise a hidden prompt (nothing echoed, nothing saved to shell
-    history). Either way the key lives in this process's memory only."""
-    key = os.environ.get(KEY_ENV, "").strip()
-    if not key and _console():
-        import getpass
-
-        key = getpass.getpass("Paste your NVIDIA API key (nothing will show as you paste), then press Enter: ").strip()
-    if not key:
+    history). Either way the key lives in this process's memory only. Only its length and the
+    public 'nvapi-' prefix are ever shown, so the person can see the paste worked."""
+    key = _clean(os.environ.get(KEY_ENV))
+    if key:
+        if not _looks_whole(key):
+            print(f"Note: {KEY_ENV} does not look like a whole NVIDIA key ({len(key)} characters). Trying it anyway.", flush=True)
+        return key
+    if not _console():
         raise SystemExit(f"No key: set {KEY_ENV}, or run this in a terminal so it can ask for the key.")
-    if not key.startswith("nvapi-"):
-        print("Note: that does not look like an NVIDIA key (they start with 'nvapi-'). Trying it anyway.", flush=True)
-    return key
+    import getpass
+
+    for _ in range(3):
+        key = _clean(getpass.getpass(
+            "Paste your NVIDIA API key and press Enter. Nothing shows as you paste; if Ctrl+V does "
+            "nothing, right-click to paste: "))
+        if _looks_whole(key):
+            print(f"Key received: {len(key)} characters, starting 'nvapi-'. Sending requests now.", flush=True)
+            return key
+        start = ", starting 'nvapi-'" if key.startswith("nvapi-") else ""
+        print(f"That is not a whole NVIDIA key (got {len(key)} characters{start}). Copy the key again "
+              "and paste it with right-click.", flush=True)
+    raise SystemExit("No usable key was entered. Nothing was sent.")
 
 
 class Client:

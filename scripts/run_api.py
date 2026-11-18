@@ -207,7 +207,10 @@ def cmd_probe(a) -> int:
                 try:
                     out = api.answer(client, model, t, seed=1)
                 except (api.Fatal, api.RateLimited, api.Transient) as e:
-                    print(f"[{type(e).__name__}] {t.trial_id}: {e}", flush=True)
+                    msg = f"[{type(e).__name__}] {t.trial_id}: {e}"
+                    print(msg, flush=True)
+                    with (run_dir / "errors.log").open("a", encoding="utf-8", newline="\n") as log:
+                        log.write(f"{datetime.now(timezone.utc).isoformat(timespec='seconds')} {msg}\n")
                     code = 3
                     if isinstance(e, api.RateLimited):
                         return code
@@ -217,7 +220,7 @@ def cmd_probe(a) -> int:
                       f"{out['reply']!r:40.40}  finish={out['finish_reason']}  "
                       f"tokens={(out['usage'] or {}).get('prompt_tokens')}  served={out['served_model']}  "
                       f"limits={out['limits']}", flush=True)
-    print("\nProbe finished. Tell Claude it is done.", flush=True)
+    print("\nProbe finished. Leave this window open and tell Claude it is done.", flush=True)
     return code
 
 

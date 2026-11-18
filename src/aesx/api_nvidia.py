@@ -161,7 +161,8 @@ def _clean(raw: str | None) -> str:
 
 
 def _looks_whole(key: str) -> bool:
-    return key.startswith("nvapi-") and len(key) >= 40
+    """One whole key: starts with 'nvapi-', long enough, and not pasted twice."""
+    return key.startswith("nvapi-") and len(key) >= 40 and key.count("nvapi-") == 1
 
 
 def read_key() -> str:
@@ -184,6 +185,10 @@ def read_key() -> str:
         if _looks_whole(key):
             print(f"Key received: {len(key)} characters, starting 'nvapi-'. Sending requests now.", flush=True)
             return key
+        if key.count("nvapi-") > 1:
+            print(f"That looks like the key pasted {key.count('nvapi-')} times ({len(key)} characters). "
+                  "Paste it once, then press Enter.", flush=True)
+            continue
         start = ", starting 'nvapi-'" if key.startswith("nvapi-") else ""
         print(f"That is not a whole NVIDIA key (got {len(key)} characters{start}). Copy the key again "
               "and paste it with right-click.", flush=True)

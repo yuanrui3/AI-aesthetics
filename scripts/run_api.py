@@ -219,6 +219,10 @@ def diagnose(client, model: str, trial, log_path) -> None:
                 line = f"  ok    {name}: reply {reply!r:.40}"
             except (api.Fatal, api.Transient) as e:
                 line = f"  FAIL  {name}: {e}"
+                if any(f"HTTP {c}" in str(e) for c in (401, 403)):  # the key, not the request
+                    print(line, flush=True)
+                    log.write(line + "\n")
+                    return
             except api.RateLimited as e:
                 line = f"  STOP  {name}: {e}"
                 print(line, flush=True)
@@ -259,9 +263,12 @@ def cmd_probe(a) -> int:
                     code = 3
                     if isinstance(e, api.RateLimited):
                         return code
-                    if isinstance(e, api.Fatal):
+                    if isinstance(e, api.Fatal) and "HTTP 40" in str(e) and not any(f"HTTP {c}" in str(e) for c in (401, 403)):
                         print(f"--- {model} rejected the request; trying simpler requests to see why:", flush=True)
                         diagnose(client, model, t, run_dir / "errors.log")
+                    if isinstance(e, api.Fatal) and any(f"HTTP {c}" in str(e) for c in (401, 403)):
+                        print("The key was refused. Nothing else will work with it, so stopping here.", flush=True)
+                        return code
                     break  # this model fails; still try the next one
                 f.write(json.dumps(record(t, model, 1, out), sort_keys=True) + "\n")
                 print(f"{t.experiment:11s} {t.task:8s} {out['seconds']:5.1f}s  {str(out['choice']):4s} "

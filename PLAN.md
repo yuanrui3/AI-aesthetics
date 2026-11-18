@@ -236,6 +236,24 @@ if `src/aesx/api_nvidia.py` or `scripts/run_api.py` differs from it.
 **How it is used.** As a separate addendum report (`reports/nvidia_addendum.md`). It never
 changes a number or verdict in `reports/main.md`.
 
+**Probe outcome (2026-11-18, dev, before any test request).**
+- **Gemma 4 31B:** passes. All 22 replies were a bare permitted answer. Two images were
+  accepted (about 560 to 600 prompt tokens), there was no reasoning text, and replies took
+  about a second.
+- **Mistral Large 4:** fails.
+  - The endpoint rejects `reasoning_effort: "none"` (HTTP 400).
+  - Without it, every request, text-only included, returns no answer within the 16-token
+    limit: the model reasons first.
+  - Running it would mean reasoning on and a larger reply limit, unlike every other model in
+    the study.
+- **Nemotron 3.5 Super VL (reserve):** passes. All 22 replies were bare permitted answers,
+  with no reasoning text and about a second each. The endpoint reports the served model as
+  `private/nvidia/nemotron-3.5-super-120b-a12b`.
+- **Result:** as fixed above, the reserve replaces Mistral Large 4. The models are Gemma 4 31B
+  and Nemotron 3.5 Super VL. The parse rule, wording, images and sampling are unchanged.
+- **Rate limits:** no rate-limit headers were returned, so any daily cap is unknown. The run
+  stops cleanly on persistent 429s and resumes later.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

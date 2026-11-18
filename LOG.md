@@ -278,3 +278,9 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
     asked to revoke it. It never reached a project file, and no request was sent with it.
   - The prompt appears only in a real console. Without one, the script exits rather than
     hanging.
+- **Dev probe done; Nemotron replaces Mistral Large 4.** Mistral's endpoint refuses to
+  switch reasoning off and returns no answer in 16 tokens. Allowing reasoning would make it
+  the only model that thinks before answering. Gemma 4 31B and Nemotron answered all 22 dev
+  questions each with a bare letter or Yes/No. Details in `PLAN.md`. Two failed attempts
+  before this came from the key paste (once empty, once three copies), not from the models.
+  The probe now checks the paste and stops at once if the key is refused.

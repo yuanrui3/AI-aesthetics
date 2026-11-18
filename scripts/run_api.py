@@ -33,7 +33,10 @@ EXPERIMENTS = ("apb", "multiobject", "framing", "colour", "proportion")
 API_PATHS = ("src/aesx/api_nvidia.py", "scripts/run_api.py")
 FROZEN_API = ROOT / "FROZEN_API.json"
 ORDER_SEED = 0
-PRIMARY = ["gemma-4-31b", "mistral-large-4"]  # nemotron-3.5-super-vl is the reserve
+# Mistral Large 4 failed the dev probe (2026-11-18): the endpoint rejects reasoning_effort "none",
+# and without it the model spends the 16-token reply reasoning and returns no answer. The reserve
+# replaces it, as PLAN.md allows.
+PRIMARY = ["gemma-4-31b", "nemotron-3.5-super-vl"]
 
 
 def trials_for(split: str) -> list:

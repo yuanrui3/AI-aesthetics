@@ -1,7 +1,9 @@
 {
-  "frozen_at": "2026-11-18T17:22:21-05:00",
-  "commit": "b88d6668a1eee3d6c1493f6d37531d1a4f1c2c89",
-  "approval": "Owner chose 'NVIDIA free API' (2026-11-18). Dev probe passed for both models; Mistral Large 4 failed it and the reserve replaced it, as PLAN.md allows.",
+  "frozen_at": "2026-11-18T18:00:41-05:00",
+  "commit": "9749bcde2837b128278eec02cf7057a1db10fe84",
+  "approval": "Owner chose 'NVIDIA free API' (2026-11-18). Dev probe passed for both models; Mistral Large 4 failed it and the reserve replaced it, as PLAN.md allows. Re-frozen 2026-11-18 for one seed per request (PLAN.md, second amendment), before any result was read.",
+  "previous_freeze_commit": "b88d6668a1eee3d6c1493f6d37531d1a4f1c2c89",
+  "seed_scheme": "sha256-31",
   "main_freeze_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
   "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
   "models": [
@@ -29,7 +31,7 @@
     "stream": false
   },
   "passes": 3,
-  "seeds": "pass number (1, 2, 3)",
+  "seeds": "one per request: first 31 bits of SHA-256 of '<trial_id>|s=<pass>'",
   "split": "test",
   "layout": "two",
   "tasks": [

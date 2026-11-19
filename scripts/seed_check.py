@@ -32,13 +32,14 @@ import run_api  # noqa: E402
 FIXED_SEED = 1
 
 
-def pick(n: int) -> list:
-    """n dev preference presentations, spread over experiments, identical pairs included
-    (they are where a model is least certain)."""
+def pick(n: int, experiments: set[str] | None = None) -> list:
+    """n dev preference presentations, spread over experiments (or only the ones named),
+    identical pairs included (they are where a model is least certain)."""
     by_exp = defaultdict(list)
     for t in run_api.trials_for("dev"):
         if t.task == "prefer" and t.framing == "you" and t.labels == ("A", "B"):
-            by_exp[t.experiment].append(t)
+            if experiments is None or t.experiment in experiments:
+                by_exp[t.experiment].append(t)
     out, i = [], 0
     while len(out) < n and any(by_exp.values()):
         for exp in sorted(by_exp):
@@ -54,12 +55,15 @@ def main() -> int:
     ap.add_argument("--n", type=int, default=10, help="presentations per model")
     ap.add_argument("--repeats", type=int, default=4, help="requests per seed condition per presentation")
     ap.add_argument("--rpm", type=float, default=30)
+    ap.add_argument("--experiments", default="", help="comma list, e.g. framing: where a model is least certain")
+    ap.add_argument("--offset", type=int, default=0, help="skip this many picked presentations (fresh ones for a follow-up)")
     a = ap.parse_args()
     unknown = [m for m in a.models if m not in api.MODELS]
     if unknown:
         print(f"Unknown model(s): {', '.join(unknown)}", file=sys.stderr)
         return 2
-    trials = pick(a.n)
+    exps = set(a.experiments.split(",")) if a.experiments else None
+    trials = pick(a.n + a.offset, exps)[a.offset:]
     client = api.Client(rpm=a.rpm)
     verdicts = {}
     for model in a.models:

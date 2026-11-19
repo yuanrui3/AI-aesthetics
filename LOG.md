@@ -307,3 +307,17 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   run is set aside unopened, at the cost of about an hour of requests, cheaper than finding out
   after three days. Offline checks: 40 requests got 40 seeds; a folder from the old scheme is
   refused before any request.
+- **The old run had gone much further than the hour assumed.** When the owner approved the
+  restart, the old-scheme run had finished Gemma's pass 1 (23,012 replies, 12 hours). It had
+  also logged 2,782 Nemotron replies before NVIDIA throttled the account. Nemotron dropped to
+  about 3.7 a minute after its first hour, with over an hour of rate-limit waiting each hour,
+  and the run stopped itself at 19:13 UTC. Setting aside 20 hours of replies was not what the
+  owner had approved, so the owner was asked again, and chose to run a seed check first.
+- **Seed check on dev (`scripts/seed_check.py`, 2026-11-19, `runs/nvidia-seedcheck/`).**
+  - Nemotron honours request seeds beyond doubt. Same-seed repeats never varied (0 of 8),
+    different seeds varied on 6 of 8, and two questions reversed completely (AAA against BBB).
+  - Gemma shows the same pattern (0 of 8 against 1 of 8), but only one question was
+    informative. A follow-up on E3 questions, where Gemma is less certain, was started to
+    settle it before 23,012 replies are kept or set aside.
+  - The account as a whole is now throttled: Gemma about 10 a minute, against 33 the night
+    before.

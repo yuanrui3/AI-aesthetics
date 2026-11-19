@@ -291,6 +291,26 @@ random numbers, and intervals over pairs would be far too narrow. The research r
 - The runner refuses to resume a folder written under another seed scheme. `FROZEN_API.json`
   is re-frozen at the new commit. Nothing else in the design changes.
 
+**Third amendment before any result is opened (2026-11-19): seed check, set-aside, interleaving.**
+- **The old run was larger than assumed.** It had finished Gemma's pass 1 (23,012 replies)
+  and logged 2,782 Nemotron replies before NVIDIA's throttling stopped it. So the set-aside
+  waited for a dev check (`scripts/seed_check.py`, results in `runs/nvidia-seedcheck/`).
+- **The check: both models honour request seeds.**
+  - Nemotron: same-seed repeats varied on 0 of 8 presentations, different seeds on 6 of 8,
+    two of them fully reversed.
+  - Gemma: 0 of 16 against 2 of 16 over two rounds; the second round used E3 presentations,
+    where Gemma is less certain.
+  - So the old replies were coupled. All 25,794 are in `runs/nvidia-test-seedcoupled/`,
+    unopened and not analysed.
+- **Throughput:** NVIDIA now throttles the account to about 4 to 10 requests a minute. One
+  pass of both models may take days, and the run may stop for time before a pass is complete.
+- **The runner now alternates the models** in chunks of 230 presentations through the same
+  fixed random order of pairs. A run stopped for time leaves both models with the same
+  random subset of pairs.
+- **The analysis of a stopped run** uses the pairs complete for both models. Pass order is
+  unchanged: each pass finishes for both models before the next begins. Nothing else
+  changes.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

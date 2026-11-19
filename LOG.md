@@ -321,3 +321,12 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
     settle it before 23,012 replies are kept or set aside.
   - The account as a whole is now throttled: Gemma about 10 a minute, against 33 the night
     before.
+- **Gemma follow-up confirms it: 0 of 8 against 1 of 8 again (BBBB with a fixed seed, BBAA
+  with different seeds).** Over both rounds, the chance of this if seeds were ignored is about
+  1 in 25. Together with Nemotron's decisive result, the old run is treated as coupled, as
+  the owner approved for that outcome. It was set aside unopened in
+  `runs/nvidia-test-seedcoupled/`.
+- **The runner alternates models in chunks of 230 presentations.** Reason: at the throttled
+  rate the run may be stopped for time, and alternating keeps both models on the same random
+  pairs. Offline: 9 switches over 460 requests as expected, distinct seeds, a clean resume.
+  `PLAN.md` third amendment; re-frozen.

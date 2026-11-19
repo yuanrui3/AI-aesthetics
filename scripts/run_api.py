@@ -38,6 +38,7 @@ ORDER_SEED = 0
 # and without it the model spends the 16-token reply reasoning and returns no answer. The reserve
 # replaces it, as PLAN.md allows.
 PRIMARY = ["gemma-4-31b", "nemotron-3.5-super-vl"]
+CHUNK = 230  # presentations per model before switching to the other (1% of a pass)
 
 
 def trials_for(split: str) -> list:
@@ -111,9 +112,9 @@ def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, lo
     path = run_dir / "results.jsonl"
     done = done_ids(path)
     todo = [t for t in trials if f"{t.trial_id}|s={s}" not in done]
-    print(f"[{model} pass {s}] {len(trials) - len(todo)} done, {len(todo)} to do -> {path}", flush=True)
     if not todo:
         return "done"
+    print(f"[{model} pass {s}] {len(trials) - len(todo)} done, {len(todo)} to do -> {path}", flush=True)
     lock = threading.Lock()
     stop = threading.Event()
     status = {"why": "done", "n": 0, "transient_run": 0, "off_menu": 0}
@@ -338,15 +339,20 @@ def cmd_run(a) -> int:
                 "model": m, "model_id": api.MODELS[m]["id"], "endpoint": api.ENDPOINT, "sampling": api.SAMPLING,
                 "extra": api.MODELS[m]["extra"], "parse_version": api.PARSE_VERSION, "prompt_version": PROMPT_VERSION,
                 "split": a.split, "passes": passes, "n_presentations": len(trials), "order_seed": ORDER_SEED,
-                "seed_scheme": SEED_SCHEME, **meta,
+                "seed_scheme": SEED_SCHEME, "chunk": CHUNK, **meta,
             }, indent=2, sort_keys=True), encoding="utf-8")
-            why = run_pass(client, m, trials, s, run_dir, workers=a.workers)
-            if why == "rate_limited":
-                print("Stopped on the request limit. Re-run the same command later; it resumes.", flush=True)
-                return 3
-            if why == "stopped":
-                print("Stopped before the pass finished. Re-run the same command to resume.", flush=True)
-                return 4
+        # Alternate the models chunk by chunk through the same random order of pairs, so a run
+        # stopped for time leaves both models with the same random subset of the design.
+        for start in range(0, len(trials), CHUNK):
+            for m in models:
+                why = run_pass(client, m, trials[start:start + CHUNK], s, ROOT / "runs" / tag / m, workers=a.workers)
+                if why == "rate_limited":
+                    print("Stopped on the request limit. Re-run the same command later; it resumes.", flush=True)
+                    return 3
+                if why == "stopped":
+                    print("Stopped before the pass finished. Re-run the same command to resume.", flush=True)
+                    return 4
+            print(f"[pass {s}] {min(start + CHUNK, len(trials))}/{len(trials)} presentations done for both models", flush=True)
     print("All passes complete.", flush=True)
     return 0
 

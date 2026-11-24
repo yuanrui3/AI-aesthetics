@@ -354,3 +354,7 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   - The only other match for the name pattern is a SHA-256 hash in the E2 manifest that
     contains "ab119b".
   - The push is the owner's to make.
+- **Published, 2026-11-24.** The owner created a public GitHub repository and pushed
+  `public_release/` (38 commits, 21 MB). Later updates rebuild the copy the same way and push
+  normally; the filter is deterministic, so existing commits keep their hashes. The NVIDIA
+  run was stopped by a stray Ctrl+C during the push and restarted from 8,050 of 23,012.

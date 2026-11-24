@@ -39,6 +39,10 @@ ORDER_SEED = 0
 # replaces it, as PLAN.md allows.
 PRIMARY = ["gemma-4-31b", "nemotron-3.5-super-vl"]
 CHUNK = 230  # presentations per model before switching to the other (1% of a pass)
+# The test run stops itself here, fixed in advance (PLAN.md, fourth amendment) so that when it
+# stops cannot depend on anything seen in the replies.
+STOP_AT = datetime(2026, 11, 28, 0, 0, tzinfo=timezone.utc)
+WAIT_SECONDS = 15 * 60  # pause before retrying what a sweep left
 
 
 def trials_for(split: str) -> list:
@@ -106,11 +110,21 @@ def record(t, model: str, s: int, out: dict, seed: int) -> dict:
     }
 
 
-def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, log_every: int = 100) -> str:
-    """One pass (one sampled reply per presentation). Returns "done", "rate_limited" or "stopped"."""
+def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, log_every: int = 100,
+             done: set | None = None, deadline: datetime | None = None) -> str:
+    """One pass (one sampled reply per presentation) over ``trials``. Returns
+      "done"         every presentation has a reply
+      "skipped"      finished, but some presentations failed after retries (a later sweep retries them)
+      "stopped"      ten failures in a row: the service looks down for now
+      "rate_limited" one request met 429s for longer than the client waits
+      "fatal"        an error no retry fixes (bad key, rejected request)
+      "deadline"     the run's stop time came
+      "interrupted"  Ctrl+C
+    ``done`` is the set of finished ids, shared across calls so the results file is read once."""
     run_dir.mkdir(parents=True, exist_ok=True)
     path = run_dir / "results.jsonl"
-    done = done_ids(path)
+    if done is None:
+        done = done_ids(path)
     todo = [t for t in trials if f"{t.trial_id}|s={s}" not in done]
     if not todo:
         return "done"
@@ -142,13 +156,15 @@ def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, lo
             return
         except api.Fatal as e:
             with lock:
-                status["why"] = "stopped"
+                status["why"] = "fatal"
                 print(f"[fatal] {e}", flush=True)
             stop.set()
             return
         with lock:
-            f.write(json.dumps(record(t, model, s, out, seed), sort_keys=True) + "\n")
+            rec = record(t, model, s, out, seed)
+            f.write(json.dumps(rec, sort_keys=True) + "\n")
             f.flush()
+            done.add(rec["trial_id"])
             status["n"] += 1
             status["transient_run"] = 0
             status["off_menu"] += out["choice"] is None
@@ -163,6 +179,10 @@ def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, lo
         pending = set()
         try:
             while True:
+                if deadline is not None and not stop.is_set() and datetime.now(timezone.utc) >= deadline:
+                    with lock:
+                        status["why"] = "deadline"
+                    stop.set()
                 while len(pending) < 2 * workers and not stop.is_set():
                     t = next(it, None)
                     if t is None:
@@ -177,9 +197,12 @@ def run_pass(client, model: str, trials: list, s: int, run_dir, workers: int, lo
             stop.set()
             print("[interrupted] finishing requests in flight; re-run the same command to resume", flush=True)
             wait(pending)
-            return "stopped"
+            return "interrupted"
     if status["why"] == "done" and status["n"] < len(todo):
-        status["why"] = "stopped"  # some presentations were skipped after retries; a re-run fills them in
+        # Some presentations failed after the client's own retries. The first version stopped the
+        # whole run here, and one timed-out request on 2026-11-21 cost 60 hours. Now the run carries
+        # on and a later sweep over the pass retries whatever is missing.
+        status["why"] = "skipped"
     return status["why"]
 
 
@@ -330,8 +353,13 @@ def cmd_run(a) -> int:
                 print(f"Refusing: {old} holds replies drawn with seed scheme {scheme or 'pass-number'}, not {SEED_SCHEME}. "
                       "Move that folder aside before running.", file=sys.stderr)
                 return 2
+    deadline = STOP_AT if a.split == "test" else None
+    if deadline is not None and datetime.now(timezone.utc) >= deadline:
+        print(f"The test run's stop time ({deadline:%Y-%m-%d %H:%M} UTC, PLAN.md) has passed; nothing to do.", flush=True)
+        return 0
     client = api.Client(rpm=a.rpm)
     for s in range(1, passes + 1):
+        done = {}
         for m in models:
             run_dir = ROOT / "runs" / tag / m
             run_dir.mkdir(parents=True, exist_ok=True)
@@ -339,20 +367,52 @@ def cmd_run(a) -> int:
                 "model": m, "model_id": api.MODELS[m]["id"], "endpoint": api.ENDPOINT, "sampling": api.SAMPLING,
                 "extra": api.MODELS[m]["extra"], "parse_version": api.PARSE_VERSION, "prompt_version": PROMPT_VERSION,
                 "split": a.split, "passes": passes, "n_presentations": len(trials), "order_seed": ORDER_SEED,
-                "seed_scheme": SEED_SCHEME, "chunk": CHUNK, **meta,
+                "seed_scheme": SEED_SCHEME, "chunk": CHUNK,
+                "stop_at": deadline.isoformat() if deadline else None, **meta,
             }, indent=2, sort_keys=True), encoding="utf-8")
-        # Alternate the models chunk by chunk through the same random order of pairs, so a run
-        # stopped for time leaves both models with the same random subset of the design.
-        for start in range(0, len(trials), CHUNK):
-            for m in models:
-                why = run_pass(client, m, trials[start:start + CHUNK], s, ROOT / "runs" / tag / m, workers=a.workers)
-                if why == "rate_limited":
-                    print("Stopped on the request limit. Re-run the same command later; it resumes.", flush=True)
-                    return 3
-                if why == "stopped":
-                    print("Stopped before the pass finished. Re-run the same command to resume.", flush=True)
-                    return 4
-            print(f"[pass {s}] {min(start + CHUNK, len(trials))}/{len(trials)} presentations done for both models", flush=True)
+            done[m] = done_ids(run_dir / "results.jsonl")
+        # Sweep the pass: the models alternate chunk by chunk through the same random order of
+        # pairs, so a run stopped for time leaves both with the same random subset of the design.
+        # Anything a sweep leaves (skipped requests, a rate limit, the service down for a while) is
+        # retried by the next sweep after a pause, until the pass is complete or the stop time.
+        while True:
+            outcome = "complete"
+            for start in range(0, len(trials), CHUNK):
+                for m in models:
+                    why = run_pass(client, m, trials[start:start + CHUNK], s, ROOT / "runs" / tag / m,
+                                   workers=a.workers, done=done[m], deadline=deadline)
+                    if why == "fatal":
+                        print("Stopped on an error that retrying will not fix (see above).", flush=True)
+                        return 4
+                    if why == "interrupted":
+                        print("Stopped by Ctrl+C. Re-run the same command to resume.", flush=True)
+                        return 4
+                    if why == "deadline":
+                        print(f"Reached the stop time ({deadline:%Y-%m-%d %H:%M} UTC). The run is over.", flush=True)
+                        return 0
+                    if why in ("rate_limited", "stopped"):
+                        outcome = "pause"
+                        break
+                    if why == "skipped":
+                        outcome = "incomplete"
+                if outcome == "pause":
+                    break
+                n_both = min(sum(f"{t.trial_id}|s={s}" in done[m] for t in trials[: start + CHUNK]) for m in models)
+                print(f"[pass {s}] {n_both}/{len(trials)} presentations done for both models", flush=True)
+            if outcome == "complete":
+                break
+            why = "the service paused us" if outcome == "pause" else "some requests failed"
+            print(f"[wait] {why}; retrying in {WAIT_SECONDS // 60} min. Ctrl+C stops; the same command resumes.", flush=True)
+            try:
+                end = time.time() + WAIT_SECONDS
+                while time.time() < end:
+                    if deadline is not None and datetime.now(timezone.utc) >= deadline:
+                        print(f"Reached the stop time ({deadline:%Y-%m-%d %H:%M} UTC). The run is over.", flush=True)
+                        return 0
+                    time.sleep(min(10, max(0.0, end - time.time())))
+            except KeyboardInterrupt:
+                print("Stopped by Ctrl+C. Re-run the same command to resume.", flush=True)
+                return 4
     print("All passes complete.", flush=True)
     return 0
 

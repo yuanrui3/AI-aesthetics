@@ -311,6 +311,26 @@ random numbers, and intervals over pairs would be far too narrow. The research r
   unchanged: each pass finishes for both models before the next begins. Nothing else
   changes.
 
+**Fourth amendment before any result is opened (2026-11-24): keep going, one pass, a fixed
+stop time.**
+- **What went wrong.** The v2 run stopped on 2026-11-21 at 14:14 UTC, 35% into pass 1 (8,049
+  Gemma and 7,820 Nemotron replies). One request timed out six times, and the runner treated
+  any skipped request as a reason to end the run. Nothing was sent for 60 hours.
+- **The fix.**
+  - Skipped requests no longer stop the run. Each sweep over the pass is followed by another
+    that retries whatever is missing.
+  - A rate limit or an apparent outage now causes a 15-minute pause, not an exit.
+  - Only an error that no retry can fix, or Ctrl+C, ends the run early.
+- **One pass.** At the measured 3 to 4 requests a minute per model, the rest of pass 1 needs
+  about 3 days. Passes 2 and 3 could not finish, and a partial pass would not be analysed, so
+  `FROZEN_API.json` now fixes one pass.
+- **A stop time fixed in advance: 2026-11-28 00:00 UTC.** The runner stops itself then, so
+  when the run ends cannot depend on anything in the replies. If pass 1 is not complete by
+  then, the analysis uses the pairs complete for both models (third amendment). Both models
+  share one random order of pairs, so those pairs are a random subset of the design.
+- **What had been seen:** request counts, timestamps, retries, rate-limit waits, and the
+  run's progress lines, which include running off-menu counts. No reply, choice or effect.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

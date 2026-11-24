@@ -78,7 +78,11 @@ at the start of a session.
 - **NVIDIA honours request seeds,** so every request needs its own seed. `scripts/run_api.py`
   derives one from SHA-256 (seed check, 2026-11-19).
 - **The free tier throttles the account** to about 4 to 10 requests a minute after heavy use.
-  Runs stop themselves on persistent 429s and resume with the same command.
+  - The test run retries skipped requests and pauses through rate limits and outages, and it
+    stops itself at its fixed stop time (2026-11-28 00:00 UTC).
+  - If it stops early (Ctrl+C, a reboot), the same command resumes it.
+  - Check on it now and then with timing fields only: a stopped run once went unnoticed for
+    60 hours.
 - **Trial terms:** evaluation only, not production. Do not distribute generated replies:
   they stay in this local repo, and reports give aggregates. NVIDIA may withdraw a model at
   any time.

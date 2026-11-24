@@ -330,3 +330,14 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   rate the run may be stopped for time, and alternating keeps both models on the same random
   pairs. Offline: 9 switches over 460 requests as expected, distinct seeds, a clean resume.
   `PLAN.md` third amendment; re-frozen.
+- **A runner bug cost 60 hours, found 2026-11-24.** The v2 run stopped on 2026-11-21 at 14:14
+  UTC, 35% into pass 1. One timed-out request was skipped, and any skip ended the run. Nobody
+  was watching, so nothing ran until the owner asked whether the project was stuck.
+- **Fixed.** Skips are retried by later sweeps, and rate limits or outages pause for 15
+  minutes instead of exiting. The run is one pass with a stop time fixed in advance
+  (2026-11-28 00:00 UTC).
+  - Reason for one pass: at 3 to 4 requests a minute per model, a second pass cannot finish.
+  - Reason for the stop time: when the run stops must not depend on the data.
+  - Offline: skipped requests filled by the next sweep (60/60); a 200-request outage ridden
+    out; a passed deadline sends nothing; a fatal 400 exits.
+  - `PLAN.md` fourth amendment; re-frozen.

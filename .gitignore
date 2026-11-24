@@ -9,6 +9,9 @@ __pycache__/
 stimuli/**/*.png
 !stimuli/**/contact_*.png
 
+# the cleaned public copy of this repo is its own git repository
+public_release/
+
 # secrets never live in files, but belt and braces
 .env
 *.key

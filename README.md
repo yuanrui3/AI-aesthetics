@@ -9,6 +9,24 @@ score is the model's effect beside the published human one.
   exactly how each model statistic is computed.
 - `PLAN.md`: predictions and the rules fixed before the main run.
 - `LOG.md`: every tooling and design decision, with its reason.
+- `reports/main.md`: the findings (approved at Gate 3), with `reports/readout_math.md`
+  and the literature review `reports/VLM aesthetic preference measurement methods.md`.
+
+## Status and what is public
+
+- **The core study is complete:** seven local open-weight models, pre-registered in
+  `PLAN.md`, frozen in `FROZEN.json`, reported in `reports/main.md`.
+- **The NVIDIA addendum is running.** It covers Gemma 4 31B and Nemotron 3.5 Super VL on
+  NVIDIA's free API. Its design and four amendments were all written before any result was
+  opened, and `FROZEN_API.json` pins it.
+- **The NVIDIA models' raw replies are not published.** NVIDIA's API Trial Terms of
+  Service (section 4.2) do not allow redistributing generated content, so `runs/nvidia-*`
+  is left out of the public copy, history included. Results for those models appear only as
+  aggregates in the reports.
+- **The public copy is a filtered copy of the working repository.** It has the same commits
+  and dates. The NVIDIA reply files are removed, and local Windows user paths read `USER`.
+- **Licences:** code under MIT (`LICENSE`); documents and data under CC BY 4.0
+  (`LICENSE-docs.md`).
 
 ## Setup (this machine)
 

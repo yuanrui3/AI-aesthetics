@@ -341,3 +341,16 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   - Offline: skipped requests filled by the next sweep (60/60); a 200-request outage ridden
     out; a passed deadline sends nothing; a fatal 400 exits.
   - `PLAN.md` fourth amendment; re-frozen.
+- **Public copy prepared, 2026-11-24 (owner: "Yes, prepare it"); not pushed.**
+  - `public_release/`, ignored by this repo, is a git-filter-repo copy of the full history:
+    same commits and dates, every `runs/nvidia-*` path removed, and the Windows user name
+    replaced by `USER`.
+  - Reasons: NVIDIA's trial terms (4.2) forbid redistributing generated replies, and the
+    user name is personal. Keeping the history preserves the evidence that the plan came
+    before the results.
+  - Licences added here too: MIT for code, CC BY 4.0 for documents and data.
+  - Checked over all 37 commits: no NVIDIA reply files, no user name, no key-like strings,
+    no email addresses, one placeholder identity.
+  - The only other match for the name pattern is a SHA-256 hash in the E2 manifest that
+    contains "ab119b".
+  - The push is the owner's to make.

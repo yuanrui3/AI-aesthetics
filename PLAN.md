@@ -331,6 +331,26 @@ stop time.**
 - **What had been seen:** request counts, timestamps, retries, rate-limit waits, and the
   run's progress lines, which include running off-menu counts. No reply, choice or effect.
 
+**Fifth amendment before any result is opened (2026-11-25): Gemma 4 31B withdrawn by NVIDIA.**
+- **What happened.** NVIDIA retired `google/gemma-4-31b-it` on 2026-11-24 at 09:00 UTC. The
+  endpoint now answers HTTP 410 "has reached its end of life". The run stopped on that error.
+- **Where the models stand.**
+  - Gemma 4 31B has 8,079 replies (35.1% of pass 1, about 510 pairs), all from before the
+    withdrawal.
+  - Nemotron 3.5 Super VL has 8,050 replies (35.0%) and is still offered.
+- **As fixed above, Gemma 4 31B is reported as incomplete and nothing substitutes for it.**
+- **Nemotron continues alone until the fixed stop time** (2026-11-28 00:00 UTC). It keeps the
+  same random order of pairs and resumes where it stopped. `FROZEN_API.json` lists only
+  Nemotron from now on and records the withdrawal. No code changes.
+- **Analysis, decided now:**
+  - Each model's effects use all its complete pairs.
+  - Comparisons between the two NVIDIA models use the pairs both completed. Those are a
+    random subset, because both followed one random order.
+  - Gemma 4 31B against the local Gemma 4 E2B is a paired comparison on Gemma 31B's complete
+    pairs.
+- **What had been seen:** the same as for the fourth amendment, plus the 410 error. No
+  reply, choice or effect.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

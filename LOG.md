@@ -358,3 +358,11 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   `public_release/` (38 commits, 21 MB). Later updates rebuild the copy the same way and push
   normally; the filter is deterministic, so existing commits keep their hashes. The NVIDIA
   run was stopped by a stray Ctrl+C during the push and restarted from 8,050 of 23,012.
+- **NVIDIA retired Gemma 4 31B on 2026-11-24 at 09:00 UTC (HTTP 410), found 2026-11-25.**
+  - The restarted run ended on that error. Gemma stops at 8,079 replies (35.1%) and is
+    reported as incomplete, as pre-registered.
+  - Nemotron is still offered and continues alone to the fixed stop time. Without Gemma's
+    slow blocks between its own, it should get much further.
+  - `PLAN.md` fifth amendment, written before any result was opened. It fixes the analysis:
+    each model on all its complete pairs, cross-model comparisons on shared pairs.
+  - `FROZEN_API.json` now lists Nemotron alone and records the withdrawal. No code changed.

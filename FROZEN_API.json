@@ -1,31 +1,34 @@
 {
-  "frozen_at": "2026-11-23T21:28:32-05:00",
-  "commit": "7bae10dcb025ed39e382d965ee5d7dde2fdc003a",
-  "approval": "Owner chose 'NVIDIA free API' (2026-11-18). Dev probe passed for both models; Mistral Large 4 failed it and the reserve replaced it, as PLAN.md allows. Re-frozen 2026-11-18 for one seed per request (PLAN.md, second amendment), and 2026-11-19 for chunked alternation of the models (third amendment), and 2026-11-24 for retrying instead of stopping, one pass and a fixed stop time (fourth amendment), before any result was read.",
+  "frozen_at": "2026-11-25T14:18:31-05:00",
+  "commit": "f85b882abc3f12e0130b619e203c9af7f77c2e63",
+  "approval": "Owner chose 'NVIDIA free API' (2026-11-18). Dev probe passed for both models; Mistral Large 4 failed it and the reserve replaced it, as PLAN.md allows. Re-frozen 2026-11-18 for one seed per request (PLAN.md, second amendment), and 2026-11-19 for chunked alternation of the models (third amendment), and 2026-11-24 for retrying instead of stopping, one pass and a fixed stop time (fourth amendment), and 2026-11-25 for Nemotron alone after NVIDIA withdrew Gemma 4 31B (fifth amendment), before any result was read.",
   "previous_freeze_commits": [
     "b88d6668a1eee3d6c1493f6d37531d1a4f1c2c89",
     "9749bcde2837b128278eec02cf7057a1db10fe84",
-    "7f63fd143920618253642bcdbdc201245b1476cc"
+    "7f63fd143920618253642bcdbdc201245b1476cc",
+    "7bae10dcb025ed39e382d965ee5d7dde2fdc003a"
   ],
+  "withdrawn": {
+    "gemma-4-31b": {
+      "model_id": "google/gemma-4-31b-it",
+      "end_of_life": "2026-11-24T09:00:00Z (HTTP 410 'has reached its end of life')",
+      "replies_before_withdrawal": 8079,
+      "share_of_pass_1": 0.351,
+      "data": "runs/nvidia-test/gemma-4-31b/results.jsonl, analysed as incomplete"
+    }
+  },
   "chunk": 230,
   "stop_at": "2026-11-28T00:00:00+00:00",
   "seed_scheme": "sha256-31",
   "main_freeze_commit": "41b9cbe3956ea1dcfcb4771f81242529ea08fc3d",
   "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
   "models": [
-    "gemma-4-31b",
     "nemotron-3.5-super-vl"
   ],
   "model_ids": {
-    "gemma-4-31b": "google/gemma-4-31b-it",
     "nemotron-3.5-super-vl": "nvidia/nemotron-3.5-super-vl-120b-a12b"
   },
   "extra": {
-    "gemma-4-31b": {
-      "chat_template_kwargs": {
-        "enable_thinking": false
-      }
-    },
     "nemotron-3.5-super-vl": {
       "reasoning_effort": "none"
     }

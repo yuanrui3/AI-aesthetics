@@ -351,6 +351,19 @@ stop time.**
 - **What had been seen:** the same as for the fourth amendment, plus the 410 error. No
   reply, choice or effect.
 
+**The analysis script, fixed before any result is opened (2026-11-26).**
+`scripts/api_report.py --final` produces `reports/nvidia_addendum.md` and its `.csv`.
+- The docstring fixes the details this plan leaves open: how replies become log-odds, what
+  P_cells counts, what a complete pair is, and the refusal rule for API models.
+- Predictions P2, P3, P4 and P6 run through `scripts/predictions.py`'s own functions and
+  criteria.
+- **One consequence noted now:** P6 needs whole E1 image families (10 pairs each), and a
+  part-done pass in random pair order rarely completes one. So P6 may be "not estimable" for
+  Gemma 4 31B. Every other measure uses all complete pairs.
+- The script refuses to read `runs/nvidia-test` while the run looks active before its stop
+  time.
+- Its self-test on simulated replies recovers known values without bias.
+
 ## Freeze checklist
 
 - [x] Owner has approved the experiment set (Gate 1, 2026-11-15) and the model list

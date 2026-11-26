@@ -366,3 +366,15 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
   - `PLAN.md` fifth amendment, written before any result was opened. It fixes the analysis:
     each model on all its complete pairs, cross-model comparisons on shared pairs.
   - `FROZEN_API.json` now lists Nemotron alone and records the withdrawal. No code changed.
+- **An app restart killed the Nemotron run on 2026-11-25 at 19:41 UTC** (8,376 replies). Runs
+  in the app's terminal panel die with the app. The owner restarted it in a Windows PowerShell
+  window outside the app on 2026-11-26 at 00:40 UTC.
+- **Addendum analysis script written before any test reply was read: `scripts/api_report.py`.**
+  - It reuses `predictions.py`'s functions and criteria through an adapter that turns
+    sampled replies into the same per-pair tables.
+  - It adds P_cells, complete pairs, the NVIDIA cross-model comparison on shared pairs, and
+    Gemma 31B against the local Gemma E2B, paired.
+  - The self-test on simulated replies caught a crash: P6 needs complete E1 families. P6 now
+    uses complete families only and is "not estimable" without them.
+  - Three seeds of full simulated passes show P_cells is unbiased.
+  - `--final` refuses to read the test replies while the run looks active.

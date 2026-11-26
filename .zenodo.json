@@ -1,0 +1,17 @@
+{
+  "title": "AI Aesthetics: Classic Compositional Preference Experiments on Vision-Language Models",
+  "creators": [
+    {
+      "name": "Chen, Yuanrui"
+    }
+  ],
+  "description": "Experimental code, stimuli specifications, and reports comparing vision-language models’ compositional preferences with published human results. The core study evaluated seven open-weight models. The code is licensed under MIT. Original documentation and data are licensed under CC BY 4.0. See LICENSE-docs.md for scope and third-party exceptions; raw replies from models served through the NVIDIA API are not included.",
+  "license": "mit",
+  "upload_type": "software",
+  "keywords": [
+    "empirical aesthetics",
+    "vision-language models",
+    "visual composition",
+    "model evaluation"
+  ]
+}

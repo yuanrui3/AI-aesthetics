@@ -378,3 +378,18 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
     uses complete families only and is "not estimable" without them.
   - Three seeds of full simulated passes show P_cells is unbiased.
   - `--final` refuses to read the test replies while the run looks active.
+- **Finishing the addendum is automated (owner, 2026-11-26: "can you perform 2 and 3
+  automatically?").**
+  - `scripts/public_release.py` rebuilds the filtered public copy and runs the privacy
+    checks. It merges any commits made on GitHub and pushes only as a fast-forward, with no
+    force and no sign-in prompt.
+  - The owner had added `.zenodo.json` on GitHub on 2026-11-24, so a plain push would have
+    been refused. The file is now also in this repo, byte-identical.
+  - A dry run on 2026-11-26 passed every check, merged that commit cleanly, and confirmed
+    stored credentials. Nothing was sent.
+  - One-time scheduled task "aesthetics-nvidia-addendum-finish", 2026-11-28 00:30 UTC, saved
+    in Auto mode: check the run has stopped, run `api_report.py --final`, write
+    `reports/nvidia_addendum_summary.md` from the report's numbers only, commit, then
+    `public_release.py --push`.
+  - The filter settings and the filter tool moved from the session scratchpad into
+    `.tools/` (git-ignored), so they survive.

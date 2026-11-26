@@ -86,3 +86,19 @@ at the start of a session.
 - **Trial terms:** evaluation only, not production. Do not distribute generated replies:
   they stay in this local repo, and reports give aggregates. NVIDIA may withdraw a model at
   any time.
+
+## The public copy
+
+- **GitHub holds a filtered copy of this repository.** It is rebuilt with
+  `.\.venv\Scripts\python.exe scripts/public_release.py`, which drops `runs/nvidia-*` and
+  local user names and runs the privacy checks.
+  - `--push` publishes, only if every check passes. Never force, and never push by other
+    means.
+  - `--push --dry-run` tests everything without sending.
+- **Push only with the owner's say,** given for each publication or in advance for a named
+  task.
+- **The owner edits the public repository directly too,** for example `.zenodo.json` for
+  Zenodo. The script merges such commits instead of overwriting them. Keep `.zenodo.json`
+  in step.
+- **The filter settings and tool live in `.tools/` (git-ignored).** The replacements file
+  names the user, so it must never be committed.

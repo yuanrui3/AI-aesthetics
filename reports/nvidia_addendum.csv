@@ -1,0 +1,81 @@
+section,model,item,estimate,lo,hi,n,note
+collected,gemma-4-31b,complete pairs,511.0000,,,1457,"{""framing"": 158, ""multiobject"": 115, ""apb"": 84, ""colour"": 82, ""proportion"": 72}"
+collected,gemma-4-31b,off-menu share of preference replies,0.0000,,,0,
+collected,nemotron-3.5-super-vl,complete pairs,1457.0000,,,1457,"{""framing"": 429, ""multiobject"": 330, ""apb"": 240, ""colour"": 234, ""proportion"": 224}"
+collected,nemotron-3.5-super-vl,off-menu share of preference replies,0.0190,,,0,
+bias,gemma-4-31b,"P(first image named), identical pairs",0.5096,0.5000,0.5300,52,
+visibility,gemma-4-31b,apb,0.9855,0.9638,1.0000,0,sees
+visibility,gemma-4-31b,multiobject,0.9802,0.9604,0.9950,0,sees
+visibility,gemma-4-31b,framing,0.9527,0.9291,0.9764,0,sees
+visibility,gemma-4-31b,colour,1.0000,1.0000,1.0000,0,sees
+visibility,gemma-4-31b,proportion,1.0000,1.0000,1.0000,0,sees
+bias,nemotron-3.5-super-vl,"P(first image named), identical pairs",0.5544,0.4979,0.6129,150,
+visibility,nemotron-3.5-super-vl,apb,0.9982,0.9950,1.0000,0,sees
+visibility,nemotron-3.5-super-vl,multiobject,0.9995,0.9982,1.0000,0,sees
+visibility,nemotron-3.5-super-vl,framing,0.9919,0.9847,0.9972,0,sees
+visibility,nemotron-3.5-super-vl,colour,1.0000,1.0000,1.0000,0,sees
+visibility,nemotron-3.5-super-vl,proportion,0.9973,0.9921,1.0000,0,sees
+p_cells,gemma-4-31b,e1_p_balanced,0.5870,0.5145,0.6571,69,"E1: P(more balanced chosen), all pairs"
+p_cells,nemotron-3.5-super-vl,e1_p_balanced,0.5623,0.5235,0.6000,200,"E1: P(more balanced chosen), all pairs"
+p_cells,gemma-4-31b,e2_p_balanced,0.6467,0.5769,0.7143,46,"E2: P(balanced chosen), 90 px"
+p_cells,nemotron-3.5-super-vl,e2_p_balanced,0.5398,0.5066,0.5730,120,"E2: P(balanced chosen), 90 px"
+p_cells,gemma-4-31b,e3_p_inward,0.4960,0.4415,0.5483,62,"E3: P(inward-facing chosen), off-centre flips"
+p_cells,nemotron-3.5-super-vl,e3_p_inward,0.5305,0.4930,0.5697,144,"E3: P(inward-facing chosen), off-centre flips"
+p_cells,gemma-4-31b,e3_p_inward_8,0.3750,0.2812,0.4565,18,"E3: P(inward-facing chosen), 8% from centre"
+p_cells,nemotron-3.5-super-vl,e3_p_inward_8,0.5677,0.5208,0.6146,48,"E3: P(inward-facing chosen), 8% from centre"
+p_cells,gemma-4-31b,e3_p_inward_25,0.5179,0.4297,0.6181,28,"E3: P(inward-facing chosen), 25% from centre"
+p_cells,nemotron-3.5-super-vl,e3_p_inward_25,0.5053,0.4043,0.6042,48,"E3: P(inward-facing chosen), 25% from centre"
+p_cells,gemma-4-31b,e3_p_centre,1.0000,1.0000,1.0000,11,"E3: P(centre chosen over a quarter line), symmetrical objects"
+p_cells,nemotron-3.5-super-vl,e3_p_centre,0.8472,0.7917,0.9028,36,"E3: P(centre chosen over a quarter line), symmetrical objects"
+p_cells,gemma-4-31b,e4_red_heavier,0.7667,0.6406,0.8750,15,"E4 weight: P(red named heavier than yellow), small and medium"
+p_cells,nemotron-3.5-super-vl,e4_red_heavier,0.6458,0.5938,0.6927,48,"E4 weight: P(red named heavier than yellow), small and medium"
+p_cells,gemma-4-31b,e5_p_less_altered,0.5577,0.4859,0.6349,65,"E5: P(less altered grid chosen), all pairs"
+p_cells,nemotron-3.5-super-vl,e5_p_less_altered,0.5837,0.5438,0.6243,201,"E5: P(less altered grid chosen), all pairs"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e1_p_balanced,0.0084,-0.0927,0.0936,69,"E1: P(more balanced chosen), all pairs"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e2_p_balanced,0.1092,0.0384,0.1764,46,"E2: P(balanced chosen), 90 px"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e3_p_inward,-0.0484,-0.0970,0.0121,62,"E3: P(inward-facing chosen), off-centre flips"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e3_p_inward_8,-0.2500,-0.3833,-0.1364,18,"E3: P(inward-facing chosen), 8% from centre"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e3_p_inward_25,0.0357,-0.0625,0.1538,28,"E3: P(inward-facing chosen), 25% from centre"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e3_p_centre,0.1364,0.0250,0.2500,11,"E3: P(centre chosen over a quarter line), symmetrical objects"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e4_red_heavier,0.1667,0.0143,0.3125,15,"E4 weight: P(red named heavier than yellow), small and medium"
+nvidia_a_minus_b,gemma-4-31b - nemotron-3.5-super-vl,e5_p_less_altered,-0.0126,-0.1114,0.0781,65,"E5: P(less altered grid chosen), all pairs"
+family,gemma-4-31b - gemma-4-e2b,e1_p_balanced,0.1057,0.0343,0.1795,69,"E1: P(more balanced chosen), all pairs"
+family,gemma-4-31b - gemma-4-e2b,e2_p_balanced,0.1251,0.0619,0.1923,46,"E2: P(balanced chosen), 90 px"
+family,gemma-4-31b - gemma-4-e2b,e3_p_inward,0.0036,-0.0482,0.0578,62,"E3: P(inward-facing chosen), off-centre flips"
+family,gemma-4-31b - gemma-4-e2b,e3_p_inward_8,-0.0865,-0.1698,-0.0051,18,"E3: P(inward-facing chosen), 8% from centre"
+family,gemma-4-31b - gemma-4-e2b,e3_p_inward_25,0.0220,-0.0680,0.1311,28,"E3: P(inward-facing chosen), 25% from centre"
+family,gemma-4-31b - gemma-4-e2b,e3_p_centre,0.4531,0.4043,0.4984,11,"E3: P(centre chosen over a quarter line), symmetrical objects"
+family,gemma-4-31b - gemma-4-e2b,e4_red_heavier,0.1470,-0.0101,0.2716,15,"E4 weight: P(red named heavier than yellow), small and medium"
+family,gemma-4-31b - gemma-4-e2b,e5_p_less_altered,0.0818,0.0099,0.1551,65,"E5: P(less altered grid chosen), all pairs"
+prediction,gemma-4-31b,"P2: P(balanced chosen), 90 px",0.6848,0.5761,0.7907,0,supported; 46 pairs
+prediction,gemma-4-31b,"P3: P(inward chosen), you",0.5081,0.4508,0.5645,0,62 pairs
+prediction,gemma-4-31b,"P3: P(inward chosen), most people",0.5484,0.4553,0.6567,0,62 pairs
+prediction,gemma-4-31b,P3: |most - .5| minus |you - .5|,0.0403,-0.0246,0.1081,0,not supported
+prediction,gemma-4-31b,"P4: E1 P(more balanced chosen), difference 0-12",0.7059,0.5294,0.8529,0,17 pairs
+prediction,gemma-4-31b,"P4: E1 P(more balanced chosen), difference 12-25",0.6500,0.5455,0.7750,0,20 pairs
+prediction,gemma-4-31b,"P4: E1 P(more balanced chosen), difference 25-40",0.5263,0.3684,0.6845,0,19 pairs
+prediction,gemma-4-31b,"P4: E1 P(more balanced chosen), difference 40-100",0.5385,0.3214,0.7917,0,13 pairs
+prediction,gemma-4-31b,P4: E1 verdict: 40-100 minus 0-12,-0.1674,-0.4236,0.1257,0,not supported; bins not monotonic
+prediction,gemma-4-31b,"P4: E3 P(inward chosen), 8% from centre",0.3056,0.1562,0.4287,0,18 pairs
+prediction,gemma-4-31b,"P4: E3 P(inward chosen), 25% from centre",0.5536,0.4666,0.6452,0,28 pairs
+prediction,gemma-4-31b,P4: E3 verdict: 25% minus 8%,0.2480,0.1054,0.4349,0,supported; people: .82 against .70
+prediction,gemma-4-31b,"P4: E4 P(red named heavier than yellow), small and medium",0.8333,0.6333,1.0000,0,15 pairs
+prediction,gemma-4-31b,"P4: E4 P(red named heavier than yellow), large",1.0000,1.0000,1.0000,0,4 pairs
+prediction,gemma-4-31b,P4: E4 verdict: small and medium minus large,-0.1667,-0.3667,0.0000,0,"not supported; people: present at the smaller areas, absent at the largest"
+prediction,gemma-4-31b,"P6: r(balance score, preference scale value)",,,,0,not estimable; no E1 family has all 10 of its pairs complete
+prediction,nemotron-3.5-super-vl,"P2: P(balanced chosen), 90 px",0.5500,0.4875,0.6083,0,inconclusive; 120 pairs
+prediction,nemotron-3.5-super-vl,"P3: P(inward chosen), you",0.5486,0.4965,0.6007,0,144 pairs
+prediction,nemotron-3.5-super-vl,"P3: P(inward chosen), most people",0.5104,0.4479,0.5729,0,144 pairs
+prediction,nemotron-3.5-super-vl,P3: |most - .5| minus |you - .5|,-0.0382,-0.0833,0.0417,0,not supported
+prediction,nemotron-3.5-super-vl,"P4: E1 P(more balanced chosen), difference 0-12",0.6500,0.5250,0.7750,0,40 pairs
+prediction,nemotron-3.5-super-vl,"P4: E1 P(more balanced chosen), difference 12-25",0.5676,0.4539,0.6667,0,74 pairs
+prediction,nemotron-3.5-super-vl,"P4: E1 P(more balanced chosen), difference 25-40",0.6304,0.5000,0.7556,0,46 pairs
+prediction,nemotron-3.5-super-vl,"P4: E1 P(more balanced chosen), difference 40-100",0.5875,0.4375,0.7375,0,40 pairs
+prediction,nemotron-3.5-super-vl,P4: E1 verdict: 40-100 minus 0-12,-0.0625,-0.3000,0.1750,0,not supported; bins not monotonic
+prediction,nemotron-3.5-super-vl,"P4: E3 P(inward chosen), 8% from centre",0.6042,0.5208,0.6875,0,48 pairs
+prediction,nemotron-3.5-super-vl,"P4: E3 P(inward chosen), 25% from centre",0.5208,0.3750,0.6667,0,48 pairs
+prediction,nemotron-3.5-super-vl,P4: E3 verdict: 25% minus 8%,-0.0833,-0.2708,0.0833,0,not supported; people: .82 against .70
+prediction,nemotron-3.5-super-vl,"P4: E4 P(red named heavier than yellow), small and medium",0.7188,0.6458,0.7917,0,48 pairs
+prediction,nemotron-3.5-super-vl,"P4: E4 P(red named heavier than yellow), large",0.9375,0.8750,1.0000,0,24 pairs
+prediction,nemotron-3.5-super-vl,P4: E4 verdict: small and medium minus large,-0.2188,-0.3173,-0.1163,0,"reversed; people: present at the smaller areas, absent at the largest"
+prediction,nemotron-3.5-super-vl,"P6: r(balance score, preference scale value)",-0.3221,-0.5331,-0.0710,0,inconclusive; 20 complete families; people: images -.85 to -.88; individual raters -.28 to -.46

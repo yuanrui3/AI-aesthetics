@@ -393,3 +393,24 @@ The owner replied "Approve as recommended" to the Gate 1 package. What that sett
     `public_release.py --push`.
   - The filter settings and the filter tool moved from the session scratchpad into
     `.tools/` (git-ignored), so they survive.
+
+## 2026-11-28 (scheduled finishing task, NVIDIA addendum)
+
+- **The run had stopped.** At 00:30 UTC no process with `run_api.py` in its command line was
+  running. The last line of Nemotron's `results.jsonl` was stamped 2026-11-27 22:40 UTC.
+  Only the process list and that timestamp were checked before the report ran.
+- **Nemotron finished pass 1 before the stop time:** 23,012 replies, 1,457 of 1,457 pairs.
+  Gemma 4 31B stays at 8,079 replies (511 pairs, 35.1%).
+- **`scripts/api_report.py --final` ran without error** and wrote
+  `reports/nvidia_addendum.md` and `reports/nvidia_addendum.csv`. Both models passed the
+  refusal rule (off-menu 0.0% and 1.9%) and the visibility rule in all five experiments.
+- **`reports/nvidia_addendum_summary.md` written:** one page, findings first. Every number is
+  copied from the report, with no new statistics. The prediction verdicts are labelled as
+  being on the sign statistic.
+  - I wrote "same family, different size" and gave no size ratio, because the reports give
+    no parameter counts.
+- **README:** the status line said the addendum "is running" with "four amendments". I
+  corrected it to "finished" and "five", since it was stale. I added the pointer line to the
+  summary.
+- **Committed `runs/nvidia-test/`** (4 files, about 29 MB) with the reports. It stays local;
+  the public copy removes `runs/nvidia-*`.

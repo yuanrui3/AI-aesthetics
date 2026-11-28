@@ -16,9 +16,11 @@ score is the model's effect beside the published human one.
 
 - **The core study is complete:** seven local open-weight models, pre-registered in
   `PLAN.md`, frozen in `FROZEN.json`, reported in `reports/main.md`.
-- **The NVIDIA addendum is running.** It covers Gemma 4 31B and Nemotron 3.5 Super VL on
-  NVIDIA's free API. Its design and four amendments were all written before any result was
+- **The NVIDIA addendum is finished.** It covers Gemma 4 31B and Nemotron 3.5 Super VL on
+  NVIDIA's free API. Its design and five amendments were all written before any result was
   opened, and `FROZEN_API.json` pins it.
+- **NVIDIA addendum results:** the one-page summary is `reports/nvidia_addendum_summary.md`,
+  and the full tables are in `reports/nvidia_addendum.md`.
 - **The NVIDIA models' raw replies are not published.** NVIDIA's API Trial Terms of
   Service (section 4.2) do not allow redistributing generated content, so `runs/nvidia-*`
   is left out of the public copy, history included. Results for those models appear only as
